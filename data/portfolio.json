@@ -1,0 +1,76 @@
+{
+  "cash": 86689.0,
+  "initial": 200000.0,
+  "positions": {
+    "2882": {
+      "shares": 1000,
+      "avg_cost": 73.8,
+      "name": "國泰金"
+    },
+    "2886": {
+      "shares": 1000,
+      "avg_cost": 39.35,
+      "name": "兆豐金"
+    }
+  },
+  "trade_log": [
+    {
+      "datetime": "2026-04-09 14:40:42",
+      "action": "BUY",
+      "stock_id": "2882",
+      "name": "國泰金",
+      "price": 73.8,
+      "shares": 1000,
+      "amount": 73800.0,
+      "fee": 105,
+      "total": 73905.0,
+      "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）、股價碰觸布林上軌（超買回落訊號）",
+      "confidence": 35
+    },
+    {
+      "datetime": "2026-04-09 14:40:42",
+      "action": "BUY",
+      "stock_id": "2886",
+      "name": "兆豐金",
+      "price": 39.35,
+      "shares": 1000,
+      "amount": 39350.0,
+      "fee": 56,
+      "total": 39406.0,
+      "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）",
+      "confidence": 35
+    }
+  ],
+  "daily_log": [
+    {
+      "date": "2026-04-09",
+      "cash": 86689.0,
+      "market_value": 113150.0,
+      "total_assets": 199839.0,
+      "total_pnl": -161.0,
+      "total_pnl_pct": -0.08,
+      "positions_detail": [
+        {
+          "stock_id": "2882",
+          "name": "國泰金",
+          "shares": 1000,
+          "avg_cost": 73.8,
+          "market_price": 73.8,
+          "market_value": 73800.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        },
+        {
+          "stock_id": "2886",
+          "name": "兆豐金",
+          "shares": 1000,
+          "avg_cost": 39.35,
+          "market_price": 39.35,
+          "market_value": 39350.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        }
+      ]
+    }
+  ]
+}

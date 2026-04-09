@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台股模擬交易儀表板</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#0d0f14; --bg2:#13161f; --bg3:#1a1d28; --border:#252836;
+    --accent:#00e5a0; --accent2:#0099ff; --red:#ff4d6a; --green:#00e5a0;
+    --yellow:#ffd166; --text:#e8eaf0; --text-dim:#6b7280; --text-mid:#9ca3af;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+  body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,160,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
+  .container{max-width:1400px;margin:0 auto;padding:24px;position:relative;z-index:1}
+
+  /* ── Header ── */
+  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px}
+  .logo h1{font-size:20px;font-weight:700;letter-spacing:-.5px}
+  .logo p{font-size:12px;color:var(--text-dim);margin-top:2px}
+  #update-time{font-size:12px;color:var(--text-dim);font-family:'JetBrains Mono',monospace}
+
+  /* ── Tabs ── */
+  .tabs{display:flex;gap:4px;margin-bottom:24px;background:var(--bg2);padding:4px;border-radius:12px;width:fit-content}
+  .tab-btn{padding:8px 20px;border-radius:8px;border:none;background:transparent;color:var(--text-dim);font-size:13px;font-family:'Noto Sans TC',sans-serif;cursor:pointer;transition:all .2s}
+  .tab-btn.active{background:var(--bg3);color:var(--text);font-weight:600}
+  .tab-panel{display:none}.tab-panel.active{display:block}
+
+  /* ── KPI ── */
+  .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+  @media(max-width:900px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+  .kpi-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px 22px;position:relative;overflow:hidden;transition:border-color .2s}
+  .kpi-card:hover{border-color:rgba(0,229,160,.3)}
+  .kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .2s}
+  .kpi-card:hover::before{opacity:1}
+  .kpi-label{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+  .kpi-value{font-size:26px;font-weight:700;font-family:'JetBrains Mono',monospace}
+  .kpi-sub{font-size:12px;color:var(--text-dim);margin-top:4px}
+  .kpi-value.green{color:var(--green)}.kpi-value.red{color:var(--red)}.kpi-value.accent{color:var(--accent2)}
+
+  /* ── Card ── */
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px}
+  .card-title{font-size:13px;font-weight:600;color:var(--text-mid);text-transform:uppercase;letter-spacing:1px;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+  .card-title .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .wide-grid{display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-bottom:20px}
+  @media(max-width:900px){.wide-grid{grid-template-columns:1fr}}
+  .main-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+  @media(max-width:900px){.main-grid{grid-template-columns:1fr}}
+
+  /* ── Chart ── */
+  #pnl-chart-wrap{width:100%;height:180px}
+  canvas#pnlChart{width:100%!important;height:180px!important}
+
+  /* ── Table ── */
+  .data-table{width:100%;border-collapse:collapse}
+  .data-table th{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.8px;padding:6px 10px;text-align:right;border-bottom:1px solid var(--border)}
+  .data-table th:first-child{text-align:left}
+  .data-table td{padding:10px;font-size:13px;font-family:'JetBrains Mono',monospace;text-align:right;border-bottom:1px solid rgba(37,40,54,.6)}
+  .data-table td:first-child{text-align:left;font-family:'Noto Sans TC',sans-serif}
+  .data-table tr:last-child td{border-bottom:none}
+  .data-table tr:hover td{background:var(--bg3)}
+  .badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:600;font-family:'Noto Sans TC',sans-serif}
+  .badge-green{background:rgba(0,229,160,.15);color:var(--green)}.badge-red{background:rgba(255,77,106,.15);color:var(--red)}
+  .pnl-bar-wrap{height:4px;background:var(--bg3);border-radius:2px;margin-top:6px;overflow:hidden}
+  .pnl-bar{height:100%;border-radius:2px;transition:width .6s ease}
+  .pnl-bar.pos{background:var(--green)}.pnl-bar.neg{background:var(--red)}
+
+  /* ── Trade list ── */
+  .trade-list{display:flex;flex-direction:column;gap:10px}
+  .trade-item{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center}
+  .trade-type{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+  .trade-type.buy{background:rgba(0,229,160,.15);color:var(--green)}.trade-type.sell{background:rgba(255,77,106,.15);color:var(--red)}
+  .trade-info .stock{font-weight:600;font-size:14px}
+  .trade-info .reason{font-size:11px;color:var(--text-dim);margin-top:2px}
+  .trade-pnl{text-align:right}
+  .trade-pnl .price{font-family:'JetBrains Mono',monospace;font-weight:600}
+
+  /* ── Signal cards ── */
+  .signal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+  .signal-item{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px;cursor:pointer;transition:border-color .15s,transform .15s;position:relative}
+  .signal-item:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .signal-item .sid{font-size:16px;font-weight:700}
+  .signal-item .sname{font-size:10px;color:var(--text-dim);margin-top:1px}
+  .signal-item .sprice{font-size:11px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-top:4px}
+  .signal-item .saction{margin-top:8px;font-size:10px;font-weight:700;letter-spacing:.8px}
+  .signal-item .sconf{font-size:10px;color:var(--text-dim)}
+  .sig-buy{border-left:3px solid var(--green)}.sig-sell{border-left:3px solid var(--red)}.sig-hold{border-left:3px solid var(--border)}
+  .saction.buy{color:var(--green)}.saction.sell{color:var(--red)}.saction.hold{color:var(--text-dim)}
+
+  /* ── Popup ── */
+  .popup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;align-items:center;justify-content:center}
+  .popup-overlay.show{display:flex}
+  .popup{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:28px;max-width:420px;width:90%;position:relative;max-height:90vh;overflow-y:auto}
+  .popup-close{position:absolute;top:16px;right:16px;background:var(--bg3);border:none;color:var(--text-dim);width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
+  .popup-close:hover{color:var(--text)}
+  .popup h3{font-size:18px;font-weight:700;margin-bottom:4px}
+  .popup .popup-price{font-size:13px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-bottom:16px}
+  .popup-section{margin-bottom:14px}
+  .popup-section-title{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+  .popup-verdict{display:inline-block;padding:4px 14px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:14px}
+  .popup-verdict.buy{background:rgba(0,229,160,.15);color:var(--green)}
+  .popup-verdict.sell{background:rgba(255,77,106,.15);color:var(--red)}
+  .popup-verdict.hold{background:rgba(107,114,128,.15);color:var(--text-dim)}
+  .reason-item{display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;font-size:13px;line-height:1.5}
+  .reason-dot{width:6px;height:6px;border-radius:50%;margin-top:6px;flex-shrink:0}
+  .reason-dot.buy{background:var(--green)}.reason-dot.sell{background:var(--red)}.reason-dot.hold{background:var(--text-dim)}
+  .indicator-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px}
+  .indicator-row:last-child{border-bottom:none}
+  .indicator-label{color:var(--text-dim)}
+  .indicator-val{font-family:'JetBrains Mono',monospace;font-weight:600}
+
+  /* ── History tab ── */
+  .history-day{background:var(--bg3);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  .history-day-header{padding:14px 18px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:background .15s}
+  .history-day-header:hover{background:rgba(255,255,255,.03)}
+  .history-day-date{font-weight:600;font-size:14px}
+  .history-day-summary{display:flex;gap:16px;align-items:center}
+  .history-day-body{padding:0 18px 14px;display:none}
+  .history-day-body.open{display:block}
+  .history-trade{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(37,40,54,.5);font-size:13px}
+  .history-trade:last-child{border-bottom:none}
+  .htag{padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700;flex-shrink:0}
+  .htag.buy{background:rgba(0,229,160,.15);color:var(--green)}.htag.sell{background:rgba(255,77,106,.15);color:var(--red)}
+  .hinfo{flex:1}
+  .hinfo .hstock{font-weight:600}
+  .hinfo .hreason{font-size:11px;color:var(--text-dim);margin-top:3px;line-height:1.4}
+  .hpnl{text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px;flex-shrink:0}
+
+  /* ── Glossary ── */
+  .glossary{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:20px}
+  .glossary h4{font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
+  .glossary-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+  .gloss-item{padding:10px 14px;background:var(--bg2);border-radius:8px}
+  .gloss-term{font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4px}
+  .gloss-def{font-size:12px;color:var(--text-mid);line-height:1.5}
+
+  /* ── AI Review ── */
+  .ai-review-box{background:var(--bg3);border:1px solid rgba(0,153,255,.3);border-radius:12px;padding:20px;margin-bottom:20px}
+  .ai-review-box h4{font-size:12px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .ai-review-content{font-size:13px;line-height:1.8;color:var(--text-mid);white-space:pre-wrap}
+
+  /* ── Misc ── */
+  .empty{text-align:center;padding:30px;color:var(--text-dim);font-size:13px}
+  #error-banner{display:none;background:rgba(255,77,106,.1);border:1px solid var(--red);border-radius:10px;padding:16px 20px;margin-bottom:20px;font-size:13px;color:var(--red)}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">📈</div>
+    <div>
+      <h1>台股模擬交易儀表板</h1>
+      <p>虛擬帳戶 · 20萬本金 · 技術指標策略</p>
+    </div>
+  </div>
+  <div id="update-time">載入中...</div>
+</header>
+
+<div id="error-banner"></div>
+
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('today')">📊 今日總覽</button>
+  <button class="tab-btn" onclick="switchTab('history')">📋 歷史交易</button>
+  <button class="tab-btn" onclick="switchTab('review')">🤖 策略檢討</button>
+</div>
+
+<!-- ══ TAB 1: 今日總覽 ══════════════════════════════════════════════════ -->
+<div class="tab-panel active" id="tab-today">
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">總資產</div>
+      <div class="kpi-value accent" id="kpi-total">--</div>
+      <div class="kpi-sub">初始本金 200,000 元</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">累計損益</div>
+      <div class="kpi-value" id="kpi-pnl">--</div>
+      <div class="kpi-sub" id="kpi-pnl-pct">--</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">可用現金</div>
+      <div class="kpi-value" id="kpi-cash">--</div>
+      <div class="kpi-sub" id="kpi-pos-count">持倉 0 支</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">今日交易</div>
+      <div class="kpi-value" id="kpi-trades">0</div>
+      <div class="kpi-sub" id="kpi-trades-sub">無交易</div>
+    </div>
+  </div>
+
+  <div class="wide-grid">
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>累計損益曲線</div>
+      <div id="pnl-chart-wrap"><canvas id="pnlChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--accent2)"></span>今日交易記錄</div>
+      <div class="trade-list" id="trade-list"><div class="empty">尚無交易記錄</div></div>
+    </div>
+  </div>
+
+  <div class="main-grid">
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--yellow)"></span>目前持倉</div>
+      <div id="positions-wrap"><div class="empty">尚無持倉</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--red)"></span>今日訊號總覽 <span style="font-size:10px;color:var(--text-dim);font-weight:400;text-transform:none;letter-spacing:0">（點擊卡片查看詳情）</span></div>
+      <div class="signal-grid" id="signal-grid"><div class="empty" style="grid-column:1/-1">等待資料...</div></div>
+    </div>
+  </div>
+
+  <!-- 術語說明 -->
+  <div class="glossary">
+    <h4>📖 名詞說明</h4>
+    <div class="glossary-grid">
+      <div class="gloss-item"><div class="gloss-term">MA5 / MA20（移動平均線）</div><div class="gloss-def">過去 5 天或 20 天的平均收盤價連成的線，用來判斷股價趨勢方向。</div></div>
+      <div class="gloss-item"><div class="gloss-term">黃金交叉</div><div class="gloss-def">短期均線（MA5）從下方穿越長期均線（MA20）往上，代表可能是上漲的開始，視為買入訊號。</div></div>
+      <div class="gloss-item"><div class="gloss-term">死亡交叉</div><div class="gloss-def">短期均線（MA5）從上方跌破長期均線（MA20）往下，代表可能是下跌的開始，視為賣出訊號。</div></div>
+      <div class="gloss-item"><div class="gloss-term">RSI（相對強弱指數）</div><div class="gloss-def">0～100 的數字，衡量股票近期漲跌的強度。低於 30 表示超賣（可能反彈），高於 70 表示超買（可能回落）。</div></div>
+      <div class="gloss-item"><div class="gloss-term">布林通道（Bollinger Bands）</div><div class="gloss-def">以 20 天均線為中心，加減兩倍標準差形成上下兩條軌道。股價碰到下軌代表超賣，碰到上軌代表超買。</div></div>
+      <div class="gloss-item"><div class="gloss-term">成交量放大</div><div class="gloss-def">當天成交量超過 20 日平均的 1.5 倍以上，代表市場參與度高，訊號更可靠。</div></div>
+      <div class="gloss-item"><div class="gloss-term">信心分數</div><div class="gloss-def">系統根據同時出現幾個買賣訊號來評分，越高代表越多指標同時指向同一方向，訊號越強。</div></div>
+      <div class="gloss-item"><div class="gloss-term">停損 / 停利</div><div class="gloss-def">停損：股票虧損超過 -8% 就自動賣掉，避免繼續擴大損失。停利：獲利超過 +15% 就自動賣掉，鎖定獲利。</div></div>
+      <div class="gloss-item"><div class="gloss-term">未實現損益</div><div class="gloss-def">目前還沒賣出的股票，以現在的市價計算的帳面盈虧，賣出後才會變成「已實現損益」。</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TAB 2: 歷史交易 ══════════════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-history">
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>完整交易紀錄 <span style="font-size:10px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-dim)">（點擊日期展開當天明細）</span></div>
+    <div id="history-list"><div class="empty">尚無交易記錄</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:var(--yellow)"></span>目前持倉 — 買入時間軸</div>
+    <div id="position-timeline"><div class="empty">尚無持倉</div></div>
+  </div>
+</div>
+
+<!-- ══ TAB 3: 策略檢討 ══════════════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-review">
+  <div class="ai-review-box">
+    <h4>🤖 AI 自動策略檢討</h4>
+    <div class="ai-review-content" id="ai-review-content">載入中...</div>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>整體績效統計</div>
+    <div id="perf-stats"><div class="empty">點擊上方按鈕後顯示</div></div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ══ Signal Popup ══ -->
+<div class="popup-overlay" id="popup-overlay" onclick="closePopup(event)">
+  <div class="popup">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <div id="popup-content"></div>
+  </div>
+</div>
+
+<script>
+window.__REPORT__ = {"generated_at": "2026-04-09 14:40:31", "summary": {"date": "2026-04-09", "cash": 86689.0, "market_value": 113150.0, "total_assets": 199839.0, "total_pnl": -161.0, "total_pnl_pct": -0.08, "positions_detail": [{"stock_id": "2882", "name": "國泰金", "shares": 1000, "avg_cost": 73.8, "market_price": 73.8, "market_value": 73800.0, "unrealized": 0.0, "unrealized_pct": 0.0}, {"stock_id": "2886", "name": "兆豐金", "shares": 1000, "avg_cost": 39.35, "market_price": 39.35, "market_value": 39350.0, "unrealized": 0.0, "unrealized_pct": 0.0}]}, "trades_today": [{"datetime": "2026-04-09 14:40:42", "action": "BUY", "stock_id": "2882", "name": "國泰金", "price": 73.8, "shares": 1000, "amount": 73800.0, "fee": 105, "total": 73905.0, "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）、股價碰觸布林上軌（超買回落訊號）", "confidence": 35}, {"datetime": "2026-04-09 14:40:42", "action": "BUY", "stock_id": "2886", "name": "兆豐金", "price": 39.35, "shares": 1000, "amount": 39350.0, "fee": 56, "total": 39406.0, "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）", "confidence": 35}], "all_signals": {"2330": {"action": "HOLD", "confidence": 0, "price": 1950.0, "rsi": 57.54716981132075, "ma5": 1847.0, "ma20": 1847.9739807128906, "bb_upper": 1940.275081633519, "bb_lower": 1755.6728797922622, "vol_ratio": 1.398279220848613, "reason": ["股價碰觸布林上軌（超買回落訊號）"]}, "2317": {"action": "HOLD", "confidence": 0, "price": 201.5, "rsi": 41.17647058823529, "ma5": 194.2, "ma20": 203.0, "bb_upper": 221.35325870964502, "bb_lower": 184.64674129035498, "vol_ratio": 1.153516443714067, "reason": ["無明確訊號"]}, "2454": {"action": "HOLD", "confidence": 0, "price": 1580.0, "rsi": 32.14285714285714, "ma5": 1494.0, "ma20": 1627.25, "bb_upper": 1837.5248827506268, "bb_lower": 1416.9751172493732, "vol_ratio": 1.8353882186840391, "reason": ["RSI=32.1 偏低（< 40）", "成交量放大 1.8x（買訊確認）"]}, "2382": {"action": "BUY", "confidence": 50, "price": 307.5, "rsi": 61.935483870967744, "ma5": 290.0, "ma20": 287.175, "bb_upper": 299.5263263724148, "bb_lower": 274.8236736275852, "vol_ratio": 3.3690032416034366, "reason": ["MA5 上穿 MA20（黃金交叉）", "RSI=61.9 偏高（> 60）", "股價碰觸布林上軌（超買回落訊號）", "成交量放大 3.4x（買訊確認）"]}, "2308": {"action": "SELL", "confidence": 35, "price": 1665.0, "rsi": 63.9751552795031, "ma5": 1493.0, "ma20": 1449.5, "bb_upper": 1612.3980953654284, "bb_lower": 1286.6019046345716, "vol_ratio": 1.0544214191197825, "reason": ["RSI=64.0 偏高（> 60）", "股價碰觸布林上軌（超買回落訊號）"]}, "2881": {"action": "HOLD", "confidence": 0, "price": 89.2, "rsi": 47.49997774762758, "ma5": 87.7, "ma20": 88.19000015258788, "bb_upper": 90.28349874131422, "bb_lower": 86.09650156386155, "vol_ratio": 0.9857624735802929, "reason": ["無明確訊號"]}, "2882": {"action": "BUY", "confidence": 35, "price": 73.8, "rsi": 53.333367241753464, "ma5": 71.94000244140625, "ma20": 71.7550006866455, "bb_upper": 73.68806441235259, "bb_lower": 69.82193696093842, "vol_ratio": 1.3064298774087584, "reason": ["MA5 上穿 MA20（黃金交叉）", "股價碰觸布林上軌（超買回落訊號）"]}, "2886": {"action": "BUY", "confidence": 35, "price": 39.35, "rsi": 50.0, "ma5": 39.08000030517578, "ma20": 38.99249973297119, "bb_upper": 39.59623783349662, "bb_lower": 38.38876163244576, "vol_ratio": 1.2180308341231607, "reason": ["MA5 上穿 MA20（黃金交叉）"]}, "2884": {"action": "HOLD", "confidence": 0, "price": 32.45, "rsi": 52.43903914074217, "ma5": 32.210000610351564, "ma20": 32.269999980926514, "bb_upper": 33.424123172148164, "bb_lower": 31.115876789704863, "vol_ratio": 0.7582993617356839, "reason": ["無明確訊號"]}, "2891": {"action": "SELL", "confidence": 50, "price": 56.5, "rsi": 65.51723684340337, "ma5": 54.35999984741211, "ma20": 52.63999996185303, "bb_upper": 55.6824366024625, "bb_lower": 49.597563321243555, "vol_ratio": 1.7066441516930093, "reason": ["RSI=65.5 偏高（> 60）", "股價碰觸布林上軌（超買回落訊號）", "成交量放大 1.7x（賣訊確認）"]}, "1301": {"action": "SELL", "confidence": 35, "price": 47.2, "rsi": 52.293579265953845, "ma5": 46.630001068115234, "ma20": 46.67000026702881, "bb_upper": 48.69806588362121, "bb_lower": 44.64193465043641, "vol_ratio": 0.8730477608483879, "reason": ["MA5 下穿 MA20（死亡交叉）"]}, "1303": {"action": "HOLD", "confidence": 0, "price": 85.1, "rsi": 49.593494296018406, "ma5": 79.05999908447265, "ma20": 79.61999969482422, "bb_upper": 89.35471022129857, "bb_lower": 69.88528916834986, "vol_ratio": 1.2264127397177162, "reason": ["無明確訊號"]}, "6505": {"action": "HOLD", "confidence": 0, "price": 54.3, "rsi": 41.30434422051378, "ma5": 55.31999969482422, "ma20": 56.525000381469724, "bb_upper": 59.99691882895383, "bb_lower": 53.05308193398562, "vol_ratio": 0.7333982266626954, "reason": ["無明確訊號"]}, "2002": {"action": "HOLD", "confidence": 0, "price": 19.95, "rsi": 58.33333333333333, "ma5": 19.470000076293946, "ma20": 19.325, "bb_upper": 19.88083085432445, "bb_lower": 18.769169145675548, "vol_ratio": 0.9864843003366517, "reason": ["股價碰觸布林上軌（超買回落訊號）"]}, "1326": {"action": "HOLD", "confidence": 0, "price": 45.1, "rsi": 52.34374487772401, "ma5": 45.17999954223633, "ma20": 44.63249969482422, "bb_upper": 47.77311219715283, "bb_lower": 41.49188719249561, "vol_ratio": 0.7357536175788157, "reason": ["無明確訊號"]}, "2412": {"action": "HOLD", "confidence": 0, "price": 134.0, "rsi": 31.25, "ma5": 133.8, "ma20": 134.875, "bb_upper": 137.30019668220297, "bb_lower": 132.44980331779703, "vol_ratio": 0.783318409760152, "reason": ["RSI=31.2 偏低（< 40）"]}, "3008": {"action": "HOLD", "confidence": 0, "price": 2280.0, "rsi": 44.23487969333371, "ma5": 2187.0, "ma20": 2254.88076171875, "bb_upper": 2398.454776361279, "bb_lower": 2111.3067470762207, "vol_ratio": 1.2666749868164102, "reason": ["無明確訊號"]}, "2357": {"action": "HOLD", "confidence": 0, "price": 562.0, "rsi": 37.984496124031004, "ma5": 556.6, "ma20": 570.5, "bb_upper": 603.6979707686764, "bb_lower": 537.3020292313236, "vol_ratio": 0.7481228901267513, "reason": ["RSI=38.0 偏低（< 40）"]}, "4938": {"action": "HOLD", "confidence": 0, "price": 79.6, "rsi": 54.268296937868364, "ma5": 77.97999877929688, "ma20": 77.02999954223633, "bb_upper": 82.48260769453772, "bb_lower": 71.57739138993493, "vol_ratio": 0.7396343897422146, "reason": ["無明確訊號"]}, "3711": {"action": "SELL", "confidence": 35, "price": 383.0, "rsi": 61.64772727272727, "ma5": 357.1, "ma20": 347.55, "bb_upper": 374.1560934848828, "bb_lower": 320.94390651511725, "vol_ratio": 1.4019421139807515, "reason": ["RSI=61.6 偏高（> 60）", "股價碰觸布林上軌（超買回落訊號）"]}, "2603": {"action": "HOLD", "confidence": 0, "price": 202.0, "rsi": 28.94736842105263, "ma5": 202.3, "ma20": 207.625, "bb_upper": 220.36893560627385, "bb_lower": 194.88106439372615, "vol_ratio": 0.980148680865047, "reason": ["RSI=28.9 超賣（< 30）"]}, "2609": {"action": "HOLD", "confidence": 0, "price": 51.7, "rsi": 21.666660838655105, "ma5": 52.04000015258789, "ma20": 55.4, "bb_upper": 62.56776373980844, "bb_lower": 48.232236260191556, "vol_ratio": 0.8355967283975673, "reason": ["RSI=21.7 超賣（< 30）"]}, "2615": {"action": "HOLD", "confidence": 0, "price": 78.8, "rsi": 48.82629124797535, "ma5": 78.62000122070313, "ma20": 77.92500038146973, "bb_upper": 81.9317717027513, "bb_lower": 73.91822906018815, "vol_ratio": 0.6784067917075278, "reason": ["無明確訊號"]}, "2618": {"action": "HOLD", "confidence": 0, "price": 35.2, "rsi": 45.96774491261273, "ma5": 34.720000457763675, "ma20": 34.70250015258789, "bb_upper": 36.312493992595826, "bb_lower": 33.09250631257995, "vol_ratio": 0.4864997715439006, "reason": ["無明確訊號"]}, "5880": {"action": "HOLD", "confidence": 0, "price": 23.85, "rsi": 61.40350055313103, "ma5": 23.690000152587892, "ma20": 23.260000133514403, "bb_upper": 23.92617545489281, "bb_lower": 22.593824812135995, "vol_ratio": 0.9738826778114218, "reason": ["RSI=61.4 偏高（> 60）"]}}, "portfolio": {"cash": 86689.0, "positions": {"2882": {"shares": 1000, "avg_cost": 73.8, "name": "國泰金"}, "2886": {"shares": 1000, "avg_cost": 39.35, "name": "兆豐金"}}, "daily_log": [{"date": "2026-04-09", "cash": 86689.0, "market_value": 113150.0, "total_assets": 199839.0, "total_pnl": -161.0, "total_pnl_pct": -0.08, "positions_detail": [{"stock_id": "2882", "name": "國泰金", "shares": 1000, "avg_cost": 73.8, "market_price": 73.8, "market_value": 73800.0, "unrealized": 0.0, "unrealized_pct": 0.0}, {"stock_id": "2886", "name": "兆豐金", "shares": 1000, "avg_cost": 39.35, "market_price": 39.35, "market_value": 39350.0, "unrealized": 0.0, "unrealized_pct": 0.0}]}], "trade_log": [{"datetime": "2026-04-09 14:40:42", "action": "BUY", "stock_id": "2882", "name": "國泰金", "price": 73.8, "shares": 1000, "amount": 73800.0, "fee": 105, "total": 73905.0, "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）、股價碰觸布林上軌（超買回落訊號）", "confidence": 35}, {"datetime": "2026-04-09 14:40:42", "action": "BUY", "stock_id": "2886", "name": "兆豐金", "price": 39.35, "shares": 1000, "amount": 39350.0, "fee": 56, "total": 39406.0, "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）", "confidence": 35}]}, "ai_review": "no_api_key"};
+</script>
+<script>
+// ═══════════════════════════════════════════════
+// 工具函式
+// ═══════════════════════════════════════════════
+const fmt  = n => n==null?'--':Number(n).toLocaleString('zh-TW',{minimumFractionDigits:0,maximumFractionDigits:0});
+const fmtP = n => n==null?'--':(n>=0?'+':'')+Number(n).toFixed(2)+'%';
+const fmtD = s => s ? s.slice(0,10) : '';
+const colorPnl = (el,val) => { el.classList.remove('green','red'); el.classList.add(val>=0?'green':'red'); };
+
+let _report = null;
+
+// ═══════════════════════════════════════════════
+// Tab 切換
+// ═══════════════════════════════════════════════
+function switchTab(name) {
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>{
+    const names=['today','history','review'];
+    b.classList.toggle('active', names[i]===name);
+  });
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  if(name==='history' && _report) renderHistory(_report);
+  if(name==='review' && _report) renderReview(_report);
+}
+
+// ═══════════════════════════════════════════════
+// 載入資料
+// ═══════════════════════════════════════════════
+async function loadReport() {
+  let report;
+  try {
+    const res = await fetch('reports/latest_report.json?t='+Date.now());
+    if(!res.ok) throw new Error('找不到報告');
+    report = await res.json();
+    document.getElementById('error-banner').style.display='none';
+  } catch(e) {
+    document.getElementById('error-banner').style.display='block';
+    document.getElementById('error-banner').innerHTML=
+      `⚠ 無法載入報告（${e.message}）。請先執行 <code>python run_daily.py</code>，再開啟此頁面。<br>目前顯示<b>範例資料</b>。`;
+    report = getDemoData();
+  }
+  _report = report;
+  renderAll(report);
+}
+
+// ═══════════════════════════════════════════════
+// 渲染主頁
+// ═══════════════════════════════════════════════
+function renderAll(report) {
+  const s = report.summary;
+  document.getElementById('update-time').textContent = '更新：'+report.generated_at;
+
+  document.getElementById('kpi-total').textContent = fmt(s.total_assets)+' 元';
+  const pnlEl = document.getElementById('kpi-pnl');
+  pnlEl.textContent = (s.total_pnl>=0?'+':'')+fmt(s.total_pnl)+' 元';
+  colorPnl(pnlEl, s.total_pnl);
+  document.getElementById('kpi-pnl-pct').textContent = fmtP(s.total_pnl_pct);
+  document.getElementById('kpi-cash').textContent = fmt(s.cash)+' 元';
+  document.getElementById('kpi-pos-count').textContent = `持倉 ${(s.positions_detail||[]).length} 支`;
+
+  const trades = report.trades_today||[];
+  document.getElementById('kpi-trades').textContent = trades.length;
+  document.getElementById('kpi-trades-sub').textContent =
+    trades.length>0 ? trades.map(t=>t.action==='BUY'?'買入':'賣出').join('、') : '今日觀望';
+
+  renderChart(report.portfolio.daily_log||[]);
+  renderTrades(trades);
+  renderPositions(s.positions_detail||[], report.portfolio.trade_log||[]);
+  renderSignals(report.all_signals||{});
+  renderReview(report);
+}
+
+// ═══════════════════════════════════════════════
+// 損益曲線
+// ═══════════════════════════════════════════════
+function renderChart(dailyLog) {
+  const canvas = document.getElementById('pnlChart');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.parentElement.clientWidth, H = 180;
+  canvas.width=W; canvas.height=H;
+
+  if(!dailyLog.length || dailyLog.length<2) {
+    ctx.fillStyle='#6b7280'; ctx.font='13px Noto Sans TC'; ctx.textAlign='center';
+    ctx.fillText('累積資料中，跑幾天後這裡會出現曲線', W/2, H/2); return;
+  }
+  const labels=dailyLog.map(d=>d.date.slice(5));
+  const values=dailyLog.map(d=>d.total_pnl);
+  const PAD={top:20,right:16,bottom:30,left:60};
+  const cw=W-PAD.left-PAD.right, ch=H-PAD.top-PAD.bottom;
+  const minV=Math.min(0,...values), maxV=Math.max(0,...values), range=maxV-minV||1;
+  const toX=i=>PAD.left+(i/Math.max(labels.length-1,1))*cw;
+  const toY=v=>PAD.top+(1-(v-minV)/range)*ch;
+  ctx.clearRect(0,0,W,H);
+  const zeroY=toY(0);
+  ctx.strokeStyle='rgba(107,114,128,0.4)'; ctx.setLineDash([4,4]); ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(PAD.left,zeroY); ctx.lineTo(W-PAD.right,zeroY); ctx.stroke();
+  ctx.setLineDash([]);
+  const lastPos=values[values.length-1]>=0;
+  const grad=ctx.createLinearGradient(0,PAD.top,0,H);
+  grad.addColorStop(0,lastPos?'rgba(0,229,160,0.25)':'rgba(255,77,106,0.02)');
+  grad.addColorStop(1,lastPos?'rgba(0,229,160,0.02)':'rgba(255,77,106,0.25)');
+  ctx.beginPath(); ctx.moveTo(toX(0),zeroY);
+  values.forEach((v,i)=>ctx.lineTo(toX(i),toY(v)));
+  ctx.lineTo(toX(values.length-1),zeroY); ctx.closePath();
+  ctx.fillStyle=grad; ctx.fill();
+  ctx.beginPath(); ctx.strokeStyle=lastPos?'#00e5a0':'#ff4d6a'; ctx.lineWidth=2;
+  values.forEach((v,i)=>i===0?ctx.moveTo(toX(i),toY(v)):ctx.lineTo(toX(i),toY(v)));
+  ctx.stroke();
+  ctx.fillStyle='#6b7280'; ctx.font='10px JetBrains Mono'; ctx.textAlign='center';
+  const step=Math.ceil(labels.length/6);
+  labels.forEach((l,i)=>{ if(i%step===0||i===labels.length-1) ctx.fillText(l,toX(i),H-8); });
+  ctx.textAlign='right';
+  [minV,0,maxV].forEach(v=>{ if(Math.abs(v-minV)<1&&Math.abs(v-maxV)<1) return; ctx.fillText((v>=0?'+':'')+(v/1000).toFixed(1)+'k',PAD.left-4,toY(v)+4); });
+}
+
+// ═══════════════════════════════════════════════
+// 今日交易
+// ═══════════════════════════════════════════════
+function renderTrades(trades) {
+  const el=document.getElementById('trade-list');
+  if(!trades.length){el.innerHTML='<div class="empty">今日無交易</div>';return;}
+  el.innerHTML=trades.map(t=>{
+    const isBuy=t.action==='BUY';
+    const pnlHtml=!isBuy&&t.pnl!=null
+      ?`<div style="font-size:12px;font-family:'JetBrains Mono',monospace;color:${t.pnl>=0?'var(--green)':'var(--red)'}">${t.pnl>=0?'+':''}${fmt(t.pnl)} 元</div>`:'';
+    return `<div class="trade-item">
+      <div class="trade-type ${isBuy?'buy':'sell'}">${isBuy?'買':'賣'}</div>
+      <div class="trade-info">
+        <div class="stock">${t.stock_id} ${t.name||''}</div>
+        <div class="reason">${humanizeReason(t.trigger||'')}</div>
+      </div>
+      <div class="trade-pnl">
+        <div class="price">$${(t.price||0).toFixed(1)}</div>${pnlHtml}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════
+// 持倉
+// ═══════════════════════════════════════════════
+function renderPositions(positions, tradeLog) {
+  const wrap=document.getElementById('positions-wrap');
+  if(!positions.length){wrap.innerHTML='<div class="empty">目前空倉</div>';return;}
+  const rows=positions.map(p=>{
+    const pos=p.unrealized>=0;
+    const barW=Math.min(Math.abs(p.unrealized_pct)*3,100);
+    // 找買入時間
+    const buyRecord=tradeLog.slice().reverse().find(t=>t.action==='BUY'&&t.stock_id===p.stock_id);
+    const buyDate=buyRecord ? buyRecord.datetime.slice(0,10) : '—';
+    return `<tr>
+      <td><strong>${p.stock_id}</strong><br>
+        <span style="font-size:11px;color:var(--text-dim)">${p.name}</span><br>
+        <span style="font-size:10px;color:var(--text-dim)">買入 ${buyDate}</span></td>
+      <td>${p.shares.toLocaleString()}</td>
+      <td>$${p.avg_cost.toFixed(1)}</td>
+      <td>$${p.market_price.toFixed(1)}</td>
+      <td><span style="color:${pos?'var(--green)':'var(--red)'};font-weight:600">${pos?'+':''}${fmt(p.unrealized)}</span>
+        <div class="pnl-bar-wrap"><div class="pnl-bar ${pos?'pos':'neg'}" style="width:${barW}%"></div></div></td>
+      <td><span class="badge ${pos?'badge-green':'badge-red'}">${fmtP(p.unrealized_pct)}</span></td>
+    </tr>`;
+  }).join('');
+  wrap.innerHTML=`<table class="data-table">
+    <thead><tr><th style="text-align:left">股票</th><th>股數</th><th>成本</th><th>現價</th><th>未實現</th><th>漲跌%</th></tr></thead>
+    <tbody>${rows}</tbody></table>`;
+}
+
+// ═══════════════════════════════════════════════
+// 訊號總覽（點擊開 Popup）
+// ═══════════════════════════════════════════════
+function renderSignals(signals) {
+  const grid=document.getElementById('signal-grid');
+  const entries=Object.entries(signals);
+  if(!entries.length){grid.innerHTML='<div class="empty" style="grid-column:1/-1">無訊號資料</div>';return;}
+  const order={BUY:0,SELL:1,HOLD:2};
+  entries.sort((a,b)=>(order[a[1].action]||2)-(order[b[1].action]||2));
+  grid.innerHTML=entries.map(([sid,sig])=>{
+    const cls=sig.action==='BUY'?'sig-buy':sig.action==='SELL'?'sig-sell':'sig-hold';
+    const acls=sig.action.toLowerCase();
+    const label=sig.action==='BUY'?'🟢 買入':sig.action==='SELL'?'🔴 賣出':'⬜ 觀望';
+    return `<div class="signal-item ${cls}" onclick="showSignalPopup('${sid}')">
+      <div class="sid">${sid}</div>
+      <div class="sprice">${sig.price?'$'+sig.price.toFixed(1):'--'}</div>
+      <div class="saction ${acls}">${label}</div>
+      ${sig.confidence?`<div class="sconf">信心 ${sig.confidence}%</div>`:''}
+    </div>`;
+  }).join('');
+}
+
+// ── Popup ──
+const REASON_EXPLAIN = {
+  'MA5 上穿 MA20（黃金交叉）': '短期均線從下方穿越長期均線，代表短期走勢轉強，通常視為上漲的開始。',
+  'MA5 下穿 MA20（死亡交叉）': '短期均線從上方跌破長期均線，代表短期走勢轉弱，通常視為下跌的開始。',
+  'RSI 超賣（< 30）': 'RSI 低於 30，代表這支股票近期跌得太兇，可能已超跌，有反彈的機會。',
+  'RSI 偏低（< 40）': 'RSI 在 30~40 之間，跌勢稍緩，有潛在買入價值但力道較弱。',
+  'RSI 超買（> 70）': 'RSI 高於 70，代表這支股票近期漲得很快，可能已過熱，有回跌的風險。',
+  'RSI 偏高（> 60）': 'RSI 在 60~70 之間，漲勢稍強，存在獲利了結的賣壓。',
+  '股價碰觸布林下軌（超賣反彈訊號）': '股價跌到布林通道的最低邊界，統計上有較高機率反彈回升。',
+  '股價碰觸布林上軌（超買回落訊號）': '股價漲到布林通道的最高邊界，統計上有較高機率回落修正。',
+};
+function getReasonExplain(reason) {
+  for(const [key, val] of Object.entries(REASON_EXPLAIN)) {
+    if(reason.includes(key.slice(0,10))) return val;
+  }
+  if(reason.includes('成交量放大')) return '成交量比平均高出 1.5 倍以上，代表市場關注度提升，訊號更可靠。';
+  return '系統綜合評估後的判斷。';
+}
+
+function showSignalPopup(sid) {
+  if(!_report) return;
+  const sig = _report.all_signals[sid];
+  if(!sig) return;
+  const action = sig.action==='BUY'?'買入':sig.action==='SELL'?'賣出':'觀望';
+  const acls = sig.action.toLowerCase();
+  const rsiColor = sig.rsi==null?'var(--text-mid)':sig.rsi<30?'var(--green)':sig.rsi>70?'var(--red)':'var(--text)';
+  const reasons = (sig.reason||[]).filter(r=>r!=='無明確訊號');
+
+  document.getElementById('popup-content').innerHTML = `
+    <h3>${sid}</h3>
+    <div class="popup-price">收盤價 ${sig.price?'$'+sig.price.toFixed(1):'--'}</div>
+    <span class="popup-verdict ${acls}">${action}</span>
+    ${sig.confidence?`<div style="font-size:12px;color:var(--text-dim);margin-bottom:16px">信心分數：${sig.confidence}%（${sig.confidence>=70?'強':sig.confidence>=40?'中':'弱'}）</div>`:''}
+
+    ${reasons.length?`
+    <div class="popup-section">
+      <div class="popup-section-title">📌 系統看到了什麼</div>
+      ${reasons.map(r=>`
+        <div class="reason-item">
+          <div class="reason-dot ${acls}"></div>
+          <div>
+            <div style="font-weight:600;font-size:13px">${r}</div>
+            <div style="font-size:12px;color:var(--text-dim);margin-top:2px">${getReasonExplain(r)}</div>
+          </div>
+        </div>`).join('')}
+    </div>`:'<div style="color:var(--text-dim);font-size:13px;margin-bottom:16px">目前沒有明確的買賣訊號，系統建議觀望等待。</div>'}
+
+    <div class="popup-section">
+      <div class="popup-section-title">📊 指標數值</div>
+      <div class="indicator-row">
+        <span class="indicator-label">RSI（相對強弱）</span>
+        <span class="indicator-val" style="color:${rsiColor}">${sig.rsi!=null?sig.rsi.toFixed(1):'--'}</span>
+      </div>
+      <div class="indicator-row">
+        <span class="indicator-label">MA5（5日均線）</span>
+        <span class="indicator-val">${sig.ma5!=null?'$'+sig.ma5.toFixed(1):'--'}</span>
+      </div>
+      <div class="indicator-row">
+        <span class="indicator-label">MA20（20日均線）</span>
+        <span class="indicator-val">${sig.ma20!=null?'$'+sig.ma20.toFixed(1):'--'}</span>
+      </div>
+    </div>
+
+    <div style="font-size:11px;color:var(--text-dim);margin-top:8px;line-height:1.6">
+      ⚠ 以上為系統自動分析，不構成實際投資建議。技術指標僅供參考，股價受多種因素影響。
+    </div>`;
+  document.getElementById('popup-overlay').classList.add('show');
+}
+function closePopup(e) {
+  if(!e||e.target===document.getElementById('popup-overlay'))
+    document.getElementById('popup-overlay').classList.remove('show');
+}
+
+// ═══════════════════════════════════════════════
+// TAB 2: 歷史交易
+// ═══════════════════════════════════════════════
+function renderHistory(report) {
+  const tradeLog = (report.portfolio.trade_log||[]).slice().reverse();
+  const positions = report.summary.positions_detail||[];
+
+  // 依日期分組
+  const byDate = {};
+  tradeLog.forEach(t => {
+    const d = t.datetime.slice(0,10);
+    if(!byDate[d]) byDate[d] = [];
+    byDate[d].push(t);
+  });
+
+  const histEl = document.getElementById('history-list');
+  if(!Object.keys(byDate).length){histEl.innerHTML='<div class="empty">尚無交易記錄</div>';}
+  else {
+    histEl.innerHTML = Object.entries(byDate).map(([date, trades])=>{
+      const buys = trades.filter(t=>t.action==='BUY').length;
+      const sells = trades.filter(t=>t.action==='SELL').length;
+      const dayPnl = trades.filter(t=>t.pnl!=null).reduce((s,t)=>s+(t.pnl||0),0);
+      const pnlHtml = dayPnl!==0
+        ? `<span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:${dayPnl>=0?'var(--green)':'var(--red)'}">${dayPnl>=0?'+':''}${fmt(dayPnl)} 元</span>` : '';
+      return `<div class="history-day">
+        <div class="history-day-header" onclick="toggleHistory(this)">
+          <div>
+            <div class="history-day-date">${date}</div>
+            <div style="font-size:11px;color:var(--text-dim);margin-top:2px">買入 ${buys} 筆・賣出 ${sells} 筆</div>
+          </div>
+          <div class="history-day-summary">${pnlHtml}<span style="color:var(--text-dim);font-size:18px">›</span></div>
+        </div>
+        <div class="history-day-body">
+          ${trades.map(t=>{
+            const isBuy=t.action==='BUY';
+            return `<div class="history-trade">
+              <span class="htag ${isBuy?'buy':'sell'}">${isBuy?'買入':'賣出'}</span>
+              <div class="hinfo">
+                <div class="hstock">${t.stock_id} ${t.name||''} — ${(t.shares||0).toLocaleString()}股 @ $${(t.price||0).toFixed(1)}</div>
+                <div class="hreason">${humanizeReason(t.trigger||t.reason||'')}</div>
+                ${isBuy&&t.confidence?`<div style="font-size:10px;color:var(--text-dim);margin-top:2px">信心分數 ${t.confidence}%</div>`:''}
+              </div>
+              ${!isBuy&&t.pnl!=null?`<div class="hpnl" style="color:${t.pnl>=0?'var(--green)':'var(--red)'}">${t.pnl>=0?'+':''}${fmt(t.pnl)}<br><span style="font-size:10px">${t.pnl_pct!=null?fmtP(t.pnl_pct):''}</span></div>`:''}
+            </div>`;
+          }).join('')}
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  // 持倉時間軸
+  const tlEl = document.getElementById('position-timeline');
+  if(!positions.length){tlEl.innerHTML='<div class="empty">目前空倉</div>';}
+  else {
+    tlEl.innerHTML = `<table class="data-table">
+      <thead><tr><th style="text-align:left">股票</th><th style="text-align:left">買入日期</th><th style="text-align:left">買入原因</th><th>成本</th><th>現價</th><th>損益%</th></tr></thead>
+      <tbody>${positions.map(p=>{
+        const buyRec = (report.portfolio.trade_log||[]).slice().reverse().find(t=>t.action==='BUY'&&t.stock_id===p.stock_id);
+        const date = buyRec?buyRec.datetime.slice(0,10):'—';
+        const why  = buyRec?humanizeReason(buyRec.trigger||''):'—';
+        const pos  = p.unrealized>=0;
+        return `<tr>
+          <td><strong>${p.stock_id}</strong> ${p.name}</td>
+          <td style="font-family:'JetBrains Mono',monospace;font-size:12px">${date}</td>
+          <td style="font-size:12px;color:var(--text-dim);max-width:200px">${why}</td>
+          <td>$${p.avg_cost.toFixed(1)}</td>
+          <td>$${p.market_price.toFixed(1)}</td>
+          <td><span class="badge ${pos?'badge-green':'badge-red'}">${fmtP(p.unrealized_pct)}</span></td>
+        </tr>`;
+      }).join('')}</tbody></table>`;
+  }
+}
+
+function toggleHistory(el) {
+  const body = el.nextElementSibling;
+  const arrow = el.querySelector('span[style*="18px"]');
+  body.classList.toggle('open');
+  if(arrow) arrow.style.transform = body.classList.contains('open')?'rotate(90deg)':'';
+}
+
+// ═══════════════════════════════════════════════
+// TAB 3: AI 策略檢討（顯示 Python 端分析結果）
+// ═══════════════════════════════════════════════
+function renderReview(report) {
+  if (!report) return;
+
+  // 績效統計
+  const trades   = report.portfolio.trade_log || [];
+  const dailyLog = report.portfolio.daily_log || [];
+  const sells    = trades.filter(t => t.action === 'SELL' && t.pnl != null);
+  const wins     = sells.filter(t => t.pnl > 0).length;
+  const losses   = sells.filter(t => t.pnl <= 0).length;
+  const totalPnl = sells.reduce((s, t) => s + (t.pnl || 0), 0);
+  const winRate  = sells.length ? ((wins / sells.length) * 100).toFixed(1) + '%' : '尚無賣出記錄';
+
+  document.getElementById('perf-stats').innerHTML = `
+    <table class="data-table">
+      <thead><tr><th style="text-align:left">項目</th><th>數值</th></tr></thead>
+      <tbody>
+        <tr><td>系統已運行</td><td>${dailyLog.length} 天</td></tr>
+        <tr><td>總交易筆數（買＋賣）</td><td>${trades.length}</td></tr>
+        <tr><td>已完成賣出</td><td>${sells.length} 次</td></tr>
+        <tr><td>獲利次數</td><td style="color:var(--green)">${wins}</td></tr>
+        <tr><td>虧損次數</td><td style="color:var(--red)">${losses}</td></tr>
+        <tr><td>勝率</td><td>${winRate}</td></tr>
+        <tr><td>已實現損益合計</td><td style="color:${totalPnl>=0?'var(--green)':'var(--red)'}">${totalPnl>=0?'+':''}${fmt(totalPnl)} 元</td></tr>
+        <tr><td>帳面總損益</td><td style="color:${report.summary.total_pnl>=0?'var(--green)':'var(--red)'}">${report.summary.total_pnl>=0?'+':''}${fmt(report.summary.total_pnl)} 元（${fmtP(report.summary.total_pnl_pct)}）</td></tr>
+      </tbody>
+    </table>`;
+
+  // AI 分析結果
+  const reviewEl = document.getElementById('ai-review-content');
+  const aiText   = report.ai_review;
+
+  if (!aiText || aiText === 'no_api_key') {
+    reviewEl.innerHTML = `<div style="color:var(--text-dim);line-height:1.8">
+      📋 <strong style="color:var(--text)">AI 自動分析尚未啟用</strong><br><br>
+      要讓系統每天自動產生 AI 策略分析，請按照以下步驟設定：<br><br>
+      <strong>步驟 1</strong>：到 <a href="https://console.anthropic.com/" target="_blank" style="color:var(--accent2)">console.anthropic.com</a> 取得 API Key<br>
+      <strong>步驟 2</strong>：安裝套件：<code style="background:var(--bg3);padding:2px 6px;border-radius:4px">pip install anthropic</code><br>
+      <strong>步驟 3</strong>：設定環境變數（只需要做一次）：<br>
+      <code style="background:var(--bg3);padding:6px 10px;border-radius:6px;display:block;margin:8px 0">
+        Windows：set ANTHROPIC_API_KEY=你的key<br>
+        Mac/Linux：export ANTHROPIC_API_KEY=你的key
+      </code>
+      <strong>步驟 4</strong>：重新執行 <code style="background:var(--bg3);padding:2px 6px;border-radius:4px">python run_daily.py</code><br><br>
+      設定後，每次跑系統都會自動產生 AI 分析，結果會顯示在這裡。<br><br>
+      <span style="color:var(--text-dim);font-size:12px">目前顯示系統自動統計（上方表格），不需要 API Key。</span>
+    </div>`;
+  } else {
+    // 有 AI 分析結果，格式化顯示
+    // 用安全方式格式化，避免 regex 特殊字元問題
+    const formatted = aiText
+      .split('\n').join('<br>')
+      .replace(/【([^】]+)】/g, '<strong style="color:var(--accent)">【$1】</strong>');
+    reviewEl.innerHTML = `<div style="line-height:1.9">${formatted}</div>
+      <div style="margin-top:16px;font-size:11px;color:var(--text-dim);border-top:1px solid var(--border);padding-top:12px">
+        此分析由 Claude AI 自動生成，僅供參考，不構成投資建議。
+      </div>`;
+  }
+}
+
+function runAiReview() {
+  if (_report) renderReview(_report);
+}
+
+// ═══════════════════════════════════════════════
+// 工具：把術語轉成白話
+// ═══════════════════════════════════════════════
+function humanizeReason(reason) {
+  if(!reason) return '';
+  return reason
+    .replace('技術訊號：','')
+    .replace('MA5 上穿 MA20（黃金交叉）','均線黃金交叉（短期走勢轉強）')
+    .replace('MA5 下穿 MA20（死亡交叉）','均線死亡交叉（短期走勢轉弱）')
+    .replace('RSI=','RSI ')
+    .replace('超賣（< 30）','偏低、可能反彈')
+    .replace('超買（> 70）','偏高、可能回落')
+    .replace('偏低（< 40）','略低')
+    .replace('偏高（> 60）','略高')
+    .replace('股價碰觸布林下軌（超賣反彈訊號）','股價跌到下方極限（可能反彈）')
+    .replace('股價碰觸布林上軌（超買回落訊號）','股價漲到上方極限（可能回落）')
+    .replace('成交量放大','成交量明顯放大');
+}
+
+// ═══════════════════════════════════════════════
+// Demo 資料
+// ═══════════════════════════════════════════════
+function getDemoData() {
+  const today=new Date().toISOString().slice(0,10);
+  const daily=Array.from({length:30},(_,i)=>{
+    const d=new Date(today); d.setDate(d.getDate()-29+i);
+    return {date:d.toISOString().slice(0,10),cash:180000,market_value:22000+Math.sin(i/4)*5000,
+      total_assets:202000+Math.sin(i/4)*5000+i*300,total_pnl:2000+Math.sin(i/4)*5000+i*300,total_pnl_pct:(2+Math.sin(i/4)*2.5+i*0.15)};
+  });
+  const makeDateStr=(daysAgo)=>{const d=new Date(today);d.setDate(d.getDate()-daysAgo);return d.toISOString().slice(0,10)+' 15:05:00';};
+  return {
+    generated_at:today+' (範例)',
+    summary:{cash:174200,market_value:37800,total_assets:212000,total_pnl:12000,total_pnl_pct:6.0,
+      positions_detail:[
+        {stock_id:'2330',name:'台積電',shares:1000,avg_cost:850,market_price:920,market_value:920000,unrealized:70000,unrealized_pct:8.24},
+        {stock_id:'2881',name:'富邦金',shares:2000,avg_cost:88,market_price:82,market_value:164000,unrealized:-12000,unrealized_pct:-6.82},
+      ]},
+    trades_today:[],
+    all_signals:{
+      '2330':{action:'BUY',confidence:80,price:920,rsi:32,ma5:900,ma20:880,reason:['MA5 上穿 MA20（黃金交叉）','RSI 超賣（< 30）']},
+      '2317':{action:'HOLD',confidence:0,price:167,rsi:48,ma5:165,ma20:163,reason:['無明確訊號']},
+      '2454':{action:'SELL',confidence:50,price:1050,rsi:72,ma5:1040,ma20:1020,reason:['RSI 超買（> 70）']},
+    },
+    portfolio:{daily_log:daily,trade_log:[
+      {datetime:makeDateStr(15),action:'BUY',stock_id:'6505',name:'台塑化',price:58,shares:1000,trigger:'技術訊號：MA5 上穿 MA20（黃金交叉）',confidence:65,amount:58000,fee:83,total:58083},
+      {datetime:makeDateStr(10),action:'SELL',stock_id:'6505',name:'台塑化',price:66.7,shares:1000,pnl:8617,pnl_pct:14.8,trigger:'停利觸發（漲幅 15.0%）',avg_cost:58},
+      {datetime:makeDateStr(8),action:'BUY',stock_id:'2330',name:'台積電',price:850,shares:1000,trigger:'技術訊號：RSI 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）',confidence:75,amount:850000,fee:1000,total:851000},
+      {datetime:makeDateStr(3),action:'BUY',stock_id:'2881',name:'富邦金',price:88,shares:2000,trigger:'技術訊號：MA5 上穿 MA20（黃金交叉）',confidence:35,amount:176000,fee:251,total:176251},
+    ]}
+  };
+}
+
+// ═══════════════════════════════════════════════
+// 初始化
+// ═══════════════════════════════════════════════
+window.addEventListener('load',()=>{ loadReport(); if(!window.__REPORT__) setInterval(loadReport,5*60*1000); });
+window.addEventListener('resize',()=>{ if(_report) renderChart(_report.portfolio.daily_log||[]); });
+</script>
+<script>
+async function loadReport() {
+  var report = window.__REPORT__;
+  if (!report) return;
+  _report = report;
+  document.getElementById('error-banner').style.display = 'none';
+  renderAll(report);
+}
+</script>
+</body>
+</html>
