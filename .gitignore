@@ -1,0 +1,14 @@
+# 快照資料（太大，不需要版本控制）
+data/snapshot_*.csv
+
+# 每日備份報告（只保留最新）
+reports/report_*.json
+reports/dashboard_today.html
+
+# Python 暫存
+__pycache__/
+*.pyc
+*.pyo
+
+# 環境變數（絕對不能上傳！）
+.env
