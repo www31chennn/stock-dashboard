@@ -15,9 +15,11 @@
   body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
   body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,160,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
   .container{max-width:1400px;margin:0 auto;padding:24px;position:relative;z-index:1}
+  @media(max-width:600px){.container{padding:12px}}
 
   /* ── Header ── */
-  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px}
+  @media(max-width:600px){header{margin-bottom:16px}.logo h1{font-size:16px}#update-time{font-size:10px;width:100%}}
   .logo{display:flex;align-items:center;gap:12px}
   .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px}
   .logo h1{font-size:20px;font-weight:700;letter-spacing:-.5px}
@@ -26,6 +28,7 @@
 
   /* ── Tabs ── */
   .tabs{display:flex;gap:4px;margin-bottom:24px;background:var(--bg2);padding:4px;border-radius:12px;width:fit-content}
+  @media(max-width:600px){.tabs{width:100%}.tab-btn{flex:1;padding:8px 4px;font-size:11px}}
   .tab-btn{padding:8px 20px;border-radius:8px;border:none;background:transparent;color:var(--text-dim);font-size:13px;font-family:'Noto Sans TC',sans-serif;cursor:pointer;transition:all .2s}
   .tab-btn.active{background:var(--bg3);color:var(--text);font-weight:600}
   .tab-panel{display:none}.tab-panel.active{display:block}
@@ -39,11 +42,13 @@
   .kpi-card:hover::before{opacity:1}
   .kpi-label{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
   .kpi-value{font-size:26px;font-weight:700;font-family:'JetBrains Mono',monospace}
+  @media(max-width:600px){.kpi-value{font-size:20px}.kpi-card{padding:14px 16px}}
   .kpi-sub{font-size:12px;color:var(--text-dim);margin-top:4px}
   .kpi-value.green{color:var(--green)}.kpi-value.red{color:var(--red)}.kpi-value.accent{color:var(--accent2)}
 
   /* ── Card ── */
   .card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px}
+  @media(max-width:600px){.card{padding:14px;border-radius:12px}}
   .card-title{font-size:13px;font-weight:600;color:var(--text-mid);text-transform:uppercase;letter-spacing:1px;margin-bottom:18px;display:flex;align-items:center;gap:8px}
   .card-title .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
   .wide-grid{display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-bottom:20px}
@@ -56,13 +61,15 @@
   canvas#pnlChart{width:100%!important;height:180px!important}
 
   /* ── Table ── */
-  .data-table{width:100%;border-collapse:collapse}
-  .data-table th{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.8px;padding:6px 10px;text-align:right;border-bottom:1px solid var(--border)}
+  .table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .data-table{width:100%;border-collapse:collapse;min-width:400px}
+  .data-table th{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.8px;padding:6px 8px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap}
   .data-table th:first-child{text-align:left}
-  .data-table td{padding:10px;font-size:13px;font-family:'JetBrains Mono',monospace;text-align:right;border-bottom:1px solid rgba(37,40,54,.6)}
-  .data-table td:first-child{text-align:left;font-family:'Noto Sans TC',sans-serif}
+  .data-table td{padding:8px;font-size:12px;font-family:'JetBrains Mono',monospace;text-align:right;border-bottom:1px solid rgba(37,40,54,.6);white-space:nowrap}
+  .data-table td:first-child{text-align:left;font-family:'Noto Sans TC',sans-serif;white-space:normal;min-width:80px}
   .data-table tr:last-child td{border-bottom:none}
   .data-table tr:hover td{background:var(--bg3)}
+  @media(max-width:600px){.data-table td,.data-table th{padding:6px 5px;font-size:11px}}
   .badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:600;font-family:'Noto Sans TC',sans-serif}
   .badge-green{background:rgba(0,229,160,.15);color:var(--green)}.badge-red{background:rgba(255,77,106,.15);color:var(--red)}
   .pnl-bar-wrap{height:4px;background:var(--bg3);border-radius:2px;margin-top:6px;overflow:hidden}
@@ -80,13 +87,14 @@
   .trade-pnl .price{font-family:'JetBrains Mono',monospace;font-weight:600}
 
   /* ── Signal cards ── */
-  .signal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
-  .signal-item{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px;cursor:pointer;transition:border-color .15s,transform .15s;position:relative}
+  .signal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px}
+  @media(max-width:600px){.signal-grid{grid-template-columns:repeat(3,1fr);gap:6px}}
+  .signal-item{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px;cursor:pointer;transition:border-color .15s,transform .15s;position:relative;min-width:0;overflow:hidden}
   .signal-item:hover{border-color:var(--accent);transform:translateY(-2px)}
-  .signal-item .sid{font-size:16px;font-weight:700}
-  .signal-item .sname{font-size:10px;color:var(--text-dim);margin-top:1px}
-  .signal-item .sprice{font-size:11px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-top:4px}
-  .signal-item .saction{margin-top:8px;font-size:10px;font-weight:700;letter-spacing:.8px}
+  .signal-item .sid{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .signal-item .sname{font-size:10px;color:var(--text-dim);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .signal-item .sprice{font-size:11px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .signal-item .saction{margin-top:6px;font-size:10px;font-weight:700;letter-spacing:.5px}
   .signal-item .sconf{font-size:10px;color:var(--text-dim)}
   .sig-buy{border-left:3px solid var(--green)}.sig-sell{border-left:3px solid var(--red)}.sig-hold{border-left:3px solid var(--border)}
   .saction.buy{color:var(--green)}.saction.sell{color:var(--red)}.saction.hold{color:var(--text-dim)}
@@ -414,27 +422,37 @@ function renderTrades(trades) {
 function renderPositions(positions, tradeLog) {
   const wrap=document.getElementById('positions-wrap');
   if(!positions.length){wrap.innerHTML='<div class="empty">目前空倉</div>';return;}
-  const rows=positions.map(p=>{
+  wrap.innerHTML = positions.map(p=>{
     const pos=p.unrealized>=0;
     const barW=Math.min(Math.abs(p.unrealized_pct)*3,100);
-    // 找買入時間
     const buyRecord=tradeLog.slice().reverse().find(t=>t.action==='BUY'&&t.stock_id===p.stock_id);
     const buyDate=buyRecord ? buyRecord.datetime.slice(0,10) : '—';
-    return `<tr>
-      <td><strong>${p.stock_id}</strong><br>
-        <span style="font-size:11px;color:var(--text-dim)">${p.name}</span><br>
-        <span style="font-size:10px;color:var(--text-dim)">買入 ${buyDate}</span></td>
-      <td>${p.shares.toLocaleString()}</td>
-      <td>$${p.avg_cost.toFixed(1)}</td>
-      <td>$${p.market_price.toFixed(1)}</td>
-      <td><span style="color:${pos?'var(--green)':'var(--red)'};font-weight:600">${pos?'+':''}${fmt(p.unrealized)}</span>
-        <div class="pnl-bar-wrap"><div class="pnl-bar ${pos?'pos':'neg'}" style="width:${barW}%"></div></div></td>
-      <td><span class="badge ${pos?'badge-green':'badge-red'}">${fmtP(p.unrealized_pct)}</span></td>
-    </tr>`;
+    return `<div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:10px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
+        <div>
+          <span style="font-size:16px;font-weight:700">${p.stock_id}</span>
+          <span style="font-size:13px;color:var(--text-dim);margin-left:6px">${p.name}</span><br>
+          <span style="font-size:11px;color:var(--text-dim)">買入 ${buyDate}・${p.shares.toLocaleString()} 股</span>
+        </div>
+        <span class="badge ${pos?'badge-green':'badge-red'}" style="font-size:12px;padding:4px 10px">${fmtP(p.unrealized_pct)}</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center;margin-bottom:8px">
+        <div style="background:var(--bg2);border-radius:8px;padding:8px">
+          <div style="font-size:10px;color:var(--text-dim);margin-bottom:3px">成本</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-weight:600;font-size:13px">$${p.avg_cost.toFixed(1)}</div>
+        </div>
+        <div style="background:var(--bg2);border-radius:8px;padding:8px">
+          <div style="font-size:10px;color:var(--text-dim);margin-bottom:3px">現價</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-weight:600;font-size:13px">$${p.market_price.toFixed(1)}</div>
+        </div>
+        <div style="background:var(--bg2);border-radius:8px;padding:8px">
+          <div style="font-size:10px;color:var(--text-dim);margin-bottom:3px">未實現</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-weight:600;font-size:13px;color:${pos?'var(--green)':'var(--red)'}">${pos?'+':''}${fmt(p.unrealized)}</div>
+        </div>
+      </div>
+      <div class="pnl-bar-wrap"><div class="pnl-bar ${pos?'pos':'neg'}" style="width:${barW}%"></div></div>
+    </div>`;
   }).join('');
-  wrap.innerHTML=`<table class="data-table">
-    <thead><tr><th style="text-align:left">股票</th><th>股數</th><th>成本</th><th>現價</th><th>未實現</th><th>漲跌%</th></tr></thead>
-    <tbody>${rows}</tbody></table>`;
 }
 
 // ═══════════════════════════════════════════════
@@ -586,22 +604,41 @@ function renderHistory(report) {
   const tlEl = document.getElementById('position-timeline');
   if(!positions.length){tlEl.innerHTML='<div class="empty">目前空倉</div>';}
   else {
-    tlEl.innerHTML = `<table class="data-table">
-      <thead><tr><th style="text-align:left">股票</th><th style="text-align:left">買入日期</th><th style="text-align:left">買入原因</th><th>成本</th><th>現價</th><th>損益%</th></tr></thead>
-      <tbody>${positions.map(p=>{
-        const buyRec = (report.portfolio.trade_log||[]).slice().reverse().find(t=>t.action==='BUY'&&t.stock_id===p.stock_id);
-        const date = buyRec?buyRec.datetime.slice(0,10):'—';
-        const why  = buyRec?humanizeReason(buyRec.trigger||''):'—';
-        const pos  = p.unrealized>=0;
-        return `<tr>
-          <td><strong>${p.stock_id}</strong> ${p.name}</td>
-          <td style="font-family:'JetBrains Mono',monospace;font-size:12px">${date}</td>
-          <td style="font-size:12px;color:var(--text-dim);max-width:200px">${why}</td>
-          <td>$${p.avg_cost.toFixed(1)}</td>
-          <td>$${p.market_price.toFixed(1)}</td>
-          <td><span class="badge ${pos?'badge-green':'badge-red'}">${fmtP(p.unrealized_pct)}</span></td>
-        </tr>`;
-      }).join('')}</tbody></table>`;
+    tlEl.innerHTML = positions.map(p=>{
+      const buyRec = (report.portfolio.trade_log||[]).slice().reverse().find(t=>t.action==='BUY'&&t.stock_id===p.stock_id);
+      const date = buyRec?buyRec.datetime.slice(0,10):'—';
+      const why  = buyRec?humanizeReason(buyRec.trigger||''):'—';
+      const pos  = p.unrealized>=0;
+      return `<div style="background:var(--bg3);border:1px solid var(--border);border-left:3px solid ${pos?'var(--green)':'var(--red)'};border-radius:10px;padding:14px;margin-bottom:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div>
+            <span style="font-size:15px;font-weight:700">${p.stock_id}</span>
+            <span style="font-size:13px;color:var(--text-dim);margin-left:6px">${p.name}</span>
+          </div>
+          <span class="badge ${pos?'badge-green':'badge-red'}">${fmtP(p.unrealized_pct)}</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-dim);margin-bottom:4px">
+          📅 買入日期：<span style="color:var(--text);font-family:'JetBrains Mono',monospace">${date}</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-dim);margin-bottom:10px;line-height:1.6">
+          💡 買入原因：<span style="color:var(--text-mid)">${why}</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center">
+          <div style="background:var(--bg2);border-radius:8px;padding:8px">
+            <div style="font-size:10px;color:var(--text-dim);margin-bottom:3px">成本</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600">$${p.avg_cost.toFixed(1)}</div>
+          </div>
+          <div style="background:var(--bg2);border-radius:8px;padding:8px">
+            <div style="font-size:10px;color:var(--text-dim);margin-bottom:3px">現價</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600">$${p.market_price.toFixed(1)}</div>
+          </div>
+          <div style="background:var(--bg2);border-radius:8px;padding:8px">
+            <div style="font-size:10px;color:var(--text-dim);margin-bottom:3px">損益</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:${pos?'var(--green)':'var(--red)'}">${pos?'+':''}${fmt(p.unrealized)}</div>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
   }
 }
 
@@ -627,20 +664,22 @@ function renderReview(report) {
   const totalPnl = sells.reduce((s, t) => s + (t.pnl || 0), 0);
   const winRate  = sells.length ? ((wins / sells.length) * 100).toFixed(1) + '%' : '尚無賣出記錄';
 
-  document.getElementById('perf-stats').innerHTML = `
-    <table class="data-table">
-      <thead><tr><th style="text-align:left">項目</th><th>數值</th></tr></thead>
-      <tbody>
-        <tr><td>系統已運行</td><td>${dailyLog.length} 天</td></tr>
-        <tr><td>總交易筆數（買＋賣）</td><td>${trades.length}</td></tr>
-        <tr><td>已完成賣出</td><td>${sells.length} 次</td></tr>
-        <tr><td>獲利次數</td><td style="color:var(--green)">${wins}</td></tr>
-        <tr><td>虧損次數</td><td style="color:var(--red)">${losses}</td></tr>
-        <tr><td>勝率</td><td>${winRate}</td></tr>
-        <tr><td>已實現損益合計</td><td style="color:${totalPnl>=0?'var(--green)':'var(--red)'}">${totalPnl>=0?'+':''}${fmt(totalPnl)} 元</td></tr>
-        <tr><td>帳面總損益</td><td style="color:${report.summary.total_pnl>=0?'var(--green)':'var(--red)'}">${report.summary.total_pnl>=0?'+':''}${fmt(report.summary.total_pnl)} 元（${fmtP(report.summary.total_pnl_pct)}）</td></tr>
-      </tbody>
-    </table>`;
+  const perfItems = [
+    ['系統已運行', dailyLog.length + ' 天', null],
+    ['總交易筆數（買＋賣）', trades.length, null],
+    ['已完成賣出', sells.length + ' 次', null],
+    ['獲利次數', wins, wins>0?'var(--green)':null],
+    ['虧損次數', losses, losses>0?'var(--red)':null],
+    ['勝率', winRate, null],
+    ['已實現損益', (totalPnl>=0?'+':'') + fmt(totalPnl) + ' 元', totalPnl>=0?'var(--green)':'var(--red)'],
+    ['帳面總損益', (report.summary.total_pnl>=0?'+':'') + fmt(report.summary.total_pnl) + ' 元 (' + fmtP(report.summary.total_pnl_pct) + ')', report.summary.total_pnl>=0?'var(--green)':'var(--red)'],
+  ];
+  document.getElementById('perf-stats').innerHTML = perfItems.map(([label,val,color])=>
+    `<div style="display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--border)">
+      <span style="font-size:13px;color:var(--text-dim)">${label}</span>
+      <span style="font-size:13px;font-weight:600;font-family:'JetBrains Mono',monospace;color:${color||'var(--text)'}">${val}</span>
+    </div>`
+  ).join('');
 
   // AI 分析結果
   const reviewEl = document.getElementById('ai-review-content');
