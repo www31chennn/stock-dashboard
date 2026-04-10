@@ -111,50 +111,50 @@
     {
       "date": "2026-04-10",
       "cash": 6575.0,
-      "market_value": 193350.0,
-      "total_assets": 199925.0,
-      "total_pnl": -75.0,
-      "total_pnl_pct": -0.04,
+      "market_value": 191950.0,
+      "total_assets": 198525.0,
+      "total_pnl": -1475.0,
+      "total_pnl_pct": -0.74,
       "positions_detail": [
         {
           "stock_id": "2882",
           "name": "國泰金",
           "shares": 1000,
           "avg_cost": 73.8,
-          "market_price": 73.6,
-          "market_value": 73600.0,
-          "unrealized": -200.0,
-          "unrealized_pct": -0.27
+          "market_price": 72.9,
+          "market_value": 72900.0,
+          "unrealized": -900.0,
+          "unrealized_pct": -1.22
         },
         {
           "stock_id": "2886",
           "name": "兆豐金",
           "shares": 1000,
           "avg_cost": 39.35,
-          "market_price": 39.75,
-          "market_value": 39750.0,
-          "unrealized": 400.0,
-          "unrealized_pct": 1.02
+          "market_price": 39.85,
+          "market_value": 39850.0,
+          "unrealized": 500.0,
+          "unrealized_pct": 1.27
         },
         {
           "stock_id": "2884",
           "name": "玉山金",
           "shares": 1000,
           "avg_cost": 32.6,
-          "market_price": 32.6,
-          "market_value": 32600.0,
-          "unrealized": 0.0,
-          "unrealized_pct": 0.0
+          "market_price": 32.25,
+          "market_value": 32250.0,
+          "unrealized": -350.0,
+          "unrealized_pct": -1.07
         },
         {
           "stock_id": "1301",
           "name": "台塑",
           "shares": 1000,
           "avg_cost": 47.4,
-          "market_price": 47.4,
-          "market_value": 47400.0,
-          "unrealized": 0.0,
-          "unrealized_pct": 0.0
+          "market_price": 46.95,
+          "market_value": 46950.0,
+          "unrealized": -450.0,
+          "unrealized_pct": -0.95
         }
       ]
     }

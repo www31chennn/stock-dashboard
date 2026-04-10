@@ -1,88 +1,61 @@
 {
-  "generated_at": "2026-04-10 08:51:34",
+  "generated_at": "2026-04-10 21:49:06",
   "summary": {
     "date": "2026-04-10",
     "cash": 6575.0,
-    "market_value": 193350.0,
-    "total_assets": 199925.0,
-    "total_pnl": -75.0,
-    "total_pnl_pct": -0.04,
+    "market_value": 191950.0,
+    "total_assets": 198525.0,
+    "total_pnl": -1475.0,
+    "total_pnl_pct": -0.74,
     "positions_detail": [
       {
         "stock_id": "2882",
         "name": "國泰金",
         "shares": 1000,
         "avg_cost": 73.8,
-        "market_price": 73.6,
-        "market_value": 73600.0,
-        "unrealized": -200.0,
-        "unrealized_pct": -0.27
+        "market_price": 72.9,
+        "market_value": 72900.0,
+        "unrealized": -900.0,
+        "unrealized_pct": -1.22
       },
       {
         "stock_id": "2886",
         "name": "兆豐金",
         "shares": 1000,
         "avg_cost": 39.35,
-        "market_price": 39.75,
-        "market_value": 39750.0,
-        "unrealized": 400.0,
-        "unrealized_pct": 1.02
+        "market_price": 39.85,
+        "market_value": 39850.0,
+        "unrealized": 500.0,
+        "unrealized_pct": 1.27
       },
       {
         "stock_id": "2884",
         "name": "玉山金",
         "shares": 1000,
         "avg_cost": 32.6,
-        "market_price": 32.6,
-        "market_value": 32600.0,
-        "unrealized": 0.0,
-        "unrealized_pct": 0.0
+        "market_price": 32.25,
+        "market_value": 32250.0,
+        "unrealized": -350.0,
+        "unrealized_pct": -1.07
       },
       {
         "stock_id": "1301",
         "name": "台塑",
         "shares": 1000,
         "avg_cost": 47.4,
-        "market_price": 47.4,
-        "market_value": 47400.0,
-        "unrealized": 0.0,
-        "unrealized_pct": 0.0
+        "market_price": 46.95,
+        "market_value": 46950.0,
+        "unrealized": -450.0,
+        "unrealized_pct": -0.95
       }
     ]
   },
-  "trades_today": [
-    {
-      "datetime": "2026-04-10 08:51:52",
-      "action": "BUY",
-      "stock_id": "2884",
-      "name": "玉山金",
-      "price": 32.6,
-      "shares": 1000,
-      "amount": 32600.0,
-      "fee": 46,
-      "total": 32646.0,
-      "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）",
-      "confidence": 35
-    },
-    {
-      "datetime": "2026-04-10 08:51:52",
-      "action": "BUY",
-      "stock_id": "1301",
-      "name": "台塑",
-      "price": 47.4,
-      "shares": 1000,
-      "amount": 47400.0,
-      "fee": 68,
-      "total": 47468.0,
-      "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）",
-      "confidence": 35
-    }
-  ],
+  "trades_today": [],
   "all_signals": {
     "2330": {
       "action": "BUY",
       "confidence": 35,
-      "price": 1955.0,
+      "price": 2000.0,
       "rsi": 55.0,
       "ma5": 1886.0,
       "ma20": 1853.5247924804687,
@@ -96,7 +69,7 @@
     "2317": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 200.0,
+      "price": 200.5,
       "rsi": 41.525423728813564,
       "ma5": 196.7,
       "ma20": 202.525,
@@ -124,7 +97,7 @@
     "2382": {
       "action": "SELL",
       "confidence": 50,
-      "price": 313.0,
+      "price": 321.5,
       "rsi": 62.65822784810126,
       "ma5": 296.9,
       "ma20": 288.7,
@@ -140,7 +113,7 @@
     "2308": {
       "action": "SELL",
       "confidence": 35,
-      "price": 1645.0,
+      "price": 1735.0,
       "rsi": 61.25,
       "ma5": 1546.0,
       "ma20": 1467.25,
@@ -155,7 +128,7 @@
     "2881": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 88.5,
+      "price": 87.6,
       "rsi": 45.96774491261273,
       "ma5": 88.2,
       "ma20": 88.2,
@@ -169,7 +142,7 @@
     "2882": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 73.6,
+      "price": 72.9,
       "rsi": 51.11109415690104,
       "ma5": 72.60000152587891,
       "ma20": 71.8800006866455,
@@ -183,7 +156,7 @@
     "2886": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 39.75,
+      "price": 39.85,
       "rsi": 55.84415069699789,
       "ma5": 39.34000015258789,
       "ma20": 39.027499771118165,
@@ -197,7 +170,7 @@
     "2884": {
       "action": "BUY",
       "confidence": 35,
-      "price": 32.6,
+      "price": 32.25,
       "rsi": 54.117640194989896,
       "ma5": 32.380000305175784,
       "ma20": 32.22999982833862,
@@ -211,7 +184,7 @@
     "2891": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 54.8,
+      "price": 54.0,
       "rsi": 55.8139528006676,
       "ma5": 55.05999984741211,
       "ma20": 52.819999885559085,
@@ -225,7 +198,7 @@
     "1301": {
       "action": "BUY",
       "confidence": 35,
-      "price": 47.4,
+      "price": 46.95,
       "rsi": 50.31847876609797,
       "ma5": 46.93000106811523,
       "ma20": 46.71500034332276,
@@ -239,7 +212,7 @@
     "1303": {
       "action": "BUY",
       "confidence": 35,
-      "price": 85.2,
+      "price": 81.6,
       "rsi": 48.97119322183112,
       "ma5": 81.31999816894532,
       "ma20": 79.99499969482422,
@@ -253,7 +226,7 @@
     "6505": {
       "action": "BUY",
       "confidence": 35,
-      "price": 52.7,
+      "price": 52.0,
       "rsi": 35.76159408848329,
       "ma5": 54.84000015258789,
       "ma20": 56.09000034332276,
@@ -268,7 +241,7 @@
     "2002": {
       "action": "SELL",
       "confidence": 35,
-      "price": 20.2,
+      "price": 20.05,
       "rsi": 60.22727765327045,
       "ma5": 19.730000305175782,
       "ma20": 19.375,
@@ -283,7 +256,7 @@
     "1326": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 45.6,
+      "price": 45.45,
       "rsi": 49.02506288939946,
       "ma5": 45.30999908447266,
       "ma20": 44.69999961853027,
@@ -297,7 +270,7 @@
     "2412": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 135.0,
+      "price": 135.5,
       "rsi": 35.294117647058826,
       "ma5": 134.2,
       "ma20": 134.875,
@@ -311,7 +284,7 @@
     "3008": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 2280.0,
+      "price": 2310.0,
       "rsi": 40.322580645161295,
       "ma5": 2212.0,
       "ma20": 2256.331579589844,
@@ -325,7 +298,7 @@
     "2357": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 568.0,
+      "price": 578.0,
       "rsi": 40.298507462686565,
       "ma5": 560.4,
       "ma20": 572.35,
@@ -339,7 +312,7 @@
     "4938": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 80.0,
+      "price": 80.7,
       "rsi": 55.35715096661687,
       "ma5": 78.73999938964843,
       "ma20": 77.51499938964844,
@@ -353,7 +326,7 @@
     "3711": {
       "action": "SELL",
       "confidence": 35,
-      "price": 392.0,
+      "price": 393.0,
       "rsi": 60.176991150442475,
       "ma5": 369.8,
       "ma20": 350.375,
@@ -368,7 +341,7 @@
     "2603": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 203.0,
+      "price": 202.5,
       "rsi": 30.769230769230774,
       "ma5": 203.0,
       "ma20": 207.5,
@@ -396,7 +369,7 @@
     "2615": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 78.3,
+      "price": 77.1,
       "rsi": 46.22641950792575,
       "ma5": 78.86000213623046,
       "ma20": 77.8800006866455,
@@ -410,7 +383,7 @@
     "2618": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 34.8,
+      "price": 34.85,
       "rsi": 44.5312486030173,
       "ma5": 34.89000015258789,
       "ma20": 34.812500190734866,
@@ -424,7 +397,7 @@
     "5880": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 24.05,
+      "price": 23.85,
       "rsi": 63.934404700708775,
       "ma5": 23.809999847412108,
       "ma20": 23.307500076293945,
@@ -494,50 +467,50 @@
       {
         "date": "2026-04-10",
         "cash": 6575.0,
-        "market_value": 193350.0,
-        "total_assets": 199925.0,
-        "total_pnl": -75.0,
-        "total_pnl_pct": -0.04,
+        "market_value": 191950.0,
+        "total_assets": 198525.0,
+        "total_pnl": -1475.0,
+        "total_pnl_pct": -0.74,
         "positions_detail": [
           {
             "stock_id": "2882",
             "name": "國泰金",
             "shares": 1000,
             "avg_cost": 73.8,
-            "market_price": 73.6,
-            "market_value": 73600.0,
-            "unrealized": -200.0,
-            "unrealized_pct": -0.27
+            "market_price": 72.9,
+            "market_value": 72900.0,
+            "unrealized": -900.0,
+            "unrealized_pct": -1.22
           },
           {
             "stock_id": "2886",
             "name": "兆豐金",
             "shares": 1000,
             "avg_cost": 39.35,
-            "market_price": 39.75,
-            "market_value": 39750.0,
-            "unrealized": 400.0,
-            "unrealized_pct": 1.02
+            "market_price": 39.85,
+            "market_value": 39850.0,
+            "unrealized": 500.0,
+            "unrealized_pct": 1.27
           },
           {
             "stock_id": "2884",
             "name": "玉山金",
             "shares": 1000,
             "avg_cost": 32.6,
-            "market_price": 32.6,
-            "market_value": 32600.0,
-            "unrealized": 0.0,
-            "unrealized_pct": 0.0
+            "market_price": 32.25,
+            "market_value": 32250.0,
+            "unrealized": -350.0,
+            "unrealized_pct": -1.07
           },
           {
             "stock_id": "1301",
             "name": "台塑",
             "shares": 1000,
             "avg_cost": 47.4,
-            "market_price": 47.4,
-            "market_value": 47400.0,
-            "unrealized": 0.0,
-            "unrealized_pct": 0.0
+            "market_price": 46.95,
+            "market_value": 46950.0,
+            "unrealized": -450.0,
+            "unrealized_pct": -0.95
           }
         ]
       }
