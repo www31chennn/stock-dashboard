@@ -2,7 +2,7 @@ name: 每日台股模擬交易
 
 on:
   schedule:
-    - cron: '0 21 * * 0-4' # UTC 21:00 = 台灣隔天 05:00
+    - cron: '0 21 * * 1-5'   # UTC 週二到週六 21:00 = 台灣週二到週六 05:00
   workflow_dispatch:           # 允許手動觸發（方便測試）
 
 jobs:
