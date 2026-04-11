@@ -1,0 +1,48 @@
+{
+  "cash": 147926.0,
+  "initial": 200000.0,
+  "positions": {
+    "6505": {
+      "shares": 1000,
+      "avg_cost": 52.0,
+      "name": "台塑化"
+    }
+  },
+  "trade_log": [
+    {
+      "datetime": "2026-04-11 15:16:23",
+      "action": "BUY",
+      "stock_id": "6505",
+      "name": "台塑化",
+      "price": 52.0,
+      "shares": 1000,
+      "amount": 52000.0,
+      "fee": 74,
+      "total": 52074.0,
+      "trigger": "技術訊號：RSI=32.5 偏低（< 40）、股價碰觸布林下軌（超賣反彈訊號）",
+      "confidence": 35
+    }
+  ],
+  "daily_log": [
+    {
+      "date": "2026-04-11",
+      "cash": 147926.0,
+      "market_value": 52000.0,
+      "total_assets": 199926.0,
+      "total_pnl": -74.0,
+      "total_pnl_pct": -0.04,
+      "positions_detail": [
+        {
+          "stock_id": "6505",
+          "name": "台塑化",
+          "shares": 1000,
+          "avg_cost": 52.0,
+          "market_price": 52.0,
+          "market_value": 52000.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        }
+      ]
+    }
+  ]
+}
