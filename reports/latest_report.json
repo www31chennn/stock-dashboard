@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-13 10:26:51",
+  "generated_at": "2026-04-13 11:36:19",
   "summary": {
     "date": "2026-04-13",
     "cash": 15.0,
@@ -62,7 +62,7 @@
   },
   "trades_today": [
     {
-      "datetime": "2026-04-13 10:35:46",
+      "datetime": "2026-04-13 11:43:14",
       "action": "BUY",
       "stock_id": "2465",
       "name": "麗臺",
@@ -75,7 +75,7 @@
       "confidence": 65
     },
     {
-      "datetime": "2026-04-13 10:35:46",
+      "datetime": "2026-04-13 11:43:14",
       "action": "BUY",
       "stock_id": "6591",
       "name": "動力-KY",
@@ -88,7 +88,7 @@
       "confidence": 65
     },
     {
-      "datetime": "2026-04-13 10:35:46",
+      "datetime": "2026-04-13 11:43:14",
       "action": "BUY",
       "stock_id": "1714",
       "name": "和桐",
@@ -101,7 +101,7 @@
       "confidence": 50
     },
     {
-      "datetime": "2026-04-13 10:35:46",
+      "datetime": "2026-04-13 11:43:14",
       "action": "BUY",
       "stock_id": "2023",
       "name": "燁輝",
@@ -114,7 +114,7 @@
       "confidence": 50
     },
     {
-      "datetime": "2026-04-13 10:35:46",
+      "datetime": "2026-04-13 11:43:14",
       "action": "BUY",
       "stock_id": "8213",
       "name": "志超",
@@ -2304,7 +2304,7 @@
     ],
     "trade_log": [
       {
-        "datetime": "2026-04-13 10:35:46",
+        "datetime": "2026-04-13 11:43:14",
         "action": "BUY",
         "stock_id": "2465",
         "name": "麗臺",
@@ -2317,7 +2317,7 @@
         "confidence": 65
       },
       {
-        "datetime": "2026-04-13 10:35:46",
+        "datetime": "2026-04-13 11:43:14",
         "action": "BUY",
         "stock_id": "6591",
         "name": "動力-KY",
@@ -2330,7 +2330,7 @@
         "confidence": 65
       },
       {
-        "datetime": "2026-04-13 10:35:46",
+        "datetime": "2026-04-13 11:43:14",
         "action": "BUY",
         "stock_id": "1714",
         "name": "和桐",
@@ -2343,7 +2343,7 @@
         "confidence": 50
       },
       {
-        "datetime": "2026-04-13 10:35:46",
+        "datetime": "2026-04-13 11:43:14",
         "action": "BUY",
         "stock_id": "2023",
         "name": "燁輝",
@@ -2356,7 +2356,7 @@
         "confidence": 50
       },
       {
-        "datetime": "2026-04-13 10:35:46",
+        "datetime": "2026-04-13 11:43:14",
         "action": "BUY",
         "stock_id": "8213",
         "name": "志超",
