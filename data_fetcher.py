@@ -78,7 +78,7 @@ def fetch_and_filter_stocks(
             df = yf.download(
                 ticker,
                 start=start.strftime("%Y-%m-%d"),
-                end=end.strftime("%Y-%m-%d"),
+                end=(end + timedelta(days=1)).strftime("%Y-%m-%d"),  # +1天確保抓到今日
                 interval="1d",
                 progress=False,
                 auto_adjust=True,
@@ -133,7 +133,7 @@ def fetch_history(stock_id: str, period_days: int = 90) -> pd.DataFrame:
         df = yf.download(
             ticker,
             start=start.strftime("%Y-%m-%d"),
-            end=end.strftime("%Y-%m-%d"),
+            end=(end + timedelta(days=1)).strftime("%Y-%m-%d"),  # +1天確保抓到今日
             interval="1d",
             progress=False,
             auto_adjust=True,
