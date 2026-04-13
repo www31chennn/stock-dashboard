@@ -1,0 +1,160 @@
+{
+  "cash": 865.9977111816406,
+  "initial": 200000,
+  "positions": {
+    "2530": {
+      "shares": 1000,
+      "avg_cost": 22.850000381469727,
+      "name": "華建"
+    },
+    "1409": {
+      "shares": 1000,
+      "avg_cost": 17.200000762939453,
+      "name": "新纖"
+    },
+    "1727": {
+      "shares": 1000,
+      "avg_cost": 58.400001525878906,
+      "name": "中華化"
+    },
+    "2611": {
+      "shares": 2000,
+      "avg_cost": 14.949999809265137,
+      "name": "志信"
+    },
+    "2637": {
+      "shares": 1000,
+      "avg_cost": 70.5,
+      "name": "慧洋-KY"
+    }
+  },
+  "trade_log": [
+    {
+      "datetime": "2026-04-13 11:59:48",
+      "action": "BUY",
+      "stock_id": "2530",
+      "name": "華建",
+      "price": 22.850000381469727,
+      "shares": 1000,
+      "amount": 22850.000381469727,
+      "fee": 33,
+      "total": 22883.000381469727,
+      "trigger": "技術訊號：RSI=22.7 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 2.9x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-04-13 11:59:48",
+      "action": "BUY",
+      "stock_id": "1409",
+      "name": "新纖",
+      "price": 17.200000762939453,
+      "shares": 1000,
+      "amount": 17200.000762939453,
+      "fee": 25,
+      "total": 17225.000762939453,
+      "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）、RSI=62.5 偏高（> 60）、股價碰觸布林上軌（超買回落訊號）、成交量放大 3.3x（買訊確認）",
+      "confidence": 50
+    },
+    {
+      "datetime": "2026-04-13 11:59:48",
+      "action": "BUY",
+      "stock_id": "1727",
+      "name": "中華化",
+      "price": 58.400001525878906,
+      "shares": 1000,
+      "amount": 58400.001525878906,
+      "fee": 83,
+      "total": 58483.001525878906,
+      "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）、RSI=60.1 偏高（> 60）、成交量放大 2.4x（買訊確認）",
+      "confidence": 50
+    },
+    {
+      "datetime": "2026-04-13 11:59:48",
+      "action": "BUY",
+      "stock_id": "2611",
+      "name": "志信",
+      "price": 14.949999809265137,
+      "shares": 2000,
+      "amount": 29899.999618530273,
+      "fee": 43,
+      "total": 29942.999618530273,
+      "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）、RSI=62.7 偏高（> 60）、股價碰觸布林上軌（超買回落訊號）、成交量放大 4.1x（買訊確認）",
+      "confidence": 50
+    },
+    {
+      "datetime": "2026-04-13 11:59:48",
+      "action": "BUY",
+      "stock_id": "2637",
+      "name": "慧洋-KY",
+      "price": 70.5,
+      "shares": 1000,
+      "amount": 70500.0,
+      "fee": 100,
+      "total": 70600.0,
+      "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）、成交量放大 1.5x（買訊確認）",
+      "confidence": 50
+    }
+  ],
+  "daily_log": [
+    {
+      "date": "2026-04-13",
+      "cash": 866.0,
+      "market_value": 198850.0,
+      "total_assets": 199716.0,
+      "total_pnl": -284.0,
+      "total_pnl_pct": -0.14,
+      "positions_detail": [
+        {
+          "stock_id": "2530",
+          "name": "華建",
+          "shares": 1000,
+          "avg_cost": 22.850000381469727,
+          "market_price": 22.850000381469727,
+          "market_value": 22850.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        },
+        {
+          "stock_id": "1409",
+          "name": "新纖",
+          "shares": 1000,
+          "avg_cost": 17.200000762939453,
+          "market_price": 17.200000762939453,
+          "market_value": 17200.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        },
+        {
+          "stock_id": "1727",
+          "name": "中華化",
+          "shares": 1000,
+          "avg_cost": 58.400001525878906,
+          "market_price": 58.400001525878906,
+          "market_value": 58400.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        },
+        {
+          "stock_id": "2611",
+          "name": "志信",
+          "shares": 2000,
+          "avg_cost": 14.949999809265137,
+          "market_price": 14.949999809265137,
+          "market_value": 29900.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        },
+        {
+          "stock_id": "2637",
+          "name": "慧洋-KY",
+          "shares": 1000,
+          "avg_cost": 70.5,
+          "market_price": 70.5,
+          "market_value": 70500.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        }
+      ]
+    }
+  ]
+}
