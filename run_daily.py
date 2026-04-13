@@ -1,27 +1,38 @@
 """
-每日執行腳本 ── 每天收盤後跑這個就好
+每日執行腳本 v2
+資料來源統一使用 yfinance，排除多來源時間差問題。
+流程：
+  1. TWSE 抓股票名單（代號+名稱）
+  2. yfinance 批次抓全市場資料並篩選
+  3. 對篩選後的股票計算技術指標、找訊號
+  4. 執行虛擬買賣
+  5. 更新帳戶快照、產生報告
 """
-import os, json, time
+import os, json
 import pandas as pd
 from datetime import datetime
 
-from data_fetcher import fetch_twse_all_stocks, fetch_history_batch, save_today_snapshot
+from data_fetcher import (fetch_twse_stock_list, fetch_and_filter_stocks,
+                           fetch_history, get_name_map)
 from strategy    import add_all_indicators, get_signal
 from portfolio   import (load_portfolio, save_portfolio,
                           execute_buy, execute_sell, take_daily_snapshot)
 
-MAX_POSITIONS    = 5
-BUY_PER_STOCK    = 30_000
-SELL_STOP_LOSS   = -0.08
-SELL_TAKE_PROFIT =  0.15
+# ══════════════════════════════════════════════════════════════════
+# ★ 設定區（可自行調整）
+# ══════════════════════════════════════════════════════════════════
+INITIAL_CAPITAL  = 200_000   # 初始本金（元），可自行修改
+MAX_POSITIONS    = 5         # 最多同時持有幾支股票
+BUY_PER_STOCK    = 30_000    # 每次買入金額（元）
+SELL_STOP_LOSS   = -0.08     # 停損 -8%
+SELL_TAKE_PROFIT =  0.15     # 停利 +15%
 
-CANDIDATE_STOCKS = [
-    "2330","2317","2454","2382","2308",
-    "2881","2882","2886","2884","2891",
-    "1301","1303","6505","2002","1326",
-    "2412","3008","2357","4938","3711",
-    "2603","2609","2615","2618","5880",
-]
+# 篩選條件
+MIN_PRICE        = 10.0      # 最低收盤價（元）
+MIN_VOLUME_K     = 1000      # 最低成交量（張）
+PERIOD_DAYS      = 90        # 歷史資料天數
+FETCH_DELAY      = 0.5       # 每支股票抓取間隔（秒）
+# ══════════════════════════════════════════════════════════════════
 
 DATA_DIR   = os.path.join(os.path.dirname(__file__), "data")
 REPORT_DIR = os.path.join(os.path.dirname(__file__), "reports")
@@ -29,75 +40,7 @@ os.makedirs(DATA_DIR,   exist_ok=True)
 os.makedirs(REPORT_DIR, exist_ok=True)
 
 
-# ── AI 策略檢討（Python 端呼叫，結果寫入報告）────────────────────────────
-def run_ai_review(report: dict) -> str:
-    """呼叫 Claude API 做策略分析，回傳分析文字"""
-    try:
-        import anthropic
-    except ImportError:
-        return "（未安裝 anthropic 套件，請執行：pip install anthropic）"
-
-    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
-    if not api_key:
-        return "（未設定 ANTHROPIC_API_KEY 環境變數，請參考 README 設定）"
-
-    trades    = report["portfolio"]["trade_log"]
-    daily_log = report["portfolio"]["daily_log"]
-    sells     = [t for t in trades if t["action"] == "SELL" and t.get("pnl") is not None]
-    wins      = [t for t in sells if t["pnl"] > 0]
-    losses    = [t for t in sells if t["pnl"] <= 0]
-    total_pnl = sum(t["pnl"] for t in sells)
-    win_rate  = f"{len(wins)/len(sells)*100:.1f}%" if sells else "尚無賣出記錄"
-
-    summary = {
-        "跑了幾天": len(daily_log),
-        "累計損益": f"{report['summary']['total_pnl']:+,.0f} 元（{report['summary']['total_pnl_pct']:+.2f}%）",
-        "勝率": win_rate,
-        "獲利次數": len(wins),
-        "虧損次數": len(losses),
-        "已實現總損益": f"{total_pnl:+,.0f} 元",
-        "目前持倉": [
-            f"{p['stock_id']} {p['name']} 未實現{p['unrealized_pct']:+.1f}%"
-            for p in report["summary"].get("positions_detail", [])
-        ],
-        "最近10筆交易": [
-            f"{t['datetime'][:10]} {'買入' if t['action']=='BUY' else '賣出'} "
-            f"{t['stock_id']} ${t['price']:.1f}"
-            + (f" 損益{t['pnl']:+,.0f}" if t.get("pnl") is not None else "")
-            for t in trades[-10:]
-        ]
-    }
-
-    prompt = f"""你是一個台股量化投資顧問，正在幫使用者檢視他的模擬交易系統。
-
-系統策略：MA5/MA20 均線交叉 + RSI 超買超賣 + 布林通道 + 成交量確認
-參數設定：停損 -8%、停利 +15%、最多同時持 5 支、每次買入約 3 萬元
-
-以下是這套系統目前的績效數據：
-{json.dumps(summary, ensure_ascii=False, indent=2)}
-
-請用繁體中文回答，語言要白話易懂，盡量避免術語（若一定要用請加說明）。
-格式：
-1. 【整體表現】目前狀況如何（2-3句）
-2. 【發現的問題】有什麼地方需要注意（如果有的話）
-3. 【建議調整】策略有沒有需要改進的地方
-4. 【一句話結論】給使用者最簡短的建議
-
-注意：如果跑的天數太少（少於 10 天），請說明需要更多時間才能評估。"""
-
-    try:
-        client = anthropic.Anthropic(api_key=api_key)
-        msg = client.messages.create(
-            model="claude-opus-4-5",
-            max_tokens=800,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        return msg.content[0].text
-    except Exception as e:
-        return f"（AI 分析失敗：{e}）"
-
-
-# ── 產生獨立 HTML ─────────────────────────────────────────────────────────
+# ── 產生獨立 HTML ─────────────────────────────────────────────────
 def _generate_standalone_html(report: dict):
     template_path = os.path.join(os.path.dirname(__file__), "dashboard.html")
     if not os.path.exists(template_path):
@@ -126,61 +69,81 @@ def _generate_standalone_html(report: dict):
     )
     html = html.replace("</body>", inject + "</body>")
 
-    # 輸出到 reports/dashboard_today.html（本地用）
+    # 本地用
     out_path = os.path.join(REPORT_DIR, "dashboard_today.html")
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(html)
 
-    # 同時輸出到根目錄的 index.html（Vercel 用）
-    root_dir = os.path.dirname(__file__)
-    index_path = os.path.join(root_dir, "index.html")
+    # Vercel 用
+    index_path = os.path.join(os.path.dirname(__file__), "index.html")
     with open(index_path, "w", encoding="utf-8") as f:
         f.write(html)
 
     print(f"  OK 本地儀表板：{out_path}")
     print(f"  OK Vercel 首頁：{index_path}")
-    print(f"     git push 後 Vercel 會自動更新！")
 
 
-# ── 每日主流程 ────────────────────────────────────────────────────────────
+# ── 每日主流程 ────────────────────────────────────────────────────
 def run_daily():
     today = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(f"\n{'='*60}\n  台股模擬交易系統  {today}\n{'='*60}")
+    print(f"\n{'='*60}")
+    print(f"  台股模擬交易系統 v2  {today}")
+    print(f"  本金設定：{INITIAL_CAPITAL:,.0f} 元")
+    print(f"{'='*60}")
 
-    print("\n[1/5] 抓取市場資料...")
-    snapshot_df = fetch_twse_all_stocks()
-    if snapshot_df is not None and not snapshot_df.empty:
-        save_today_snapshot(snapshot_df)
-        price_map = dict(zip(
-            snapshot_df["stock_id"].astype(str),
-            pd.to_numeric(snapshot_df["close"], errors="coerce")
-        ))
-    else:
-        print("  無法取得今日快照")
-        price_map = {}
+    # ── Step 1: 取得股票名單 ──────────────────────────────────────
+    print("\n[1/5] 取得股票名單...")
+    stock_list = fetch_twse_stock_list()
+    name_map   = get_name_map(stock_list)
+    if stock_list.empty:
+        print("  ⚠ 無法取得股票名單，使用空清單")
 
-    print(f"\n[2/5] 分析 {len(CANDIDATE_STOCKS)} 支候選股票...")
-    history_data = fetch_history_batch(CANDIDATE_STOCKS, period_days=90)
+    # ── Step 2: 全市場篩選 + 抓歷史資料 ──────────────────────────
+    print(f"\n[2/5] 全市場篩選（收盤價>{MIN_PRICE}元、成交量>{MIN_VOLUME_K}張）...")
+    history_data = fetch_and_filter_stocks(
+        stock_list,
+        min_price    = MIN_PRICE,
+        min_volume_k = MIN_VOLUME_K,
+        period_days  = PERIOD_DAYS,
+        delay        = FETCH_DELAY,
+    )
+    print(f"  → 共 {len(history_data)} 支股票進入技術分析")
+
+    # ── Step 3: 計算技術指標、找訊號 ─────────────────────────────
+    print(f"\n[3/5] 計算技術指標...")
     signals = {}
     for sid, df in history_data.items():
         df  = add_all_indicators(df)
         sig = get_signal(df)
-        if sid in price_map and not pd.isna(price_map[sid]):
-            sig["price"] = price_map[sid]
+        sig["name"] = name_map.get(sid, sid)
         signals[sid] = sig
+
     buy_signals  = {s: v for s, v in signals.items() if v["action"] == "BUY"}
     sell_signals = {s: v for s, v in signals.items() if v["action"] == "SELL"}
-    print(f"  買入訊號: {len(buy_signals)} 支　賣出訊號: {len(sell_signals)} 支")
+    print(f"  → 買入訊號: {len(buy_signals)} 支　賣出訊號: {len(sell_signals)} 支")
 
-    print("\n[3/5] 執行虛擬交易...")
-    portfolio    = load_portfolio()
+    # ── Step 4: 執行虛擬交易 ──────────────────────────────────────
+    print("\n[4/5] 執行虛擬交易...")
+    portfolio    = load_portfolio(INITIAL_CAPITAL)
     trades_today = []
 
+    # 更新持倉現價（從 signals 或重新抓）
+    price_map = {sid: v["price"] for sid, v in signals.items() if v.get("price")}
+
+    # 補抓持倉中但不在 signals 裡的股票現價
+    for sid in list(portfolio["positions"].keys()):
+        if sid not in price_map:
+            df = fetch_history(sid, 10)
+            if not df.empty:
+                price_map[sid] = float(df.iloc[-1]["close"])
+
+    # 先處理賣出
     for sid, pos in list(portfolio["positions"].items()):
-        market_price = signals.get(sid, {}).get("price") or price_map.get(sid)
+        market_price = price_map.get(sid)
         if not market_price:
             continue
         pnl_pct = (market_price - pos["avg_cost"]) / pos["avg_cost"]
+
         reason = None
         if pnl_pct <= SELL_STOP_LOSS:
             reason = f"停損觸發（跌幅 {pnl_pct*100:.1f}%）"
@@ -188,54 +151,70 @@ def run_daily():
             reason = f"停利觸發（漲幅 {pnl_pct*100:.1f}%）"
         elif sid in sell_signals:
             reason = "技術訊號：" + "、".join(sell_signals[sid]["reason"])
+
         if reason:
             result = execute_sell(portfolio, sid, market_price)
             if result["success"]:
                 rec = result["record"]
                 rec["trigger"] = reason
                 trades_today.append(rec)
-                print(f"  賣出 {sid} {pos['name']} @ {market_price:.1f}  損益: {rec['pnl']:+,.0f} 元")
+                print(f"  賣出 {sid} {pos['name']} @ {market_price:.1f}"
+                      f"  損益: {rec['pnl']:+,.0f} 元  原因: {reason}")
 
+    # 再處理買入（依信心分數排序）
     sorted_buys = sorted(buy_signals.items(), key=lambda x: x[1]["confidence"], reverse=True)
     for sid, sig in sorted_buys:
         if sid in portfolio["positions"]:
             continue
         if len(portfolio["positions"]) >= MAX_POSITIONS:
             break
-        price = sig["price"]
+        price = sig.get("price")
         if not price or price <= 0:
             continue
+
         lots   = max(1, int(BUY_PER_STOCK / (price * 1000)))
         shares = lots * 1000
-        name   = sid
-        if snapshot_df is not None and not snapshot_df.empty:
-            row = snapshot_df[snapshot_df["stock_id"] == sid]
-            if not row.empty and "name" in row.columns:
-                name = row.iloc[0]["name"]
+        name   = name_map.get(sid, sid)
+
         result = execute_buy(portfolio, sid, name, price, shares)
         if result["success"]:
             rec = result["record"]
             rec["trigger"]    = "技術訊號：" + "、".join(sig["reason"])
             rec["confidence"] = sig["confidence"]
             trades_today.append(rec)
-            print(f"  買入 {sid} {name} @ {price:.1f}  {shares:,} 股  信心: {sig['confidence']}%")
+            print(f"  買入 {sid} {name} @ {price:.1f}"
+                  f"  {shares:,}股  信心:{sig['confidence']}%")
 
     if not trades_today:
         print("  今日無交易（持倉不變）")
 
-    print("\n[4/5] 計算帳戶狀態...")
-    live_price_map = {}
-    for sid in list(portfolio["positions"].keys()):
-        p = signals.get(sid, {}).get("price") or price_map.get(sid)
-        if p:
-            live_price_map[sid] = p
-    daily_snap = take_daily_snapshot(portfolio, live_price_map)
-
+    # ── Step 5: 快照 + 報告 ───────────────────────────────────────
     print("\n[5/5] 產出報告...")
+    daily_snap = take_daily_snapshot(portfolio, price_map)
+
+    # 只輸出有買賣訊號的股票到報告（避免資料量太大）
+    top_signals = {}
+    # 全部 BUY 和 SELL
+    for sid, v in signals.items():
+        if v["action"] in ("BUY", "SELL"):
+            top_signals[sid] = v
+    # 加上目前持倉
+    for sid in portfolio["positions"]:
+        if sid in signals:
+            top_signals[sid] = signals[sid]
+    # 補上信心最高的 HOLD（最多 20 支）
+    hold_sigs = sorted(
+        [(s, v) for s, v in signals.items() if v["action"] == "HOLD"],
+        key=lambda x: x[1].get("rsi", 50) or 50
+    )[:20]
+    for sid, v in hold_sigs:
+        top_signals[sid] = v
+
     report = {
-        "generated_at": today,
-        "summary":      daily_snap,
-        "trades_today": trades_today,
+        "generated_at":   today,
+        "summary":        daily_snap,
+        "trades_today":   trades_today,
+        "screened_total": len(history_data),
         "all_signals": {
             sid: {
                 "action":     v["action"],
@@ -248,8 +227,9 @@ def run_daily():
                 "bb_lower":   v.get("bb_lower"),
                 "vol_ratio":  v.get("vol_ratio"),
                 "reason":     v["reason"],
+                "name":       v.get("name", sid),
             }
-            for sid, v in signals.items()
+            for sid, v in top_signals.items()
         },
         "portfolio": {
             "cash":      portfolio["cash"],
@@ -257,17 +237,17 @@ def run_daily():
             "daily_log": portfolio["daily_log"],
             "trade_log": portfolio["trade_log"][-50:],
         },
-        "ai_review": None  # 預設空，有設 API key 才會有內容
+        "ai_review": "no_api_key",
+        "settings": {
+            "initial_capital":  INITIAL_CAPITAL,
+            "max_positions":    MAX_POSITIONS,
+            "buy_per_stock":    BUY_PER_STOCK,
+            "sell_stop_loss":   SELL_STOP_LOSS,
+            "sell_take_profit": SELL_TAKE_PROFIT,
+            "min_price":        MIN_PRICE,
+            "min_volume_k":     MIN_VOLUME_K,
+        }
     }
-
-    # AI 策略分析（如果有設定 API key）
-    if os.environ.get("ANTHROPIC_API_KEY"):
-        print("  正在請 AI 分析策略...")
-        review = run_ai_review(report)
-        report["ai_review"] = review
-        print("  AI 分析完成")
-    else:
-        report["ai_review"] = "no_api_key"
 
     report_path = os.path.join(REPORT_DIR, "latest_report.json")
     with open(report_path, "w", encoding="utf-8") as f:
@@ -278,6 +258,7 @@ def run_daily():
 
     _generate_standalone_html(report)
 
+    # 終端機摘要
     print(f"\n{'─'*60}")
     print(f"  帳戶總覽")
     print(f"  現金:      {daily_snap['cash']:>12,.0f} 元")
@@ -293,6 +274,7 @@ def run_daily():
             print(f"    {p['stock_id']} {p['name']:<6}  {p['shares']:>6,}股  "
                   f"成本:{p['avg_cost']:.1f}  現價:{p['market_price']:.1f}  "
                   f"損益:{s}{p['unrealized']:,.0f}元 ({s}{p['unrealized_pct']:.1f}%)")
+    print(f"  篩選結果：從全市場篩出 {len(history_data)} 支股票分析")
     print(f"{'='*60}\n")
     return report
 

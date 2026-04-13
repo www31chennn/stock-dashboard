@@ -199,9 +199,9 @@
       <div class="kpi-sub" id="kpi-pos-count">持倉 0 支</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-label">今日交易</div>
-      <div class="kpi-value" id="kpi-trades">0</div>
-      <div class="kpi-sub" id="kpi-trades-sub">無交易</div>
+      <div class="kpi-label">今日分析</div>
+      <div class="kpi-value accent" id="kpi-screened">--</div>
+      <div class="kpi-sub" id="kpi-trades-sub">交易 0 筆</div>
     </div>
   </div>
 
@@ -339,9 +339,9 @@ function renderAll(report) {
   document.getElementById('kpi-pos-count').textContent = `持倉 ${(s.positions_detail||[]).length} 支`;
 
   const trades = report.trades_today||[];
-  document.getElementById('kpi-trades').textContent = trades.length;
+  document.getElementById('kpi-screened').textContent = (report.screened_total||'--') + ' 支';
   document.getElementById('kpi-trades-sub').textContent =
-    trades.length>0 ? trades.map(t=>t.action==='BUY'?'買入':'賣出').join('、') : '今日觀望';
+    trades.length>0 ? '交易 '+trades.length+' 筆：'+trades.map(t=>t.action==='BUY'?'買入':'賣出').join('、') : '今日無交易';
 
   renderChart(report.portfolio.daily_log||[]);
   renderTrades(trades);
