@@ -410,7 +410,7 @@ function renderTrades(trades) {
         <div class="reason">${humanizeReason(t.trigger||'')}</div>
       </div>
       <div class="trade-pnl">
-        <div class="price">$${(t.price||0).toFixed(1)}</div>${pnlHtml}
+        <div class="price">$${(t.price||0).toFixed(2)}</div>${pnlHtml}
       </div>
     </div>`;
   }).join('');
@@ -439,11 +439,11 @@ function renderPositions(positions, tradeLog) {
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center;margin-bottom:8px">
         <div style="background:var(--bg2);border-radius:8px;padding:8px">
           <div style="font-size:10px;color:var(--text-dim);margin-bottom:3px">成本</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-weight:600;font-size:13px">$${p.avg_cost.toFixed(1)}</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-weight:600;font-size:13px">$${p.avg_cost.toFixed(2)}</div>
         </div>
         <div style="background:var(--bg2);border-radius:8px;padding:8px">
           <div style="font-size:10px;color:var(--text-dim);margin-bottom:3px">現價</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-weight:600;font-size:13px">$${p.market_price.toFixed(1)}</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-weight:600;font-size:13px">$${p.market_price.toFixed(2)}</div>
         </div>
         <div style="background:var(--bg2);border-radius:8px;padding:8px">
           <div style="font-size:10px;color:var(--text-dim);margin-bottom:3px">未實現</div>
@@ -470,7 +470,7 @@ function renderSignals(signals) {
     const label=sig.action==='BUY'?'🟢 買入':sig.action==='SELL'?'🔴 賣出':'⬜ 觀望';
     return `<div class="signal-item ${cls}" onclick="showSignalPopup('${sid}')">
       <div class="sid">${sid}</div>
-      <div class="sprice">${sig.price?'$'+sig.price.toFixed(1):'--'}</div>
+      <div class="sprice">${sig.price?'$'+sig.price.toFixed(2):'--'}</div>
       <div class="saction ${acls}">${label}</div>
       ${sig.confidence?`<div class="sconf">信心 ${sig.confidence}%</div>`:''}
     </div>`;
@@ -507,7 +507,7 @@ function showSignalPopup(sid) {
 
   document.getElementById('popup-content').innerHTML = `
     <h3>${sid}</h3>
-    <div class="popup-price">收盤價 ${sig.price?'$'+sig.price.toFixed(1):'--'}</div>
+    <div class="popup-price">收盤價 ${sig.price?'$'+sig.price.toFixed(2):'--'}</div>
     <span class="popup-verdict ${acls}">${action}</span>
     ${sig.confidence?`<div style="font-size:12px;color:var(--text-dim);margin-bottom:16px">信心分數：${sig.confidence}%（${sig.confidence>=70?'強':sig.confidence>=40?'中':'弱'}）</div>`:''}
 
@@ -532,11 +532,11 @@ function showSignalPopup(sid) {
       </div>
       <div class="indicator-row">
         <span class="indicator-label">MA5（5日均線）</span>
-        <span class="indicator-val">${sig.ma5!=null?'$'+sig.ma5.toFixed(1):'--'}</span>
+        <span class="indicator-val">${sig.ma5!=null?'$'+sig.ma5.toFixed(2):'--'}</span>
       </div>
       <div class="indicator-row">
         <span class="indicator-label">MA20（20日均線）</span>
-        <span class="indicator-val">${sig.ma20!=null?'$'+sig.ma20.toFixed(1):'--'}</span>
+        <span class="indicator-val">${sig.ma20!=null?'$'+sig.ma20.toFixed(2):'--'}</span>
       </div>
     </div>
 
@@ -588,7 +588,7 @@ function renderHistory(report) {
             return `<div class="history-trade">
               <span class="htag ${isBuy?'buy':'sell'}">${isBuy?'買入':'賣出'}</span>
               <div class="hinfo">
-                <div class="hstock">${t.stock_id} ${t.name||''} — ${(t.shares||0).toLocaleString()}股 @ $${(t.price||0).toFixed(1)}</div>
+                <div class="hstock">${t.stock_id} ${t.name||''} — ${(t.shares||0).toLocaleString()}股 @ $${(t.price||0).toFixed(2)}</div>
                 <div class="hreason">${humanizeReason(t.trigger||t.reason||'')}</div>
                 ${isBuy&&t.confidence?`<div style="font-size:10px;color:var(--text-dim);margin-top:2px">信心分數 ${t.confidence}%</div>`:''}
               </div>
@@ -626,11 +626,11 @@ function renderHistory(report) {
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center">
           <div style="background:var(--bg2);border-radius:8px;padding:8px">
             <div style="font-size:10px;color:var(--text-dim);margin-bottom:3px">成本</div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600">$${p.avg_cost.toFixed(1)}</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600">$${p.avg_cost.toFixed(2)}</div>
           </div>
           <div style="background:var(--bg2);border-radius:8px;padding:8px">
             <div style="font-size:10px;color:var(--text-dim);margin-bottom:3px">現價</div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600">$${p.market_price.toFixed(1)}</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600">$${p.market_price.toFixed(2)}</div>
           </div>
           <div style="background:var(--bg2);border-radius:8px;padding:8px">
             <div style="font-size:10px;color:var(--text-dim);margin-bottom:3px">損益</div>
