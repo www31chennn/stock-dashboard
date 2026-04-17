@@ -364,6 +364,66 @@
           "unrealized_pct": 0.0
         }
       ]
+    },
+    {
+      "date": "2026-04-17",
+      "cash": 28019.0,
+      "market_value": 171700.0,
+      "total_assets": 199719.0,
+      "total_pnl": -281.0,
+      "total_pnl_pct": -0.14,
+      "positions_detail": [
+        {
+          "stock_id": "2530",
+          "name": "華建",
+          "shares": 1000,
+          "avg_cost": 22.850000381469727,
+          "market_price": 22.600000381469727,
+          "market_value": 22600.0,
+          "unrealized": -250.0,
+          "unrealized_pct": -1.09
+        },
+        {
+          "stock_id": "1409",
+          "name": "新纖",
+          "shares": 1000,
+          "avg_cost": 17.200000762939453,
+          "market_price": 16.700000762939453,
+          "market_value": 16700.0,
+          "unrealized": -500.0,
+          "unrealized_pct": -2.91
+        },
+        {
+          "stock_id": "1727",
+          "name": "中華化",
+          "shares": 1000,
+          "avg_cost": 58.400001525878906,
+          "market_price": 56.29999923706055,
+          "market_value": 56300.0,
+          "unrealized": -2100.0,
+          "unrealized_pct": -3.6
+        },
+        {
+          "stock_id": "2611",
+          "name": "志信",
+          "shares": 2000,
+          "avg_cost": 14.949999809265137,
+          "market_price": 14.699999809265137,
+          "market_value": 29400.0,
+          "unrealized": -500.0,
+          "unrealized_pct": -1.67
+        },
+        {
+          "stock_id": "2539",
+          "name": "櫻花建",
+          "shares": 1000,
+          "avg_cost": 46.95000076293945,
+          "market_price": 46.70000076293945,
+          "market_value": 46700.0,
+          "unrealized": -250.0,
+          "unrealized_pct": -0.53
+        }
+      ]
     }
   ]
 }
