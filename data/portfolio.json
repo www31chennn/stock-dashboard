@@ -1,16 +1,11 @@
 {
-  "cash": 60833.99694824219,
+  "cash": 45551.99656677246,
   "initial": 200000,
   "positions": {
     "2530": {
       "shares": 1000,
       "avg_cost": 22.850000381469727,
       "name": "華建"
-    },
-    "2611": {
-      "shares": 2000,
-      "avg_cost": 14.949999809265137,
-      "name": "志信"
     },
     "2539": {
       "shares": 1000,
@@ -26,6 +21,11 @@
       "shares": 1000,
       "avg_cost": 26.700000762939453,
       "name": "寶成"
+    },
+    "1229": {
+      "shares": 1000,
+      "avg_cost": 42.5,
+      "name": "聯華"
     }
   },
   "trade_log": [
@@ -179,6 +179,35 @@
       "fee": 38,
       "total": 26738.000762939453,
       "trigger": "技術訊號：RSI=28.9 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 2.7x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-04-24 10:25:08",
+      "action": "SELL",
+      "stock_id": "2611",
+      "name": "志信",
+      "price": 13.699999809265137,
+      "shares": 2000,
+      "amount": 27399.999618530273,
+      "fee": 39,
+      "tax": 82,
+      "net": 27278.999618530273,
+      "avg_cost": 14.949999809265137,
+      "pnl": -2621.0,
+      "pnl_pct": -8.77,
+      "trigger": "停損觸發（跌幅 -8.4%）"
+    },
+    {
+      "datetime": "2026-04-24 10:25:08",
+      "action": "BUY",
+      "stock_id": "1229",
+      "name": "聯華",
+      "price": 42.5,
+      "shares": 1000,
+      "amount": 42500.0,
+      "fee": 61,
+      "total": 42561.0,
+      "trigger": "技術訊號：RSI=18.2 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 1.7x（買訊確認）",
       "confidence": 65
     }
   ],
@@ -720,6 +749,66 @@
           "market_value": 26750.0,
           "unrealized": 50.0,
           "unrealized_pct": 0.19
+        }
+      ]
+    },
+    {
+      "date": "2026-04-24",
+      "cash": 45552.0,
+      "market_value": 156700.0,
+      "total_assets": 202252.0,
+      "total_pnl": 2252.0,
+      "total_pnl_pct": 1.13,
+      "positions_detail": [
+        {
+          "stock_id": "2530",
+          "name": "華建",
+          "shares": 1000,
+          "avg_cost": 22.850000381469727,
+          "market_price": 21.850000381469727,
+          "market_value": 21850.0,
+          "unrealized": -1000.0,
+          "unrealized_pct": -4.38
+        },
+        {
+          "stock_id": "2539",
+          "name": "櫻花建",
+          "shares": 1000,
+          "avg_cost": 46.95000076293945,
+          "market_price": 43.25,
+          "market_value": 43250.0,
+          "unrealized": -3700.0,
+          "unrealized_pct": -7.88
+        },
+        {
+          "stock_id": "2528",
+          "name": "皇普",
+          "shares": 1000,
+          "avg_cost": 22.5,
+          "market_price": 22.5,
+          "market_value": 22500.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        },
+        {
+          "stock_id": "9904",
+          "name": "寶成",
+          "shares": 1000,
+          "avg_cost": 26.700000762939453,
+          "market_price": 26.600000381469727,
+          "market_value": 26600.0,
+          "unrealized": -100.0,
+          "unrealized_pct": -0.37
+        },
+        {
+          "stock_id": "1229",
+          "name": "聯華",
+          "shares": 1000,
+          "avg_cost": 42.5,
+          "market_price": 42.5,
+          "market_value": 42500.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
