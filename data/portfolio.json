@@ -1,16 +1,11 @@
 {
-  "cash": 45551.99656677246,
+  "cash": 57980.996185302734,
   "initial": 200000,
   "positions": {
     "2530": {
       "shares": 1000,
       "avg_cost": 22.850000381469727,
       "name": "華建"
-    },
-    "2539": {
-      "shares": 1000,
-      "avg_cost": 46.95000076293945,
-      "name": "櫻花建"
     },
     "2528": {
       "shares": 1000,
@@ -26,6 +21,11 @@
       "shares": 1000,
       "avg_cost": 42.5,
       "name": "聯華"
+    },
+    "1104": {
+      "shares": 1000,
+      "avg_cost": 28.399999618530273,
+      "name": "環泥"
     }
   },
   "trade_log": [
@@ -208,6 +208,35 @@
       "fee": 61,
       "total": 42561.0,
       "trigger": "技術訊號：RSI=18.2 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 1.7x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-04-27 11:00:34",
+      "action": "SELL",
+      "stock_id": "2539",
+      "name": "櫻花建",
+      "price": 41.04999923706055,
+      "shares": 1000,
+      "amount": 41049.99923706055,
+      "fee": 58,
+      "tax": 123,
+      "net": 40868.99923706055,
+      "avg_cost": 46.95000076293945,
+      "pnl": -6081.0,
+      "pnl_pct": -12.95,
+      "trigger": "停損觸發（跌幅 -12.6%）"
+    },
+    {
+      "datetime": "2026-04-27 11:00:34",
+      "action": "BUY",
+      "stock_id": "1104",
+      "name": "環泥",
+      "price": 28.399999618530273,
+      "shares": 1000,
+      "amount": 28399.999618530273,
+      "fee": 40,
+      "total": 28439.999618530273,
+      "trigger": "技術訊號：RSI=27.3 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 1.7x（買訊確認）",
       "confidence": 65
     }
   ],
@@ -807,6 +836,66 @@
           "avg_cost": 42.5,
           "market_price": 42.5,
           "market_value": 42500.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        }
+      ]
+    },
+    {
+      "date": "2026-04-27",
+      "cash": 57981.0,
+      "market_value": 140150.0,
+      "total_assets": 198131.0,
+      "total_pnl": -1869.0,
+      "total_pnl_pct": -0.93,
+      "positions_detail": [
+        {
+          "stock_id": "2530",
+          "name": "華建",
+          "shares": 1000,
+          "avg_cost": 22.850000381469727,
+          "market_price": 21.399999618530273,
+          "market_value": 21400.0,
+          "unrealized": -1450.0,
+          "unrealized_pct": -6.35
+        },
+        {
+          "stock_id": "2528",
+          "name": "皇普",
+          "shares": 1000,
+          "avg_cost": 22.5,
+          "market_price": 22.450000762939453,
+          "market_value": 22450.0,
+          "unrealized": -50.0,
+          "unrealized_pct": -0.22
+        },
+        {
+          "stock_id": "9904",
+          "name": "寶成",
+          "shares": 1000,
+          "avg_cost": 26.700000762939453,
+          "market_price": 26.200000762939453,
+          "market_value": 26200.0,
+          "unrealized": -500.0,
+          "unrealized_pct": -1.87
+        },
+        {
+          "stock_id": "1229",
+          "name": "聯華",
+          "shares": 1000,
+          "avg_cost": 42.5,
+          "market_price": 41.70000076293945,
+          "market_value": 41700.0,
+          "unrealized": -800.0,
+          "unrealized_pct": -1.88
+        },
+        {
+          "stock_id": "1104",
+          "name": "環泥",
+          "shares": 1000,
+          "avg_cost": 28.399999618530273,
+          "market_price": 28.399999618530273,
+          "market_value": 28400.0,
           "unrealized": 0.0,
           "unrealized_pct": 0.0
         }
