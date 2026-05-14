@@ -1649,6 +1649,66 @@
           "unrealized_pct": 0.46
         }
       ]
+    },
+    {
+      "date": "2026-05-14",
+      "cash": 13445.0,
+      "market_value": 182050.0,
+      "total_assets": 195495.0,
+      "total_pnl": -4505.0,
+      "total_pnl_pct": -2.25,
+      "positions_detail": [
+        {
+          "stock_id": "2528",
+          "name": "皇普",
+          "shares": 1000,
+          "avg_cost": 22.5,
+          "market_price": 22.25,
+          "market_value": 22250.0,
+          "unrealized": -250.0,
+          "unrealized_pct": -1.11
+        },
+        {
+          "stock_id": "9904",
+          "name": "寶成",
+          "shares": 1000,
+          "avg_cost": 26.700000762939453,
+          "market_price": 25.850000381469727,
+          "market_value": 25850.0,
+          "unrealized": -850.0,
+          "unrealized_pct": -3.18
+        },
+        {
+          "stock_id": "1229",
+          "name": "聯華",
+          "shares": 1000,
+          "avg_cost": 42.5,
+          "market_price": 39.95000076293945,
+          "market_value": 39950.0,
+          "unrealized": -2550.0,
+          "unrealized_pct": -6.0
+        },
+        {
+          "stock_id": "1104",
+          "name": "環泥",
+          "shares": 1000,
+          "avg_cost": 28.399999618530273,
+          "market_price": 27.899999618530273,
+          "market_value": 27900.0,
+          "unrealized": -500.0,
+          "unrealized_pct": -1.76
+        },
+        {
+          "stock_id": "2006",
+          "name": "東和鋼鐵",
+          "shares": 1000,
+          "avg_cost": 65.19999694824219,
+          "market_price": 66.0999984741211,
+          "market_value": 66100.0,
+          "unrealized": 900.0,
+          "unrealized_pct": 1.38
+        }
+      ]
     }
   ]
 }
