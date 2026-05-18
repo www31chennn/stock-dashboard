@@ -1,5 +1,5 @@
 {
-  "cash": 13444.999618530273,
+  "cash": 34047.99885559082,
   "initial": 200000,
   "positions": {
     "2528": {
@@ -12,11 +12,6 @@
       "avg_cost": 26.700000762939453,
       "name": "寶成"
     },
-    "1229": {
-      "shares": 1000,
-      "avg_cost": 42.5,
-      "name": "聯華"
-    },
     "1104": {
       "shares": 1000,
       "avg_cost": 28.399999618530273,
@@ -26,6 +21,11 @@
       "shares": 1000,
       "avg_cost": 65.19999694824219,
       "name": "東和鋼鐵"
+    },
+    "1709": {
+      "shares": 1000,
+      "avg_cost": 18.0,
+      "name": "和益"
     }
   },
   "trade_log": [
@@ -266,6 +266,35 @@
       "fee": 93,
       "total": 65292.99694824219,
       "trigger": "技術訊號：RSI=27.7 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 1.7x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-05-18 12:32:01",
+      "action": "SELL",
+      "stock_id": "1229",
+      "name": "聯華",
+      "price": 38.79999923706055,
+      "shares": 1000,
+      "amount": 38799.99923706055,
+      "fee": 55,
+      "tax": 116,
+      "net": 38628.99923706055,
+      "avg_cost": 42.5,
+      "pnl": -3871.0,
+      "pnl_pct": -9.11,
+      "trigger": "停損觸發（跌幅 -8.7%）"
+    },
+    {
+      "datetime": "2026-05-18 12:32:01",
+      "action": "BUY",
+      "stock_id": "1709",
+      "name": "和益",
+      "price": 18.0,
+      "shares": 1000,
+      "amount": 18000.0,
+      "fee": 26,
+      "total": 18026.0,
+      "trigger": "技術訊號：RSI=22.5 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 1.8x（買訊確認）",
       "confidence": 65
     }
   ],
@@ -1767,6 +1796,66 @@
           "market_value": 65000.0,
           "unrealized": -200.0,
           "unrealized_pct": -0.31
+        }
+      ]
+    },
+    {
+      "date": "2026-05-18",
+      "cash": 34048.0,
+      "market_value": 158700.0,
+      "total_assets": 192748.0,
+      "total_pnl": -7252.0,
+      "total_pnl_pct": -3.63,
+      "positions_detail": [
+        {
+          "stock_id": "2528",
+          "name": "皇普",
+          "shares": 1000,
+          "avg_cost": 22.5,
+          "market_price": 22.200000762939453,
+          "market_value": 22200.0,
+          "unrealized": -300.0,
+          "unrealized_pct": -1.33
+        },
+        {
+          "stock_id": "9904",
+          "name": "寶成",
+          "shares": 1000,
+          "avg_cost": 26.700000762939453,
+          "market_price": 26.350000381469727,
+          "market_value": 26350.0,
+          "unrealized": -350.0,
+          "unrealized_pct": -1.31
+        },
+        {
+          "stock_id": "1104",
+          "name": "環泥",
+          "shares": 1000,
+          "avg_cost": 28.399999618530273,
+          "market_price": 27.350000381469727,
+          "market_value": 27350.0,
+          "unrealized": -1050.0,
+          "unrealized_pct": -3.7
+        },
+        {
+          "stock_id": "2006",
+          "name": "東和鋼鐵",
+          "shares": 1000,
+          "avg_cost": 65.19999694824219,
+          "market_price": 64.80000305175781,
+          "market_value": 64800.0,
+          "unrealized": -400.0,
+          "unrealized_pct": -0.61
+        },
+        {
+          "stock_id": "1709",
+          "name": "和益",
+          "shares": 1000,
+          "avg_cost": 18.0,
+          "market_price": 18.0,
+          "market_value": 18000.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
