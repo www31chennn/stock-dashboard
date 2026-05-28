@@ -1,5 +1,5 @@
 {
-  "cash": 37552.998474121094,
+  "cash": 24619.997329711914,
   "initial": 200000,
   "positions": {
     "2528": {
@@ -17,15 +17,15 @@
       "avg_cost": 65.19999694824219,
       "name": "東和鋼鐵"
     },
-    "1709": {
-      "shares": 1000,
-      "avg_cost": 18.0,
-      "name": "和益"
-    },
     "9136": {
       "shares": 2000,
       "avg_cost": 11.0,
       "name": "巨騰-DR"
+    },
+    "1102": {
+      "shares": 1000,
+      "avg_cost": 32.400001525878906,
+      "name": "亞泥"
     }
   },
   "trade_log": [
@@ -324,6 +324,35 @@
       "fee": 31,
       "total": 22031.0,
       "trigger": "技術訊號：RSI=0.0 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 4.5x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-05-28 12:28:32",
+      "action": "SELL",
+      "stock_id": "1709",
+      "name": "和益",
+      "price": 19.600000381469727,
+      "shares": 1000,
+      "amount": 19600.000381469727,
+      "fee": 28,
+      "tax": 59,
+      "net": 19513.000381469727,
+      "avg_cost": 18.0,
+      "pnl": 1513.0,
+      "pnl_pct": 8.41,
+      "trigger": "技術訊號：RSI=65.6 偏高（> 60）、股價碰觸布林上軌（超買回落訊號）、成交量放大 1.8x（賣訊確認）"
+    },
+    {
+      "datetime": "2026-05-28 12:28:32",
+      "action": "BUY",
+      "stock_id": "1102",
+      "name": "亞泥",
+      "price": 32.400001525878906,
+      "shares": 1000,
+      "amount": 32400.001525878906,
+      "fee": 46,
+      "total": 32446.001525878906,
+      "trigger": "技術訊號：RSI=27.8 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 2.1x（買訊確認）",
       "confidence": 65
     }
   ],
@@ -2245,6 +2274,66 @@
           "market_value": 22900.0,
           "unrealized": 900.0,
           "unrealized_pct": 4.09
+        }
+      ]
+    },
+    {
+      "date": "2026-05-28",
+      "cash": 24620.0,
+      "market_value": 169650.0,
+      "total_assets": 194270.0,
+      "total_pnl": -5730.0,
+      "total_pnl_pct": -2.86,
+      "positions_detail": [
+        {
+          "stock_id": "2528",
+          "name": "皇普",
+          "shares": 1000,
+          "avg_cost": 22.5,
+          "market_price": 21.350000381469727,
+          "market_value": 21350.0,
+          "unrealized": -1150.0,
+          "unrealized_pct": -5.11
+        },
+        {
+          "stock_id": "1104",
+          "name": "環泥",
+          "shares": 1000,
+          "avg_cost": 28.399999618530273,
+          "market_price": 27.200000762939453,
+          "market_value": 27200.0,
+          "unrealized": -1200.0,
+          "unrealized_pct": -4.23
+        },
+        {
+          "stock_id": "2006",
+          "name": "東和鋼鐵",
+          "shares": 1000,
+          "avg_cost": 65.19999694824219,
+          "market_price": 66.4000015258789,
+          "market_value": 66400.0,
+          "unrealized": 1200.0,
+          "unrealized_pct": 1.84
+        },
+        {
+          "stock_id": "9136",
+          "name": "巨騰-DR",
+          "shares": 2000,
+          "avg_cost": 11.0,
+          "market_price": 11.149999618530273,
+          "market_value": 22300.0,
+          "unrealized": 300.0,
+          "unrealized_pct": 1.36
+        },
+        {
+          "stock_id": "1102",
+          "name": "亞泥",
+          "shares": 1000,
+          "avg_cost": 32.400001525878906,
+          "market_price": 32.400001525878906,
+          "market_value": 32400.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
