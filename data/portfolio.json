@@ -1,12 +1,7 @@
 {
-  "cash": 24619.997329711914,
+  "cash": 24501.997329711914,
   "initial": 200000,
   "positions": {
-    "2528": {
-      "shares": 1000,
-      "avg_cost": 22.5,
-      "name": "皇普"
-    },
     "1104": {
       "shares": 1000,
       "avg_cost": 28.399999618530273,
@@ -26,6 +21,11 @@
       "shares": 1000,
       "avg_cost": 32.400001525878906,
       "name": "亞泥"
+    },
+    "2528": {
+      "shares": 1000,
+      "avg_cost": 20.149999618530273,
+      "name": "皇普"
     }
   },
   "trade_log": [
@@ -353,6 +353,35 @@
       "fee": 46,
       "total": 32446.001525878906,
       "trigger": "技術訊號：RSI=27.8 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 2.1x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-06-01 15:02:34",
+      "action": "SELL",
+      "stock_id": "2528",
+      "name": "皇普",
+      "price": 20.149999618530273,
+      "shares": 1000,
+      "amount": 20149.999618530273,
+      "fee": 29,
+      "tax": 60,
+      "net": 20060.999618530273,
+      "avg_cost": 22.5,
+      "pnl": -2439.0,
+      "pnl_pct": -10.84,
+      "trigger": "停損觸發（跌幅 -10.4%）"
+    },
+    {
+      "datetime": "2026-06-01 15:02:34",
+      "action": "BUY",
+      "stock_id": "2528",
+      "name": "皇普",
+      "price": 20.149999618530273,
+      "shares": 1000,
+      "amount": 20149.999618530273,
+      "fee": 29,
+      "total": 20178.999618530273,
+      "trigger": "技術訊號：RSI=16.7 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 2.9x（買訊確認）",
       "confidence": 65
     }
   ],
@@ -2394,6 +2423,66 @@
           "market_value": 34000.0,
           "unrealized": 1600.0,
           "unrealized_pct": 4.94
+        }
+      ]
+    },
+    {
+      "date": "2026-06-01",
+      "cash": 24502.0,
+      "market_value": 173750.0,
+      "total_assets": 198252.0,
+      "total_pnl": -1748.0,
+      "total_pnl_pct": -0.87,
+      "positions_detail": [
+        {
+          "stock_id": "1104",
+          "name": "環泥",
+          "shares": 1000,
+          "avg_cost": 28.399999618530273,
+          "market_price": 27.899999618530273,
+          "market_value": 27900.0,
+          "unrealized": -500.0,
+          "unrealized_pct": -1.76
+        },
+        {
+          "stock_id": "2006",
+          "name": "東和鋼鐵",
+          "shares": 1000,
+          "avg_cost": 65.19999694824219,
+          "market_price": 67.5999984741211,
+          "market_value": 67600.0,
+          "unrealized": 2400.0,
+          "unrealized_pct": 3.68
+        },
+        {
+          "stock_id": "9136",
+          "name": "巨騰-DR",
+          "shares": 2000,
+          "avg_cost": 11.0,
+          "market_price": 12.149999618530273,
+          "market_value": 24300.0,
+          "unrealized": 2300.0,
+          "unrealized_pct": 10.45
+        },
+        {
+          "stock_id": "1102",
+          "name": "亞泥",
+          "shares": 1000,
+          "avg_cost": 32.400001525878906,
+          "market_price": 33.79999923706055,
+          "market_value": 33800.0,
+          "unrealized": 1400.0,
+          "unrealized_pct": 4.32
+        },
+        {
+          "stock_id": "2528",
+          "name": "皇普",
+          "shares": 1000,
+          "avg_cost": 20.149999618530273,
+          "market_price": 20.149999618530273,
+          "market_value": 20150.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
