@@ -1,12 +1,7 @@
 {
-  "cash": 31555.998092651367,
+  "cash": 37742.998474121094,
   "initial": 200000,
   "positions": {
-    "1104": {
-      "shares": 1000,
-      "avg_cost": 28.399999618530273,
-      "name": "環泥"
-    },
     "2006": {
       "shares": 1000,
       "avg_cost": 65.19999694824219,
@@ -26,6 +21,11 @@
       "shares": 1000,
       "avg_cost": 19.399999618530273,
       "name": "泰山"
+    },
+    "1906": {
+      "shares": 2000,
+      "avg_cost": 11.449999809265137,
+      "name": "寶隆"
     }
   },
   "trade_log": [
@@ -411,6 +411,35 @@
       "fee": 28,
       "total": 19427.999618530273,
       "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）、RSI=61.4 偏高（> 60）、股價碰觸布林上軌（超買回落訊號）、成交量放大 1.8x（買訊確認）",
+      "confidence": 50
+    },
+    {
+      "datetime": "2026-06-04 11:51:55",
+      "action": "SELL",
+      "stock_id": "1104",
+      "name": "環泥",
+      "price": 29.25,
+      "shares": 1000,
+      "amount": 29250.0,
+      "fee": 42,
+      "tax": 88,
+      "net": 29120.0,
+      "avg_cost": 28.399999618530273,
+      "pnl": 720.0,
+      "pnl_pct": 2.54,
+      "trigger": "技術訊號：RSI=85.2 超買（> 70）、股價碰觸布林上軌（超買回落訊號）、成交量放大 1.6x（賣訊確認）"
+    },
+    {
+      "datetime": "2026-06-04 11:51:55",
+      "action": "BUY",
+      "stock_id": "1906",
+      "name": "寶隆",
+      "price": 11.449999809265137,
+      "shares": 2000,
+      "amount": 22899.999618530273,
+      "fee": 33,
+      "total": 22932.999618530273,
+      "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）、RSI=69.8 偏高（> 60）、股價碰觸布林上軌（超買回落訊號）、成交量放大 6.7x（買訊確認）",
       "confidence": 50
     }
   ],
@@ -2632,6 +2661,66 @@
           "market_value": 19600.0,
           "unrealized": 200.0,
           "unrealized_pct": 1.03
+        }
+      ]
+    },
+    {
+      "date": "2026-06-04",
+      "cash": 37743.0,
+      "market_value": 165400.0,
+      "total_assets": 203143.0,
+      "total_pnl": 3143.0,
+      "total_pnl_pct": 1.57,
+      "positions_detail": [
+        {
+          "stock_id": "2006",
+          "name": "東和鋼鐵",
+          "shares": 1000,
+          "avg_cost": 65.19999694824219,
+          "market_price": 67.4000015258789,
+          "market_value": 67400.0,
+          "unrealized": 2200.0,
+          "unrealized_pct": 3.37
+        },
+        {
+          "stock_id": "1102",
+          "name": "亞泥",
+          "shares": 1000,
+          "avg_cost": 32.400001525878906,
+          "market_price": 34.349998474121094,
+          "market_value": 34350.0,
+          "unrealized": 1950.0,
+          "unrealized_pct": 6.02
+        },
+        {
+          "stock_id": "2528",
+          "name": "皇普",
+          "shares": 1000,
+          "avg_cost": 20.149999618530273,
+          "market_price": 21.25,
+          "market_value": 21250.0,
+          "unrealized": 1100.0,
+          "unrealized_pct": 5.46
+        },
+        {
+          "stock_id": "1218",
+          "name": "泰山",
+          "shares": 1000,
+          "avg_cost": 19.399999618530273,
+          "market_price": 19.5,
+          "market_value": 19500.0,
+          "unrealized": 100.0,
+          "unrealized_pct": 0.52
+        },
+        {
+          "stock_id": "1906",
+          "name": "寶隆",
+          "shares": 2000,
+          "avg_cost": 11.449999809265137,
+          "market_price": 11.449999809265137,
+          "market_value": 22900.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
