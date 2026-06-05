@@ -1,5 +1,5 @@
 {
-  "cash": 37742.998474121094,
+  "cash": 1595.9996185302734,
   "initial": 200000,
   "positions": {
     "2006": {
@@ -12,20 +12,10 @@
       "avg_cost": 32.400001525878906,
       "name": "亞泥"
     },
-    "2528": {
+    "2548": {
       "shares": 1000,
-      "avg_cost": 20.149999618530273,
-      "name": "皇普"
-    },
-    "1218": {
-      "shares": 1000,
-      "avg_cost": 19.399999618530273,
-      "name": "泰山"
-    },
-    "1906": {
-      "shares": 2000,
-      "avg_cost": 11.449999809265137,
-      "name": "寶隆"
+      "avg_cost": 103.5,
+      "name": "華固"
     }
   },
   "trade_log": [
@@ -441,6 +431,67 @@
       "total": 22932.999618530273,
       "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）、RSI=69.8 偏高（> 60）、股價碰觸布林上軌（超買回落訊號）、成交量放大 6.7x（買訊確認）",
       "confidence": 50
+    },
+    {
+      "datetime": "2026-06-05 12:04:00",
+      "action": "SELL",
+      "stock_id": "2528",
+      "name": "皇普",
+      "price": 23.350000381469727,
+      "shares": 1000,
+      "amount": 23350.000381469727,
+      "fee": 33,
+      "tax": 70,
+      "net": 23247.000381469727,
+      "avg_cost": 20.149999618530273,
+      "pnl": 3097.0,
+      "pnl_pct": 15.37,
+      "trigger": "停利觸發（漲幅 15.9%）"
+    },
+    {
+      "datetime": "2026-06-05 12:04:00",
+      "action": "SELL",
+      "stock_id": "1218",
+      "name": "泰山",
+      "price": 19.350000381469727,
+      "shares": 1000,
+      "amount": 19350.000381469727,
+      "fee": 28,
+      "tax": 58,
+      "net": 19264.000381469727,
+      "avg_cost": 19.399999618530273,
+      "pnl": -136.0,
+      "pnl_pct": -0.7,
+      "trigger": "技術訊號：RSI=72.1 超買（> 70）、成交量放大 1.9x（賣訊確認）"
+    },
+    {
+      "datetime": "2026-06-05 12:04:00",
+      "action": "SELL",
+      "stock_id": "1906",
+      "name": "寶隆",
+      "price": 12.550000190734863,
+      "shares": 2000,
+      "amount": 25100.000381469727,
+      "fee": 36,
+      "tax": 75,
+      "net": 24989.000381469727,
+      "avg_cost": 11.449999809265137,
+      "pnl": 2089.0,
+      "pnl_pct": 9.12,
+      "trigger": "技術訊號：RSI=80.0 超買（> 70）、股價碰觸布林上軌（超買回落訊號）、成交量放大 4.5x（賣訊確認）"
+    },
+    {
+      "datetime": "2026-06-05 12:04:00",
+      "action": "BUY",
+      "stock_id": "2548",
+      "name": "華固",
+      "price": 103.5,
+      "shares": 1000,
+      "amount": 103500.0,
+      "fee": 147,
+      "total": 103647.0,
+      "trigger": "技術訊號：RSI=24.7 超賣（< 30）、成交量放大 1.6x（買訊確認）",
+      "confidence": 45
     }
   ],
   "daily_log": [
@@ -2719,6 +2770,46 @@
           "avg_cost": 11.449999809265137,
           "market_price": 11.449999809265137,
           "market_value": 22900.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        }
+      ]
+    },
+    {
+      "date": "2026-06-05",
+      "cash": 1596.0,
+      "market_value": 204900.0,
+      "total_assets": 206496.0,
+      "total_pnl": 6496.0,
+      "total_pnl_pct": 3.25,
+      "positions_detail": [
+        {
+          "stock_id": "2006",
+          "name": "東和鋼鐵",
+          "shares": 1000,
+          "avg_cost": 65.19999694824219,
+          "market_price": 67.0,
+          "market_value": 67000.0,
+          "unrealized": 1800.0,
+          "unrealized_pct": 2.76
+        },
+        {
+          "stock_id": "1102",
+          "name": "亞泥",
+          "shares": 1000,
+          "avg_cost": 32.400001525878906,
+          "market_price": 34.400001525878906,
+          "market_value": 34400.0,
+          "unrealized": 2000.0,
+          "unrealized_pct": 6.17
+        },
+        {
+          "stock_id": "2548",
+          "name": "華固",
+          "shares": 1000,
+          "avg_cost": 103.5,
+          "market_price": 103.5,
+          "market_value": 103500.0,
           "unrealized": 0.0,
           "unrealized_pct": 0.0
         }
