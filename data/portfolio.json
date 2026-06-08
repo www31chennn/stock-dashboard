@@ -2814,6 +2814,46 @@
           "unrealized_pct": 0.0
         }
       ]
+    },
+    {
+      "date": "2026-06-08",
+      "cash": 1596.0,
+      "market_value": 200650.0,
+      "total_assets": 202246.0,
+      "total_pnl": 2246.0,
+      "total_pnl_pct": 1.12,
+      "positions_detail": [
+        {
+          "stock_id": "2006",
+          "name": "東和鋼鐵",
+          "shares": 1000,
+          "avg_cost": 65.19999694824219,
+          "market_price": 65.4000015258789,
+          "market_value": 65400.0,
+          "unrealized": 200.0,
+          "unrealized_pct": 0.31
+        },
+        {
+          "stock_id": "1102",
+          "name": "亞泥",
+          "shares": 1000,
+          "avg_cost": 32.400001525878906,
+          "market_price": 33.75,
+          "market_value": 33750.0,
+          "unrealized": 1350.0,
+          "unrealized_pct": 4.17
+        },
+        {
+          "stock_id": "2548",
+          "name": "華固",
+          "shares": 1000,
+          "avg_cost": 103.5,
+          "market_price": 101.5,
+          "market_value": 101500.0,
+          "unrealized": -2000.0,
+          "unrealized_pct": -1.93
+        }
+      ]
     }
   ]
 }
