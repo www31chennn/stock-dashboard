@@ -1,12 +1,7 @@
 {
-  "cash": 1595.9996185302734,
+  "cash": 25379.00114440918,
   "initial": 200000,
   "positions": {
-    "2006": {
-      "shares": 1000,
-      "avg_cost": 65.19999694824219,
-      "name": "東和鋼鐵"
-    },
     "1102": {
       "shares": 1000,
       "avg_cost": 32.400001525878906,
@@ -16,6 +11,11 @@
       "shares": 1000,
       "avg_cost": 103.5,
       "name": "華固"
+    },
+    "6909": {
+      "shares": 1000,
+      "avg_cost": 44.349998474121094,
+      "name": "創控"
     }
   },
   "trade_log": [
@@ -491,6 +491,35 @@
       "fee": 147,
       "total": 103647.0,
       "trigger": "技術訊號：RSI=24.7 超賣（< 30）、成交量放大 1.6x（買訊確認）",
+      "confidence": 45
+    },
+    {
+      "datetime": "2026-06-12 12:20:17",
+      "action": "SELL",
+      "stock_id": "2006",
+      "name": "東和鋼鐵",
+      "price": 68.5,
+      "shares": 1000,
+      "amount": 68500.0,
+      "fee": 98,
+      "tax": 206,
+      "net": 68196.0,
+      "avg_cost": 65.19999694824219,
+      "pnl": 2996.0,
+      "pnl_pct": 4.6,
+      "trigger": "技術訊號：股價碰觸布林上軌（超買回落訊號）、成交量放大 1.8x（賣訊確認）"
+    },
+    {
+      "datetime": "2026-06-12 12:20:17",
+      "action": "BUY",
+      "stock_id": "6909",
+      "name": "創控",
+      "price": 44.349998474121094,
+      "shares": 1000,
+      "amount": 44349.998474121094,
+      "fee": 63,
+      "total": 44412.998474121094,
+      "trigger": "技術訊號：RSI=26.3 超賣（< 30）、成交量放大 1.6x（買訊確認）",
       "confidence": 45
     }
   ],
@@ -2972,6 +3001,46 @@
           "market_value": 104000.0,
           "unrealized": 500.0,
           "unrealized_pct": 0.48
+        }
+      ]
+    },
+    {
+      "date": "2026-06-12",
+      "cash": 25379.0,
+      "market_value": 185550.0,
+      "total_assets": 210929.0,
+      "total_pnl": 10929.0,
+      "total_pnl_pct": 5.46,
+      "positions_detail": [
+        {
+          "stock_id": "1102",
+          "name": "亞泥",
+          "shares": 1000,
+          "avg_cost": 32.400001525878906,
+          "market_price": 35.20000076293945,
+          "market_value": 35200.0,
+          "unrealized": 2800.0,
+          "unrealized_pct": 8.64
+        },
+        {
+          "stock_id": "2548",
+          "name": "華固",
+          "shares": 1000,
+          "avg_cost": 103.5,
+          "market_price": 106.0,
+          "market_value": 106000.0,
+          "unrealized": 2500.0,
+          "unrealized_pct": 2.42
+        },
+        {
+          "stock_id": "6909",
+          "name": "創控",
+          "shares": 1000,
+          "avg_cost": 44.349998474121094,
+          "market_price": 44.349998474121094,
+          "market_value": 44350.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
