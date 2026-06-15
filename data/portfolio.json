@@ -1,5 +1,5 @@
 {
-  "cash": 25379.00114440918,
+  "cash": 4549.001907348633,
   "initial": 200000,
   "positions": {
     "1102": {
@@ -16,6 +16,11 @@
       "shares": 1000,
       "avg_cost": 44.349998474121094,
       "name": "創控"
+    },
+    "2034": {
+      "shares": 1000,
+      "avg_cost": 20.799999237060547,
+      "name": "允強"
     }
   },
   "trade_log": [
@@ -521,6 +526,19 @@
       "total": 44412.998474121094,
       "trigger": "技術訊號：RSI=26.3 超賣（< 30）、成交量放大 1.6x（買訊確認）",
       "confidence": 45
+    },
+    {
+      "datetime": "2026-06-15 15:06:02",
+      "action": "BUY",
+      "stock_id": "2034",
+      "name": "允強",
+      "price": 20.799999237060547,
+      "shares": 1000,
+      "amount": 20799.999237060547,
+      "fee": 30,
+      "total": 20829.999237060547,
+      "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）、RSI=61.5 偏高（> 60）、股價碰觸布林上軌（超買回落訊號）、成交量放大 1.6x（買訊確認）",
+      "confidence": 50
     }
   ],
   "daily_log": [
@@ -3039,6 +3057,56 @@
           "avg_cost": 44.349998474121094,
           "market_price": 44.349998474121094,
           "market_value": 44350.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        }
+      ]
+    },
+    {
+      "date": "2026-06-15",
+      "cash": 4549.0,
+      "market_value": 206900.0,
+      "total_assets": 211449.0,
+      "total_pnl": 11449.0,
+      "total_pnl_pct": 5.72,
+      "positions_detail": [
+        {
+          "stock_id": "1102",
+          "name": "亞泥",
+          "shares": 1000,
+          "avg_cost": 32.400001525878906,
+          "market_price": 35.45000076293945,
+          "market_value": 35450.0,
+          "unrealized": 3050.0,
+          "unrealized_pct": 9.41
+        },
+        {
+          "stock_id": "2548",
+          "name": "華固",
+          "shares": 1000,
+          "avg_cost": 103.5,
+          "market_price": 103.0,
+          "market_value": 103000.0,
+          "unrealized": -500.0,
+          "unrealized_pct": -0.48
+        },
+        {
+          "stock_id": "6909",
+          "name": "創控",
+          "shares": 1000,
+          "avg_cost": 44.349998474121094,
+          "market_price": 47.650001525878906,
+          "market_value": 47650.0,
+          "unrealized": 3300.0,
+          "unrealized_pct": 7.44
+        },
+        {
+          "stock_id": "2034",
+          "name": "允強",
+          "shares": 1000,
+          "avg_cost": 20.799999237060547,
+          "market_price": 20.799999237060547,
+          "market_value": 20800.0,
           "unrealized": 0.0,
           "unrealized_pct": 0.0
         }
