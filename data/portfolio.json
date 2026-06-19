@@ -3261,6 +3261,56 @@
           "unrealized_pct": 0.24
         }
       ]
+    },
+    {
+      "date": "2026-06-19",
+      "cash": 4549.0,
+      "market_value": 211050.0,
+      "total_assets": 215599.0,
+      "total_pnl": 15599.0,
+      "total_pnl_pct": 7.8,
+      "positions_detail": [
+        {
+          "stock_id": "1102",
+          "name": "亞泥",
+          "shares": 1000,
+          "avg_cost": 32.400001525878906,
+          "market_price": 35.79999923706055,
+          "market_value": 35800.0,
+          "unrealized": 3400.0,
+          "unrealized_pct": 10.49
+        },
+        {
+          "stock_id": "2548",
+          "name": "華固",
+          "shares": 1000,
+          "avg_cost": 103.5,
+          "market_price": 103.5,
+          "market_value": 103500.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        },
+        {
+          "stock_id": "6909",
+          "name": "創控",
+          "shares": 1000,
+          "avg_cost": 44.349998474121094,
+          "market_price": 50.900001525878906,
+          "market_value": 50900.0,
+          "unrealized": 6550.0,
+          "unrealized_pct": 14.77
+        },
+        {
+          "stock_id": "2034",
+          "name": "允強",
+          "shares": 1000,
+          "avg_cost": 20.799999237060547,
+          "market_price": 20.850000381469727,
+          "market_value": 20850.0,
+          "unrealized": 50.0,
+          "unrealized_pct": 0.24
+        }
+      ]
     }
   ]
 }
