@@ -1,5 +1,5 @@
 {
-  "cash": 21135.00343322754,
+  "cash": 13444.003051757812,
   "initial": 200000,
   "positions": {
     "1102": {
@@ -17,15 +17,15 @@
       "avg_cost": 20.799999237060547,
       "name": "允強"
     },
-    "6120": {
-      "shares": 1000,
-      "avg_cost": 15.25,
-      "name": "達運"
-    },
     "3591": {
       "shares": 1000,
       "avg_cost": 27.549999237060547,
       "name": "艾笛森"
+    },
+    "2913": {
+      "shares": 2000,
+      "avg_cost": 10.600000381469727,
+      "name": "農林"
     }
   },
   "trade_log": [
@@ -614,6 +614,35 @@
       "fee": 39,
       "total": 27588.999237060547,
       "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）、RSI=63.9 偏高（> 60）、股價碰觸布林上軌（超買回落訊號）、成交量放大 6.1x（買訊確認）",
+      "confidence": 50
+    },
+    {
+      "datetime": "2026-06-26 11:46:07",
+      "action": "SELL",
+      "stock_id": "6120",
+      "name": "達運",
+      "price": 13.600000381469727,
+      "shares": 1000,
+      "amount": 13600.000381469727,
+      "fee": 20,
+      "tax": 41,
+      "net": 13539.000381469727,
+      "avg_cost": 15.25,
+      "pnl": -1711.0,
+      "pnl_pct": -11.22,
+      "trigger": "停損觸發（跌幅 -10.8%）"
+    },
+    {
+      "datetime": "2026-06-26 11:46:07",
+      "action": "BUY",
+      "stock_id": "2913",
+      "name": "農林",
+      "price": 10.600000381469727,
+      "shares": 2000,
+      "amount": 21200.000762939453,
+      "fee": 30,
+      "total": 21230.000762939453,
+      "trigger": "技術訊號：RSI=32.4 偏低（< 40）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 1.9x（買訊確認）",
       "confidence": 50
     }
   ],
@@ -3625,6 +3654,66 @@
           "market_value": 27250.0,
           "unrealized": -300.0,
           "unrealized_pct": -1.09
+        }
+      ]
+    },
+    {
+      "date": "2026-06-26",
+      "cash": 13444.0,
+      "market_value": 205800.0,
+      "total_assets": 219244.0,
+      "total_pnl": 19244.0,
+      "total_pnl_pct": 9.62,
+      "positions_detail": [
+        {
+          "stock_id": "1102",
+          "name": "亞泥",
+          "shares": 1000,
+          "avg_cost": 32.400001525878906,
+          "market_price": 35.75,
+          "market_value": 35750.0,
+          "unrealized": 3350.0,
+          "unrealized_pct": 10.34
+        },
+        {
+          "stock_id": "2548",
+          "name": "華固",
+          "shares": 1000,
+          "avg_cost": 103.5,
+          "market_price": 102.5,
+          "market_value": 102500.0,
+          "unrealized": -1000.0,
+          "unrealized_pct": -0.97
+        },
+        {
+          "stock_id": "2034",
+          "name": "允強",
+          "shares": 1000,
+          "avg_cost": 20.799999237060547,
+          "market_price": 19.899999618530273,
+          "market_value": 19900.0,
+          "unrealized": -900.0,
+          "unrealized_pct": -4.33
+        },
+        {
+          "stock_id": "3591",
+          "name": "艾笛森",
+          "shares": 1000,
+          "avg_cost": 27.549999237060547,
+          "market_price": 26.450000762939453,
+          "market_value": 26450.0,
+          "unrealized": -1100.0,
+          "unrealized_pct": -3.99
+        },
+        {
+          "stock_id": "2913",
+          "name": "農林",
+          "shares": 2000,
+          "avg_cost": 10.600000381469727,
+          "market_price": 10.600000381469727,
+          "market_value": 21200.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
