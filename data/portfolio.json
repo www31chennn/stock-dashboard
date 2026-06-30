@@ -3776,6 +3776,66 @@
           "unrealized_pct": 1.89
         }
       ]
+    },
+    {
+      "date": "2026-06-30",
+      "cash": 13444.0,
+      "market_value": 204900.0,
+      "total_assets": 218344.0,
+      "total_pnl": 18344.0,
+      "total_pnl_pct": 9.17,
+      "positions_detail": [
+        {
+          "stock_id": "1102",
+          "name": "亞泥",
+          "shares": 1000,
+          "avg_cost": 32.400001525878906,
+          "market_price": 35.0,
+          "market_value": 35000.0,
+          "unrealized": 2600.0,
+          "unrealized_pct": 8.02
+        },
+        {
+          "stock_id": "2548",
+          "name": "華固",
+          "shares": 1000,
+          "avg_cost": 103.5,
+          "market_price": 102.0,
+          "market_value": 102000.0,
+          "unrealized": -1500.0,
+          "unrealized_pct": -1.45
+        },
+        {
+          "stock_id": "2034",
+          "name": "允強",
+          "shares": 1000,
+          "avg_cost": 20.799999237060547,
+          "market_price": 20.100000381469727,
+          "market_value": 20100.0,
+          "unrealized": -700.0,
+          "unrealized_pct": -3.37
+        },
+        {
+          "stock_id": "3591",
+          "name": "艾笛森",
+          "shares": 1000,
+          "avg_cost": 27.549999237060547,
+          "market_price": 26.100000381469727,
+          "market_value": 26100.0,
+          "unrealized": -1450.0,
+          "unrealized_pct": -5.26
+        },
+        {
+          "stock_id": "2913",
+          "name": "農林",
+          "shares": 2000,
+          "avg_cost": 10.600000381469727,
+          "market_price": 10.850000381469727,
+          "market_value": 21700.0,
+          "unrealized": 500.0,
+          "unrealized_pct": 2.36
+        }
+      ]
     }
   ]
 }
