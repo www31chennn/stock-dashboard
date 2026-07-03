@@ -1,5 +1,5 @@
 {
-  "cash": 13444.003051757812,
+  "cash": 21240.003814697266,
   "initial": 200000,
   "positions": {
     "1102": {
@@ -17,15 +17,15 @@
       "avg_cost": 20.799999237060547,
       "name": "允強"
     },
-    "3591": {
-      "shares": 1000,
-      "avg_cost": 27.549999237060547,
-      "name": "艾笛森"
-    },
     "2913": {
       "shares": 2000,
       "avg_cost": 10.600000381469727,
       "name": "農林"
+    },
+    "1217": {
+      "shares": 2000,
+      "avg_cost": 10.149999618530273,
+      "name": "愛之味"
     }
   },
   "trade_log": [
@@ -643,6 +643,35 @@
       "fee": 30,
       "total": 21230.000762939453,
       "trigger": "技術訊號：RSI=32.4 偏低（< 40）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 1.9x（買訊確認）",
+      "confidence": 50
+    },
+    {
+      "datetime": "2026-07-03 11:35:56",
+      "action": "SELL",
+      "stock_id": "3591",
+      "name": "艾笛森",
+      "price": 28.25,
+      "shares": 1000,
+      "amount": 28250.0,
+      "fee": 40,
+      "tax": 85,
+      "net": 28125.0,
+      "avg_cost": 27.549999237060547,
+      "pnl": 575.0,
+      "pnl_pct": 2.09,
+      "trigger": "技術訊號：RSI=76.7 超買（> 70）、成交量放大 3.1x（賣訊確認）"
+    },
+    {
+      "datetime": "2026-07-03 11:35:56",
+      "action": "BUY",
+      "stock_id": "1217",
+      "name": "愛之味",
+      "price": 10.149999618530273,
+      "shares": 2000,
+      "amount": 20299.999237060547,
+      "fee": 29,
+      "total": 20328.999237060547,
+      "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）、RSI=70.0 偏高（> 60）、股價碰觸布林上軌（超買回落訊號）、成交量放大 2.1x（買訊確認）",
       "confidence": 50
     }
   ],
@@ -3954,6 +3983,66 @@
           "market_value": 22000.0,
           "unrealized": 800.0,
           "unrealized_pct": 3.77
+        }
+      ]
+    },
+    {
+      "date": "2026-07-03",
+      "cash": 21240.0,
+      "market_value": 203200.0,
+      "total_assets": 224440.0,
+      "total_pnl": 24440.0,
+      "total_pnl_pct": 12.22,
+      "positions_detail": [
+        {
+          "stock_id": "1102",
+          "name": "亞泥",
+          "shares": 1000,
+          "avg_cost": 32.400001525878906,
+          "market_price": 36.45000076293945,
+          "market_value": 36450.0,
+          "unrealized": 4050.0,
+          "unrealized_pct": 12.5
+        },
+        {
+          "stock_id": "2548",
+          "name": "華固",
+          "shares": 1000,
+          "avg_cost": 103.5,
+          "market_price": 103.5,
+          "market_value": 103500.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        },
+        {
+          "stock_id": "2034",
+          "name": "允強",
+          "shares": 1000,
+          "avg_cost": 20.799999237060547,
+          "market_price": 20.450000762939453,
+          "market_value": 20450.0,
+          "unrealized": -350.0,
+          "unrealized_pct": -1.68
+        },
+        {
+          "stock_id": "2913",
+          "name": "農林",
+          "shares": 2000,
+          "avg_cost": 10.600000381469727,
+          "market_price": 11.25,
+          "market_value": 22500.0,
+          "unrealized": 1300.0,
+          "unrealized_pct": 6.13
+        },
+        {
+          "stock_id": "1217",
+          "name": "愛之味",
+          "shares": 2000,
+          "avg_cost": 10.149999618530273,
+          "market_price": 10.149999618530273,
+          "market_value": 20300.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
