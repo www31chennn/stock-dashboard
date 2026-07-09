@@ -1,5 +1,5 @@
 {
-  "cash": 24225.004196166992,
+  "cash": 8767.004959106445,
   "initial": 200000,
   "positions": {
     "1102": {
@@ -17,15 +17,15 @@
       "avg_cost": 20.799999237060547,
       "name": "允強"
     },
-    "2913": {
-      "shares": 2000,
-      "avg_cost": 10.600000381469727,
-      "name": "農林"
-    },
     "1218": {
       "shares": 1000,
       "avg_cost": 17.299999237060547,
       "name": "泰山"
+    },
+    "1618": {
+      "shares": 1000,
+      "avg_cost": 38.79999923706055,
+      "name": "合機"
     }
   },
   "trade_log": [
@@ -701,6 +701,35 @@
       "fee": 25,
       "total": 17324.999237060547,
       "trigger": "技術訊號：RSI=29.0 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）",
+      "confidence": 50
+    },
+    {
+      "datetime": "2026-07-09 11:53:05",
+      "action": "SELL",
+      "stock_id": "2913",
+      "name": "農林",
+      "price": 11.75,
+      "shares": 2000,
+      "amount": 23500.0,
+      "fee": 33,
+      "tax": 70,
+      "net": 23397.0,
+      "avg_cost": 10.600000381469727,
+      "pnl": 2197.0,
+      "pnl_pct": 10.36,
+      "trigger": "技術訊號：RSI=62.5 偏高（> 60）、股價碰觸布林上軌（超買回落訊號）、成交量放大 5.9x（賣訊確認）"
+    },
+    {
+      "datetime": "2026-07-09 11:53:05",
+      "action": "BUY",
+      "stock_id": "1618",
+      "name": "合機",
+      "price": 38.79999923706055,
+      "shares": 1000,
+      "amount": 38799.99923706055,
+      "fee": 55,
+      "total": 38854.99923706055,
+      "trigger": "技術訊號：RSI=35.7 偏低（< 40）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 2.1x（買訊確認）",
       "confidence": 50
     }
   ],
@@ -4252,6 +4281,66 @@
           "market_value": 17100.0,
           "unrealized": -200.0,
           "unrealized_pct": -1.16
+        }
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "cash": 8767.0,
+      "market_value": 212900.0,
+      "total_assets": 221667.0,
+      "total_pnl": 21667.0,
+      "total_pnl_pct": 10.83,
+      "positions_detail": [
+        {
+          "stock_id": "1102",
+          "name": "亞泥",
+          "shares": 1000,
+          "avg_cost": 32.400001525878906,
+          "market_price": 35.70000076293945,
+          "market_value": 35700.0,
+          "unrealized": 3300.0,
+          "unrealized_pct": 10.19
+        },
+        {
+          "stock_id": "2548",
+          "name": "華固",
+          "shares": 1000,
+          "avg_cost": 103.5,
+          "market_price": 101.0,
+          "market_value": 101000.0,
+          "unrealized": -2500.0,
+          "unrealized_pct": -2.42
+        },
+        {
+          "stock_id": "2034",
+          "name": "允強",
+          "shares": 1000,
+          "avg_cost": 20.799999237060547,
+          "market_price": 20.549999237060547,
+          "market_value": 20550.0,
+          "unrealized": -250.0,
+          "unrealized_pct": -1.2
+        },
+        {
+          "stock_id": "1218",
+          "name": "泰山",
+          "shares": 1000,
+          "avg_cost": 17.299999237060547,
+          "market_price": 16.850000381469727,
+          "market_value": 16850.0,
+          "unrealized": -450.0,
+          "unrealized_pct": -2.6
+        },
+        {
+          "stock_id": "1618",
+          "name": "合機",
+          "shares": 1000,
+          "avg_cost": 38.79999923706055,
+          "market_price": 38.79999923706055,
+          "market_value": 38800.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
