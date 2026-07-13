@@ -1,12 +1,7 @@
 {
-  "cash": 8767.004959106445,
+  "cash": 19678.007247924805,
   "initial": 200000,
   "positions": {
-    "1102": {
-      "shares": 1000,
-      "avg_cost": 32.400001525878906,
-      "name": "亞泥"
-    },
     "2548": {
       "shares": 1000,
       "avg_cost": 103.5,
@@ -26,6 +21,11 @@
       "shares": 1000,
       "avg_cost": 38.79999923706055,
       "name": "合機"
+    },
+    "1219": {
+      "shares": 2000,
+      "avg_cost": 11.899999618530273,
+      "name": "福壽"
     }
   },
   "trade_log": [
@@ -731,6 +731,35 @@
       "total": 38854.99923706055,
       "trigger": "技術訊號：RSI=35.7 偏低（< 40）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 2.1x（買訊確認）",
       "confidence": 50
+    },
+    {
+      "datetime": "2026-07-13 11:58:57",
+      "action": "SELL",
+      "stock_id": "1102",
+      "name": "亞泥",
+      "price": 34.900001525878906,
+      "shares": 1000,
+      "amount": 34900.001525878906,
+      "fee": 50,
+      "tax": 105,
+      "net": 34745.001525878906,
+      "avg_cost": 32.400001525878906,
+      "pnl": 2345.0,
+      "pnl_pct": 7.24,
+      "trigger": "技術訊號：MA5 下穿 MA20（死亡交叉）"
+    },
+    {
+      "datetime": "2026-07-13 11:58:57",
+      "action": "BUY",
+      "stock_id": "1219",
+      "name": "福壽",
+      "price": 11.899999618530273,
+      "shares": 2000,
+      "amount": 23799.999237060547,
+      "fee": 34,
+      "total": 23833.999237060547,
+      "trigger": "技術訊號：RSI=26.1 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 4.3x（買訊確認）",
+      "confidence": 65
     }
   ],
   "daily_log": [
@@ -4399,6 +4428,66 @@
           "avg_cost": 38.79999923706055,
           "market_price": 38.79999923706055,
           "market_value": 38800.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        }
+      ]
+    },
+    {
+      "date": "2026-07-13",
+      "cash": 19678.0,
+      "market_value": 199000.0,
+      "total_assets": 218678.0,
+      "total_pnl": 18678.0,
+      "total_pnl_pct": 9.34,
+      "positions_detail": [
+        {
+          "stock_id": "2548",
+          "name": "華固",
+          "shares": 1000,
+          "avg_cost": 103.5,
+          "market_price": 100.0,
+          "market_value": 100000.0,
+          "unrealized": -3500.0,
+          "unrealized_pct": -3.38
+        },
+        {
+          "stock_id": "2034",
+          "name": "允強",
+          "shares": 1000,
+          "avg_cost": 20.799999237060547,
+          "market_price": 20.350000381469727,
+          "market_value": 20350.0,
+          "unrealized": -450.0,
+          "unrealized_pct": -2.16
+        },
+        {
+          "stock_id": "1218",
+          "name": "泰山",
+          "shares": 1000,
+          "avg_cost": 17.299999237060547,
+          "market_price": 16.200000762939453,
+          "market_value": 16200.0,
+          "unrealized": -1100.0,
+          "unrealized_pct": -6.36
+        },
+        {
+          "stock_id": "1618",
+          "name": "合機",
+          "shares": 1000,
+          "avg_cost": 38.79999923706055,
+          "market_price": 38.650001525878906,
+          "market_value": 38650.0,
+          "unrealized": -150.0,
+          "unrealized_pct": -0.39
+        },
+        {
+          "stock_id": "1219",
+          "name": "福壽",
+          "shares": 2000,
+          "avg_cost": 11.899999618530273,
+          "market_price": 11.899999618530273,
+          "market_value": 23800.0,
           "unrealized": 0.0,
           "unrealized_pct": 0.0
         }
