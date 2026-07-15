@@ -4552,6 +4552,66 @@
           "unrealized_pct": -0.84
         }
       ]
+    },
+    {
+      "date": "2026-07-15",
+      "cash": 19678.0,
+      "market_value": 201400.0,
+      "total_assets": 221078.0,
+      "total_pnl": 21078.0,
+      "total_pnl_pct": 10.54,
+      "positions_detail": [
+        {
+          "stock_id": "2548",
+          "name": "華固",
+          "shares": 1000,
+          "avg_cost": 103.5,
+          "market_price": 101.5,
+          "market_value": 101500.0,
+          "unrealized": -2000.0,
+          "unrealized_pct": -1.93
+        },
+        {
+          "stock_id": "2034",
+          "name": "允強",
+          "shares": 1000,
+          "avg_cost": 20.799999237060547,
+          "market_price": 20.75,
+          "market_value": 20750.0,
+          "unrealized": -50.0,
+          "unrealized_pct": -0.24
+        },
+        {
+          "stock_id": "1218",
+          "name": "泰山",
+          "shares": 1000,
+          "avg_cost": 17.299999237060547,
+          "market_price": 16.25,
+          "market_value": 16250.0,
+          "unrealized": -1050.0,
+          "unrealized_pct": -6.07
+        },
+        {
+          "stock_id": "1618",
+          "name": "合機",
+          "shares": 1000,
+          "avg_cost": 38.79999923706055,
+          "market_price": 38.5,
+          "market_value": 38500.0,
+          "unrealized": -300.0,
+          "unrealized_pct": -0.77
+        },
+        {
+          "stock_id": "1219",
+          "name": "福壽",
+          "shares": 2000,
+          "avg_cost": 11.899999618530273,
+          "market_price": 12.199999809265137,
+          "market_value": 24400.0,
+          "unrealized": 600.0,
+          "unrealized_pct": 2.52
+        }
+      ]
     }
   ]
 }
