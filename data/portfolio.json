@@ -1,5 +1,5 @@
 {
-  "cash": 7692.008773803711,
+  "cash": 15214.009536743164,
   "initial": 200000,
   "positions": {
     "2548": {
@@ -22,10 +22,10 @@
       "avg_cost": 11.899999618530273,
       "name": "福壽"
     },
-    "1808": {
-      "shares": 1000,
-      "avg_cost": 32.099998474121094,
-      "name": "潤隆"
+    "1108": {
+      "shares": 2000,
+      "avg_cost": 12.25,
+      "name": "幸福"
     }
   },
   "trade_log": [
@@ -788,6 +788,35 @@
       "fee": 46,
       "total": 32145.998474121094,
       "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）、RSI=61.2 偏高（> 60）、股價碰觸布林上軌（超買回落訊號）、成交量放大 1.7x（買訊確認）",
+      "confidence": 50
+    },
+    {
+      "datetime": "2026-07-17 10:40:35",
+      "action": "SELL",
+      "stock_id": "1808",
+      "name": "潤隆",
+      "price": 32.20000076293945,
+      "shares": 1000,
+      "amount": 32200.000762939453,
+      "fee": 46,
+      "tax": 97,
+      "net": 32057.000762939453,
+      "avg_cost": 32.099998474121094,
+      "pnl": -43.0,
+      "pnl_pct": -0.13,
+      "trigger": "技術訊號：RSI=68.9 偏高（> 60）、股價碰觸布林上軌（超買回落訊號）、成交量放大 2.2x（賣訊確認）"
+    },
+    {
+      "datetime": "2026-07-17 10:40:35",
+      "action": "BUY",
+      "stock_id": "1108",
+      "name": "幸福",
+      "price": 12.25,
+      "shares": 2000,
+      "amount": 24500.0,
+      "fee": 35,
+      "total": 24535.0,
+      "trigger": "技術訊號：RSI=37.1 偏低（< 40）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 1.8x（買訊確認）",
       "confidence": 50
     }
   ],
@@ -4697,6 +4726,66 @@
           "avg_cost": 32.099998474121094,
           "market_price": 32.099998474121094,
           "market_value": 32100.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        }
+      ]
+    },
+    {
+      "date": "2026-07-17",
+      "cash": 15214.0,
+      "market_value": 203550.0,
+      "total_assets": 218764.0,
+      "total_pnl": 18764.0,
+      "total_pnl_pct": 9.38,
+      "positions_detail": [
+        {
+          "stock_id": "2548",
+          "name": "華固",
+          "shares": 1000,
+          "avg_cost": 103.5,
+          "market_price": 101.0,
+          "market_value": 101000.0,
+          "unrealized": -2500.0,
+          "unrealized_pct": -2.42
+        },
+        {
+          "stock_id": "1218",
+          "name": "泰山",
+          "shares": 1000,
+          "avg_cost": 17.299999237060547,
+          "market_price": 16.399999618530273,
+          "market_value": 16400.0,
+          "unrealized": -900.0,
+          "unrealized_pct": -5.2
+        },
+        {
+          "stock_id": "1618",
+          "name": "合機",
+          "shares": 1000,
+          "avg_cost": 38.79999923706055,
+          "market_price": 37.349998474121094,
+          "market_value": 37350.0,
+          "unrealized": -1450.0,
+          "unrealized_pct": -3.74
+        },
+        {
+          "stock_id": "1219",
+          "name": "福壽",
+          "shares": 2000,
+          "avg_cost": 11.899999618530273,
+          "market_price": 12.149999618530273,
+          "market_value": 24300.0,
+          "unrealized": 500.0,
+          "unrealized_pct": 2.1
+        },
+        {
+          "stock_id": "1108",
+          "name": "幸福",
+          "shares": 2000,
+          "avg_cost": 12.25,
+          "market_price": 12.25,
+          "market_value": 24500.0,
           "unrealized": 0.0,
           "unrealized_pct": 0.0
         }
