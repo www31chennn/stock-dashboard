@@ -1,5 +1,5 @@
 {
-  "cash": 75269.01258850098,
+  "cash": 75341.01564025879,
   "initial": 200000,
   "positions": {
     "1218": {
@@ -22,10 +22,10 @@
       "avg_cost": 12.25,
       "name": "幸福"
     },
-    "1712": {
+    "1436": {
       "shares": 1000,
       "avg_cost": 38.849998474121094,
-      "name": "興農"
+      "name": "華友聯"
     }
   },
   "trade_log": [
@@ -847,6 +847,35 @@
       "total": 38904.998474121094,
       "trigger": "技術訊號：RSI=28.8 超賣（< 30）、成交量放大 3.5x（買訊確認）",
       "confidence": 45
+    },
+    {
+      "datetime": "2026-07-23 11:09:45",
+      "action": "SELL",
+      "stock_id": "1712",
+      "name": "興農",
+      "price": 39.150001525878906,
+      "shares": 1000,
+      "amount": 39150.001525878906,
+      "fee": 56,
+      "tax": 117,
+      "net": 38977.001525878906,
+      "avg_cost": 38.849998474121094,
+      "pnl": 127.0,
+      "pnl_pct": 0.33,
+      "trigger": "技術訊號：MA5 下穿 MA20（死亡交叉）、RSI=35.7 偏低（< 40）、成交量放大 2.7x（買訊確認）"
+    },
+    {
+      "datetime": "2026-07-23 11:09:46",
+      "action": "BUY",
+      "stock_id": "1436",
+      "name": "華友聯",
+      "price": 38.849998474121094,
+      "shares": 1000,
+      "amount": 38849.998474121094,
+      "fee": 55,
+      "total": 38904.998474121094,
+      "trigger": "技術訊號：MA5 下穿 MA20（死亡交叉）、RSI=35.5 偏低（< 40）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 2.4x（買訊確認）",
+      "confidence": 50
     }
   ],
   "daily_log": [
@@ -4991,6 +5020,66 @@
         {
           "stock_id": "1712",
           "name": "興農",
+          "shares": 1000,
+          "avg_cost": 38.849998474121094,
+          "market_price": 38.849998474121094,
+          "market_value": 38850.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        }
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "cash": 75341.0,
+      "market_value": 141000.0,
+      "total_assets": 216341.0,
+      "total_pnl": 16341.0,
+      "total_pnl_pct": 8.17,
+      "positions_detail": [
+        {
+          "stock_id": "1218",
+          "name": "泰山",
+          "shares": 1000,
+          "avg_cost": 17.299999237060547,
+          "market_price": 15.949999809265137,
+          "market_value": 15950.0,
+          "unrealized": -1350.0,
+          "unrealized_pct": -7.8
+        },
+        {
+          "stock_id": "1618",
+          "name": "合機",
+          "shares": 1000,
+          "avg_cost": 38.79999923706055,
+          "market_price": 38.5,
+          "market_value": 38500.0,
+          "unrealized": -300.0,
+          "unrealized_pct": -0.77
+        },
+        {
+          "stock_id": "1219",
+          "name": "福壽",
+          "shares": 2000,
+          "avg_cost": 11.899999618530273,
+          "market_price": 11.649999618530273,
+          "market_value": 23300.0,
+          "unrealized": -500.0,
+          "unrealized_pct": -2.1
+        },
+        {
+          "stock_id": "1108",
+          "name": "幸福",
+          "shares": 2000,
+          "avg_cost": 12.25,
+          "market_price": 12.199999809265137,
+          "market_value": 24400.0,
+          "unrealized": -100.0,
+          "unrealized_pct": -0.41
+        },
+        {
+          "stock_id": "1436",
+          "name": "華友聯",
           "shares": 1000,
           "avg_cost": 38.849998474121094,
           "market_price": 38.849998474121094,
