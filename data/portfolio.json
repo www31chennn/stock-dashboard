@@ -1,12 +1,7 @@
 {
-  "cash": 75341.01564025879,
+  "cash": 70542.01583099365,
   "initial": 200000,
   "positions": {
-    "1218": {
-      "shares": 1000,
-      "avg_cost": 17.299999237060547,
-      "name": "泰山"
-    },
     "1618": {
       "shares": 1000,
       "avg_cost": 38.79999923706055,
@@ -26,6 +21,11 @@
       "shares": 1000,
       "avg_cost": 38.849998474121094,
       "name": "華友聯"
+    },
+    "1718": {
+      "shares": 2000,
+      "avg_cost": 10.25,
+      "name": "中纖"
     }
   },
   "trade_log": [
@@ -875,6 +875,35 @@
       "fee": 55,
       "total": 38904.998474121094,
       "trigger": "技術訊號：MA5 下穿 MA20（死亡交叉）、RSI=35.5 偏低（< 40）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 2.4x（買訊確認）",
+      "confidence": 50
+    },
+    {
+      "datetime": "2026-07-27 12:17:05",
+      "action": "SELL",
+      "stock_id": "1218",
+      "name": "泰山",
+      "price": 15.800000190734863,
+      "shares": 1000,
+      "amount": 15800.000190734863,
+      "fee": 23,
+      "tax": 47,
+      "net": 15730.000190734863,
+      "avg_cost": 17.299999237060547,
+      "pnl": -1570.0,
+      "pnl_pct": -9.08,
+      "trigger": "停損觸發（跌幅 -8.7%）"
+    },
+    {
+      "datetime": "2026-07-27 12:17:05",
+      "action": "BUY",
+      "stock_id": "1718",
+      "name": "中纖",
+      "price": 10.25,
+      "shares": 2000,
+      "amount": 20500.0,
+      "fee": 29,
+      "total": 20529.0,
+      "trigger": "技術訊號：RSI=18.2 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）",
       "confidence": 50
     }
   ],
@@ -5146,6 +5175,66 @@
           "market_value": 38150.0,
           "unrealized": -700.0,
           "unrealized_pct": -1.8
+        }
+      ]
+    },
+    {
+      "date": "2026-07-27",
+      "cash": 70542.0,
+      "market_value": 144100.0,
+      "total_assets": 214642.0,
+      "total_pnl": 14642.0,
+      "total_pnl_pct": 7.32,
+      "positions_detail": [
+        {
+          "stock_id": "1618",
+          "name": "合機",
+          "shares": 1000,
+          "avg_cost": 38.79999923706055,
+          "market_price": 38.79999923706055,
+          "market_value": 38800.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        },
+        {
+          "stock_id": "1219",
+          "name": "福壽",
+          "shares": 2000,
+          "avg_cost": 11.899999618530273,
+          "market_price": 11.649999618530273,
+          "market_value": 23300.0,
+          "unrealized": -500.0,
+          "unrealized_pct": -2.1
+        },
+        {
+          "stock_id": "1108",
+          "name": "幸福",
+          "shares": 2000,
+          "avg_cost": 12.25,
+          "market_price": 12.100000381469727,
+          "market_value": 24200.0,
+          "unrealized": -300.0,
+          "unrealized_pct": -1.22
+        },
+        {
+          "stock_id": "1436",
+          "name": "華友聯",
+          "shares": 1000,
+          "avg_cost": 38.849998474121094,
+          "market_price": 37.29999923706055,
+          "market_value": 37300.0,
+          "unrealized": -1550.0,
+          "unrealized_pct": -3.99
+        },
+        {
+          "stock_id": "1718",
+          "name": "中纖",
+          "shares": 2000,
+          "avg_cost": 10.25,
+          "market_price": 10.25,
+          "market_value": 20500.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
