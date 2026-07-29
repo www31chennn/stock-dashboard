@@ -1,5 +1,5 @@
 {
-  "cash": 70542.01583099365,
+  "cash": 1077.0165939331055,
   "initial": 200000,
   "positions": {
     "1618": {
@@ -17,15 +17,15 @@
       "avg_cost": 12.25,
       "name": "幸福"
     },
-    "1436": {
+    "0050": {
       "shares": 1000,
-      "avg_cost": 38.849998474121094,
-      "name": "華友聯"
+      "avg_cost": 93.69999694824219,
+      "name": "元大台灣50"
     },
-    "1718": {
-      "shares": 2000,
-      "avg_cost": 10.25,
-      "name": "中纖"
+    "1605": {
+      "shares": 1000,
+      "avg_cost": 29.350000381469727,
+      "name": "華新"
     }
   },
   "trade_log": [
@@ -905,6 +905,64 @@
       "total": 20529.0,
       "trigger": "技術訊號：RSI=18.2 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）",
       "confidence": 50
+    },
+    {
+      "datetime": "2026-07-29 11:21:20",
+      "action": "SELL",
+      "stock_id": "1436",
+      "name": "華友聯",
+      "price": 35.599998474121094,
+      "shares": 1000,
+      "amount": 35599.998474121094,
+      "fee": 51,
+      "tax": 107,
+      "net": 35441.998474121094,
+      "avg_cost": 38.849998474121094,
+      "pnl": -3408.0,
+      "pnl_pct": -8.77,
+      "trigger": "停損觸發（跌幅 -8.4%）"
+    },
+    {
+      "datetime": "2026-07-29 11:21:20",
+      "action": "SELL",
+      "stock_id": "1718",
+      "name": "中纖",
+      "price": 9.199999809265137,
+      "shares": 2000,
+      "amount": 18399.999618530273,
+      "fee": 26,
+      "tax": 55,
+      "net": 18318.999618530273,
+      "avg_cost": 10.25,
+      "pnl": -2181.0,
+      "pnl_pct": -10.64,
+      "trigger": "停損觸發（跌幅 -10.2%）"
+    },
+    {
+      "datetime": "2026-07-29 11:21:20",
+      "action": "BUY",
+      "stock_id": "0050",
+      "name": "元大台灣50",
+      "price": 93.69999694824219,
+      "shares": 1000,
+      "amount": 93699.99694824219,
+      "fee": 134,
+      "total": 93833.99694824219,
+      "trigger": "技術訊號：RSI=28.3 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 3.5x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-07-29 11:21:20",
+      "action": "BUY",
+      "stock_id": "1605",
+      "name": "華新",
+      "price": 29.350000381469727,
+      "shares": 1000,
+      "amount": 29350.000381469727,
+      "fee": 42,
+      "total": 29392.000381469727,
+      "trigger": "技術訊號：RSI=29.4 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 2.1x（買訊確認）",
+      "confidence": 65
     }
   ],
   "daily_log": [
@@ -5295,6 +5353,66 @@
           "market_value": 19460.0,
           "unrealized": -1040.0,
           "unrealized_pct": -5.07
+        }
+      ]
+    },
+    {
+      "date": "2026-07-29",
+      "cash": 1077.0,
+      "market_value": 206950.0,
+      "total_assets": 208027.0,
+      "total_pnl": 8027.0,
+      "total_pnl_pct": 4.01,
+      "positions_detail": [
+        {
+          "stock_id": "1618",
+          "name": "合機",
+          "shares": 1000,
+          "avg_cost": 38.79999923706055,
+          "market_price": 36.70000076293945,
+          "market_value": 36700.0,
+          "unrealized": -2100.0,
+          "unrealized_pct": -5.41
+        },
+        {
+          "stock_id": "1219",
+          "name": "福壽",
+          "shares": 2000,
+          "avg_cost": 11.899999618530273,
+          "market_price": 11.649999618530273,
+          "market_value": 23300.0,
+          "unrealized": -500.0,
+          "unrealized_pct": -2.1
+        },
+        {
+          "stock_id": "1108",
+          "name": "幸福",
+          "shares": 2000,
+          "avg_cost": 12.25,
+          "market_price": 11.949999809265137,
+          "market_value": 23900.0,
+          "unrealized": -600.0,
+          "unrealized_pct": -2.45
+        },
+        {
+          "stock_id": "0050",
+          "name": "元大台灣50",
+          "shares": 1000,
+          "avg_cost": 93.69999694824219,
+          "market_price": 93.69999694824219,
+          "market_value": 93700.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        },
+        {
+          "stock_id": "1605",
+          "name": "華新",
+          "shares": 1000,
+          "avg_cost": 29.350000381469727,
+          "market_price": 29.350000381469727,
+          "market_value": 29350.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
