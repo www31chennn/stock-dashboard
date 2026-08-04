@@ -1,16 +1,11 @@
 {
-  "cash": 1077.0165939331055,
+  "cash": 3555.016975402832,
   "initial": 200000,
   "positions": {
     "1618": {
       "shares": 1000,
       "avg_cost": 38.79999923706055,
       "name": "合機"
-    },
-    "1219": {
-      "shares": 2000,
-      "avg_cost": 11.899999618530273,
-      "name": "福壽"
     },
     "1108": {
       "shares": 2000,
@@ -26,6 +21,11 @@
       "shares": 1000,
       "avg_cost": 29.350000381469727,
       "name": "華新"
+    },
+    "2812": {
+      "shares": 1000,
+      "avg_cost": 18.899999618530273,
+      "name": "台中銀"
     }
   },
   "trade_log": [
@@ -962,6 +962,35 @@
       "fee": 42,
       "total": 29392.000381469727,
       "trigger": "技術訊號：RSI=29.4 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 2.1x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-08-04 11:21:38",
+      "action": "SELL",
+      "stock_id": "1219",
+      "name": "福壽",
+      "price": 10.75,
+      "shares": 2000,
+      "amount": 21500.0,
+      "fee": 31,
+      "tax": 64,
+      "net": 21405.0,
+      "avg_cost": 11.899999618530273,
+      "pnl": -2395.0,
+      "pnl_pct": -10.06,
+      "trigger": "停損觸發（跌幅 -9.7%）"
+    },
+    {
+      "datetime": "2026-08-04 11:21:38",
+      "action": "BUY",
+      "stock_id": "2812",
+      "name": "台中銀",
+      "price": 18.899999618530273,
+      "shares": 1000,
+      "amount": 18899.999618530273,
+      "fee": 27,
+      "total": 18926.999618530273,
+      "trigger": "技術訊號：RSI=29.0 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 1.9x（買訊確認）",
       "confidence": 65
     }
   ],
@@ -5593,6 +5622,66 @@
           "market_value": 32800.0,
           "unrealized": 3450.0,
           "unrealized_pct": 11.75
+        }
+      ]
+    },
+    {
+      "date": "2026-08-04",
+      "cash": 3555.0,
+      "market_value": 216250.0,
+      "total_assets": 219805.0,
+      "total_pnl": 19805.0,
+      "total_pnl_pct": 9.9,
+      "positions_detail": [
+        {
+          "stock_id": "1618",
+          "name": "合機",
+          "shares": 1000,
+          "avg_cost": 38.79999923706055,
+          "market_price": 38.849998474121094,
+          "market_value": 38850.0,
+          "unrealized": 50.0,
+          "unrealized_pct": 0.13
+        },
+        {
+          "stock_id": "1108",
+          "name": "幸福",
+          "shares": 2000,
+          "avg_cost": 12.25,
+          "market_price": 12.050000190734863,
+          "market_value": 24100.0,
+          "unrealized": -400.0,
+          "unrealized_pct": -1.63
+        },
+        {
+          "stock_id": "0050",
+          "name": "元大台灣50",
+          "shares": 1000,
+          "avg_cost": 93.69999694824219,
+          "market_price": 100.6500015258789,
+          "market_value": 100650.0,
+          "unrealized": 6950.0,
+          "unrealized_pct": 7.42
+        },
+        {
+          "stock_id": "1605",
+          "name": "華新",
+          "shares": 1000,
+          "avg_cost": 29.350000381469727,
+          "market_price": 33.75,
+          "market_value": 33750.0,
+          "unrealized": 4400.0,
+          "unrealized_pct": 14.99
+        },
+        {
+          "stock_id": "2812",
+          "name": "台中銀",
+          "shares": 1000,
+          "avg_cost": 18.899999618530273,
+          "market_price": 18.899999618530273,
+          "market_value": 18900.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
