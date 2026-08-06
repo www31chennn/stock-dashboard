@@ -5773,6 +5773,66 @@
           "unrealized_pct": 0.0
         }
       ]
+    },
+    {
+      "date": "2026-08-06",
+      "cash": 14767.0,
+      "market_value": 208250.0,
+      "total_assets": 223017.0,
+      "total_pnl": 23017.0,
+      "total_pnl_pct": 11.51,
+      "positions_detail": [
+        {
+          "stock_id": "1618",
+          "name": "合機",
+          "shares": 1000,
+          "avg_cost": 38.79999923706055,
+          "market_price": 38.599998474121094,
+          "market_value": 38600.0,
+          "unrealized": -200.0,
+          "unrealized_pct": -0.52
+        },
+        {
+          "stock_id": "1108",
+          "name": "幸福",
+          "shares": 2000,
+          "avg_cost": 12.25,
+          "market_price": 12.050000190734863,
+          "market_value": 24100.0,
+          "unrealized": -400.0,
+          "unrealized_pct": -1.63
+        },
+        {
+          "stock_id": "0050",
+          "name": "元大台灣50",
+          "shares": 1000,
+          "avg_cost": 93.69999694824219,
+          "market_price": 103.30000305175781,
+          "market_value": 103300.0,
+          "unrealized": 9600.0,
+          "unrealized_pct": 10.25
+        },
+        {
+          "stock_id": "2812",
+          "name": "台中銀",
+          "shares": 1000,
+          "avg_cost": 18.899999618530273,
+          "market_price": 18.5,
+          "market_value": 18500.0,
+          "unrealized": -400.0,
+          "unrealized_pct": -2.12
+        },
+        {
+          "stock_id": "9904",
+          "name": "寶成",
+          "shares": 1000,
+          "avg_cost": 23.450000762939453,
+          "market_price": 23.75,
+          "market_value": 23750.0,
+          "unrealized": 300.0,
+          "unrealized_pct": 1.28
+        }
+      ]
     }
   ]
 }
