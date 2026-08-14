@@ -6191,6 +6191,66 @@
           "unrealized_pct": 0.0
         }
       ]
+    },
+    {
+      "date": "2026-08-14",
+      "cash": 60.0,
+      "market_value": 230600.0,
+      "total_assets": 230660.0,
+      "total_pnl": 30660.0,
+      "total_pnl_pct": 15.33,
+      "positions_detail": [
+        {
+          "stock_id": "1108",
+          "name": "幸福",
+          "shares": 2000,
+          "avg_cost": 12.25,
+          "market_price": 11.800000190734863,
+          "market_value": 23600.0,
+          "unrealized": -900.0,
+          "unrealized_pct": -3.67
+        },
+        {
+          "stock_id": "0050",
+          "name": "元大台灣50",
+          "shares": 1000,
+          "avg_cost": 93.69999694824219,
+          "market_price": 106.4000015258789,
+          "market_value": 106400.0,
+          "unrealized": 12700.0,
+          "unrealized_pct": 13.55
+        },
+        {
+          "stock_id": "2812",
+          "name": "台中銀",
+          "shares": 1000,
+          "avg_cost": 18.899999618530273,
+          "market_price": 18.649999618530273,
+          "market_value": 18650.0,
+          "unrealized": -250.0,
+          "unrealized_pct": -1.32
+        },
+        {
+          "stock_id": "9904",
+          "name": "寶成",
+          "shares": 1000,
+          "avg_cost": 23.450000762939453,
+          "market_price": 25.25,
+          "market_value": 25250.0,
+          "unrealized": 1800.0,
+          "unrealized_pct": 7.68
+        },
+        {
+          "stock_id": "8926",
+          "name": "台汽電",
+          "shares": 1000,
+          "avg_cost": 55.79999923706055,
+          "market_price": 56.70000076293945,
+          "market_value": 56700.0,
+          "unrealized": 900.0,
+          "unrealized_pct": 1.61
+        }
+      ]
     }
   ]
 }
