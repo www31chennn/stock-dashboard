@@ -1,16 +1,11 @@
 {
-  "cash": 60.014686584472656,
+  "cash": 16700.014686584473,
   "initial": 200000,
   "positions": {
     "1108": {
       "shares": 2000,
       "avg_cost": 12.25,
       "name": "幸福"
-    },
-    "0050": {
-      "shares": 1000,
-      "avg_cost": 93.69999694824219,
-      "name": "元大台灣50"
     },
     "2812": {
       "shares": 1000,
@@ -26,6 +21,11 @@
       "shares": 1000,
       "avg_cost": 55.79999923706055,
       "name": "台汽電"
+    },
+    "6919": {
+      "shares": 1000,
+      "avg_cost": 91.19999694824219,
+      "name": "康霈*"
     }
   },
   "trade_log": [
@@ -1078,6 +1078,35 @@
       "fee": 80,
       "total": 55879.99923706055,
       "trigger": "技術訊號：RSI=26.7 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 1.6x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-09-01 13:54:40",
+      "action": "SELL",
+      "stock_id": "0050",
+      "name": "元大台灣50",
+      "price": 108.44999694824219,
+      "shares": 1000,
+      "amount": 108449.99694824219,
+      "fee": 155,
+      "tax": 325,
+      "net": 107969.99694824219,
+      "avg_cost": 93.69999694824219,
+      "pnl": 14270.0,
+      "pnl_pct": 15.23,
+      "trigger": "停利觸發（漲幅 15.7%）"
+    },
+    {
+      "datetime": "2026-09-01 13:54:40",
+      "action": "BUY",
+      "stock_id": "6919",
+      "name": "康霈*",
+      "price": 91.19999694824219,
+      "shares": 1000,
+      "amount": 91199.99694824219,
+      "fee": 130,
+      "total": 91329.99694824219,
+      "trigger": "技術訊號：RSI=29.2 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 1.9x（買訊確認）",
       "confidence": 65
     }
   ],
@@ -6909,6 +6938,66 @@
           "market_value": NaN,
           "unrealized": NaN,
           "unrealized_pct": NaN
+        }
+      ]
+    },
+    {
+      "date": "2026-09-01",
+      "cash": 16700.0,
+      "market_value": 215300.0,
+      "total_assets": 232000.0,
+      "total_pnl": 32000.0,
+      "total_pnl_pct": 16.0,
+      "positions_detail": [
+        {
+          "stock_id": "1108",
+          "name": "幸福",
+          "shares": 2000,
+          "avg_cost": 12.25,
+          "market_price": 11.699999809265137,
+          "market_value": 23400.0,
+          "unrealized": -1100.0,
+          "unrealized_pct": -4.49
+        },
+        {
+          "stock_id": "2812",
+          "name": "台中銀",
+          "shares": 1000,
+          "avg_cost": 18.899999618530273,
+          "market_price": 19.100000381469727,
+          "market_value": 19100.0,
+          "unrealized": 200.0,
+          "unrealized_pct": 1.06
+        },
+        {
+          "stock_id": "9904",
+          "name": "寶成",
+          "shares": 1000,
+          "avg_cost": 23.450000762939453,
+          "market_price": 24.899999618530273,
+          "market_value": 24900.0,
+          "unrealized": 1450.0,
+          "unrealized_pct": 6.18
+        },
+        {
+          "stock_id": "8926",
+          "name": "台汽電",
+          "shares": 1000,
+          "avg_cost": 55.79999923706055,
+          "market_price": 56.70000076293945,
+          "market_value": 56700.0,
+          "unrealized": 900.0,
+          "unrealized_pct": 1.61
+        },
+        {
+          "stock_id": "6919",
+          "name": "康霈*",
+          "shares": 1000,
+          "avg_cost": 91.19999694824219,
+          "market_price": 91.19999694824219,
+          "market_value": 91200.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
