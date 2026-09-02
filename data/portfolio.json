@@ -1,16 +1,11 @@
 {
-  "cash": 16700.014686584473,
+  "cash": 15635.01392364502,
   "initial": 200000,
   "positions": {
     "1108": {
       "shares": 2000,
       "avg_cost": 12.25,
       "name": "幸福"
-    },
-    "2812": {
-      "shares": 1000,
-      "avg_cost": 18.899999618530273,
-      "name": "台中銀"
     },
     "9904": {
       "shares": 1000,
@@ -26,6 +21,11 @@
       "shares": 1000,
       "avg_cost": 91.19999694824219,
       "name": "康霈*"
+    },
+    "2536": {
+      "shares": 1000,
+      "avg_cost": 20.350000381469727,
+      "name": "宏普"
     }
   },
   "trade_log": [
@@ -1108,6 +1108,35 @@
       "total": 91329.99694824219,
       "trigger": "技術訊號：RSI=29.2 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 1.9x（買訊確認）",
       "confidence": 65
+    },
+    {
+      "datetime": "2026-09-02 13:11:55",
+      "action": "SELL",
+      "stock_id": "2812",
+      "name": "台中銀",
+      "price": 19.399999618530273,
+      "shares": 1000,
+      "amount": 19399.999618530273,
+      "fee": 28,
+      "tax": 58,
+      "net": 19313.999618530273,
+      "avg_cost": 18.899999618530273,
+      "pnl": 414.0,
+      "pnl_pct": 2.19,
+      "trigger": "技術訊號：RSI=72.7 超買（> 70）、股價碰觸布林上軌（超買回落訊號）、成交量放大 2.8x（賣訊確認）"
+    },
+    {
+      "datetime": "2026-09-02 13:11:55",
+      "action": "BUY",
+      "stock_id": "2536",
+      "name": "宏普",
+      "price": 20.350000381469727,
+      "shares": 1000,
+      "amount": 20350.000381469727,
+      "fee": 29,
+      "total": 20379.000381469727,
+      "trigger": "技術訊號：RSI=21.1 超賣（< 30）、成交量放大 2.6x（買訊確認）",
+      "confidence": 45
     }
   ],
   "daily_log": [
@@ -6996,6 +7025,66 @@
           "avg_cost": 91.19999694824219,
           "market_price": 91.19999694824219,
           "market_value": 91200.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        }
+      ]
+    },
+    {
+      "date": "2026-09-02",
+      "cash": 15635.0,
+      "market_value": 212900.0,
+      "total_assets": 228535.0,
+      "total_pnl": 28535.0,
+      "total_pnl_pct": 14.27,
+      "positions_detail": [
+        {
+          "stock_id": "1108",
+          "name": "幸福",
+          "shares": 2000,
+          "avg_cost": 12.25,
+          "market_price": 11.699999809265137,
+          "market_value": 23400.0,
+          "unrealized": -1100.0,
+          "unrealized_pct": -4.49
+        },
+        {
+          "stock_id": "9904",
+          "name": "寶成",
+          "shares": 1000,
+          "avg_cost": 23.450000762939453,
+          "market_price": 24.75,
+          "market_value": 24750.0,
+          "unrealized": 1300.0,
+          "unrealized_pct": 5.54
+        },
+        {
+          "stock_id": "8926",
+          "name": "台汽電",
+          "shares": 1000,
+          "avg_cost": 55.79999923706055,
+          "market_price": 56.29999923706055,
+          "market_value": 56300.0,
+          "unrealized": 500.0,
+          "unrealized_pct": 0.9
+        },
+        {
+          "stock_id": "6919",
+          "name": "康霈*",
+          "shares": 1000,
+          "avg_cost": 91.19999694824219,
+          "market_price": 88.0999984741211,
+          "market_value": 88100.0,
+          "unrealized": -3100.0,
+          "unrealized_pct": -3.4
+        },
+        {
+          "stock_id": "2536",
+          "name": "宏普",
+          "shares": 1000,
+          "avg_cost": 20.350000381469727,
+          "market_price": 20.350000381469727,
+          "market_value": 20350.0,
           "unrealized": 0.0,
           "unrealized_pct": 0.0
         }
