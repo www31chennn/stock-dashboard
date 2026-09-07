@@ -1,16 +1,11 @@
 {
-  "cash": 15635.01392364502,
+  "cash": 11085.014305114746,
   "initial": 200000,
   "positions": {
     "1108": {
       "shares": 2000,
       "avg_cost": 12.25,
       "name": "幸福"
-    },
-    "9904": {
-      "shares": 1000,
-      "avg_cost": 23.450000762939453,
-      "name": "寶成"
     },
     "8926": {
       "shares": 1000,
@@ -26,6 +21,11 @@
       "shares": 1000,
       "avg_cost": 20.350000381469727,
       "name": "宏普"
+    },
+    "2352": {
+      "shares": 1000,
+      "avg_cost": 29.0,
+      "name": "佳世達"
     }
   },
   "trade_log": [
@@ -1137,6 +1137,35 @@
       "total": 20379.000381469727,
       "trigger": "技術訊號：RSI=21.1 超賣（< 30）、成交量放大 2.6x（買訊確認）",
       "confidence": 45
+    },
+    {
+      "datetime": "2026-09-07 14:41:17",
+      "action": "SELL",
+      "stock_id": "9904",
+      "name": "寶成",
+      "price": 24.600000381469727,
+      "shares": 1000,
+      "amount": 24600.000381469727,
+      "fee": 35,
+      "tax": 74,
+      "net": 24491.000381469727,
+      "avg_cost": 23.450000762939453,
+      "pnl": 1041.0,
+      "pnl_pct": 4.44,
+      "trigger": "技術訊號：MA5 下穿 MA20（死亡交叉）"
+    },
+    {
+      "datetime": "2026-09-07 14:41:17",
+      "action": "BUY",
+      "stock_id": "2352",
+      "name": "佳世達",
+      "price": 29.0,
+      "shares": 1000,
+      "amount": 29000.0,
+      "fee": 41,
+      "total": 29041.0,
+      "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）",
+      "confidence": 35
     }
   ],
   "daily_log": [
@@ -7207,6 +7236,66 @@
           "market_value": 19200.0,
           "unrealized": -1150.0,
           "unrealized_pct": -5.65
+        }
+      ]
+    },
+    {
+      "date": "2026-09-07",
+      "cash": 11085.0,
+      "market_value": 214250.0,
+      "total_assets": 225335.0,
+      "total_pnl": 25335.0,
+      "total_pnl_pct": 12.67,
+      "positions_detail": [
+        {
+          "stock_id": "1108",
+          "name": "幸福",
+          "shares": 2000,
+          "avg_cost": 12.25,
+          "market_price": 11.649999618530273,
+          "market_value": 23300.0,
+          "unrealized": -1200.0,
+          "unrealized_pct": -4.9
+        },
+        {
+          "stock_id": "8926",
+          "name": "台汽電",
+          "shares": 1000,
+          "avg_cost": 55.79999923706055,
+          "market_price": 57.900001525878906,
+          "market_value": 57900.0,
+          "unrealized": 2100.0,
+          "unrealized_pct": 3.76
+        },
+        {
+          "stock_id": "6919",
+          "name": "康霈*",
+          "shares": 1000,
+          "avg_cost": 91.19999694824219,
+          "market_price": 85.19999694824219,
+          "market_value": 85200.0,
+          "unrealized": -6000.0,
+          "unrealized_pct": -6.58
+        },
+        {
+          "stock_id": "2536",
+          "name": "宏普",
+          "shares": 1000,
+          "avg_cost": 20.350000381469727,
+          "market_price": 18.850000381469727,
+          "market_value": 18850.0,
+          "unrealized": -1500.0,
+          "unrealized_pct": -7.37
+        },
+        {
+          "stock_id": "2352",
+          "name": "佳世達",
+          "shares": 1000,
+          "avg_cost": 29.0,
+          "market_price": 29.0,
+          "market_value": 29000.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
