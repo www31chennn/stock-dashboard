@@ -1,5 +1,5 @@
 {
-  "cash": 11085.014305114746,
+  "cash": 31838.011253356934,
   "initial": 200000,
   "positions": {
     "1108": {
@@ -12,11 +12,6 @@
       "avg_cost": 55.79999923706055,
       "name": "台汽電"
     },
-    "6919": {
-      "shares": 1000,
-      "avg_cost": 91.19999694824219,
-      "name": "康霈*"
-    },
     "2536": {
       "shares": 1000,
       "avg_cost": 20.350000381469727,
@@ -26,6 +21,11 @@
       "shares": 1000,
       "avg_cost": 29.0,
       "name": "佳世達"
+    },
+    "6949": {
+      "shares": 1000,
+      "avg_cost": 60.400001525878906,
+      "name": "沛爾生醫*-創"
     }
   },
   "trade_log": [
@@ -1166,6 +1166,35 @@
       "total": 29041.0,
       "trigger": "技術訊號：MA5 上穿 MA20（黃金交叉）",
       "confidence": 35
+    },
+    {
+      "datetime": "2026-09-08 13:16:43",
+      "action": "SELL",
+      "stock_id": "6919",
+      "name": "康霈*",
+      "price": 81.5999984741211,
+      "shares": 1000,
+      "amount": 81599.9984741211,
+      "fee": 116,
+      "tax": 245,
+      "net": 81238.9984741211,
+      "avg_cost": 91.19999694824219,
+      "pnl": -9961.0,
+      "pnl_pct": -10.92,
+      "trigger": "停損觸發（跌幅 -10.5%）"
+    },
+    {
+      "datetime": "2026-09-08 13:16:43",
+      "action": "BUY",
+      "stock_id": "6949",
+      "name": "沛爾生醫*-創",
+      "price": 60.400001525878906,
+      "shares": 1000,
+      "amount": 60400.001525878906,
+      "fee": 86,
+      "total": 60486.001525878906,
+      "trigger": "技術訊號：RSI=22.1 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 7.9x（買訊確認）",
+      "confidence": 65
     }
   ],
   "daily_log": [
@@ -7294,6 +7323,66 @@
           "avg_cost": 29.0,
           "market_price": 29.0,
           "market_value": 29000.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        }
+      ]
+    },
+    {
+      "date": "2026-09-08",
+      "cash": 31838.0,
+      "market_value": 188300.0,
+      "total_assets": 220138.0,
+      "total_pnl": 20138.0,
+      "total_pnl_pct": 10.07,
+      "positions_detail": [
+        {
+          "stock_id": "1108",
+          "name": "幸福",
+          "shares": 2000,
+          "avg_cost": 12.25,
+          "market_price": 11.600000381469727,
+          "market_value": 23200.0,
+          "unrealized": -1300.0,
+          "unrealized_pct": -5.31
+        },
+        {
+          "stock_id": "8926",
+          "name": "台汽電",
+          "shares": 1000,
+          "avg_cost": 55.79999923706055,
+          "market_price": 57.20000076293945,
+          "market_value": 57200.0,
+          "unrealized": 1400.0,
+          "unrealized_pct": 2.51
+        },
+        {
+          "stock_id": "2536",
+          "name": "宏普",
+          "shares": 1000,
+          "avg_cost": 20.350000381469727,
+          "market_price": 18.850000381469727,
+          "market_value": 18850.0,
+          "unrealized": -1500.0,
+          "unrealized_pct": -7.37
+        },
+        {
+          "stock_id": "2352",
+          "name": "佳世達",
+          "shares": 1000,
+          "avg_cost": 29.0,
+          "market_price": 28.649999618530273,
+          "market_value": 28650.0,
+          "unrealized": -350.0,
+          "unrealized_pct": -1.21
+        },
+        {
+          "stock_id": "6949",
+          "name": "沛爾生醫*-創",
+          "shares": 1000,
+          "avg_cost": 60.400001525878906,
+          "market_price": 60.400001525878906,
+          "market_value": 60400.0,
           "unrealized": 0.0,
           "unrealized_pct": 0.0
         }
