@@ -1,16 +1,11 @@
 {
-  "cash": 31838.011253356934,
+  "cash": 48644.01201629639,
   "initial": 200000,
   "positions": {
     "1108": {
       "shares": 2000,
       "avg_cost": 12.25,
       "name": "幸福"
-    },
-    "8926": {
-      "shares": 1000,
-      "avg_cost": 55.79999923706055,
-      "name": "台汽電"
     },
     "2536": {
       "shares": 1000,
@@ -22,9 +17,14 @@
       "avg_cost": 29.0,
       "name": "佳世達"
     },
+    "3033": {
+      "shares": 1000,
+      "avg_cost": 41.849998474121094,
+      "name": "威健"
+    },
     "6949": {
       "shares": 1000,
-      "avg_cost": 60.400001525878906,
+      "avg_cost": 54.900001525878906,
       "name": "沛爾生醫*-創"
     }
   },
@@ -1194,6 +1194,64 @@
       "fee": 86,
       "total": 60486.001525878906,
       "trigger": "技術訊號：RSI=22.1 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 7.9x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-09-09 13:24:04",
+      "action": "SELL",
+      "stock_id": "8926",
+      "name": "台汽電",
+      "price": 59.29999923706055,
+      "shares": 1000,
+      "amount": 59299.99923706055,
+      "fee": 85,
+      "tax": 178,
+      "net": 59036.99923706055,
+      "avg_cost": 55.79999923706055,
+      "pnl": 3237.0,
+      "pnl_pct": 5.8,
+      "trigger": "技術訊號：RSI=63.4 偏高（> 60）、股價碰觸布林上軌（超買回落訊號）、成交量放大 2.3x（賣訊確認）"
+    },
+    {
+      "datetime": "2026-09-09 13:24:04",
+      "action": "SELL",
+      "stock_id": "6949",
+      "name": "沛爾生醫*-創",
+      "price": 54.900001525878906,
+      "shares": 1000,
+      "amount": 54900.001525878906,
+      "fee": 78,
+      "tax": 165,
+      "net": 54657.001525878906,
+      "avg_cost": 60.400001525878906,
+      "pnl": -5743.0,
+      "pnl_pct": -9.51,
+      "trigger": "停損觸發（跌幅 -9.1%）"
+    },
+    {
+      "datetime": "2026-09-09 13:24:04",
+      "action": "BUY",
+      "stock_id": "3033",
+      "name": "威健",
+      "price": 41.849998474121094,
+      "shares": 1000,
+      "amount": 41849.998474121094,
+      "fee": 60,
+      "total": 41909.998474121094,
+      "trigger": "技術訊號：RSI=26.0 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 2.1x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-09-09 13:24:04",
+      "action": "BUY",
+      "stock_id": "6949",
+      "name": "沛爾生醫*-創",
+      "price": 54.900001525878906,
+      "shares": 1000,
+      "amount": 54900.001525878906,
+      "fee": 78,
+      "total": 54978.001525878906,
+      "trigger": "技術訊號：RSI=20.3 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 8.5x（買訊確認）",
       "confidence": 65
     }
   ],
@@ -7383,6 +7441,66 @@
           "avg_cost": 60.400001525878906,
           "market_price": 60.400001525878906,
           "market_value": 60400.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        }
+      ]
+    },
+    {
+      "date": "2026-09-09",
+      "cash": 48644.0,
+      "market_value": 167550.0,
+      "total_assets": 216194.0,
+      "total_pnl": 16194.0,
+      "total_pnl_pct": 8.1,
+      "positions_detail": [
+        {
+          "stock_id": "1108",
+          "name": "幸福",
+          "shares": 2000,
+          "avg_cost": 12.25,
+          "market_price": 11.5,
+          "market_value": 23000.0,
+          "unrealized": -1500.0,
+          "unrealized_pct": -6.12
+        },
+        {
+          "stock_id": "2536",
+          "name": "宏普",
+          "shares": 1000,
+          "avg_cost": 20.350000381469727,
+          "market_price": 19.0,
+          "market_value": 19000.0,
+          "unrealized": -1350.0,
+          "unrealized_pct": -6.63
+        },
+        {
+          "stock_id": "2352",
+          "name": "佳世達",
+          "shares": 1000,
+          "avg_cost": 29.0,
+          "market_price": 28.799999237060547,
+          "market_value": 28800.0,
+          "unrealized": -200.0,
+          "unrealized_pct": -0.69
+        },
+        {
+          "stock_id": "3033",
+          "name": "威健",
+          "shares": 1000,
+          "avg_cost": 41.849998474121094,
+          "market_price": 41.849998474121094,
+          "market_value": 41850.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        },
+        {
+          "stock_id": "6949",
+          "name": "沛爾生醫*-創",
+          "shares": 1000,
+          "avg_cost": 54.900001525878906,
+          "market_price": 54.900001525878906,
+          "market_value": 54900.0,
           "unrealized": 0.0,
           "unrealized_pct": 0.0
         }
