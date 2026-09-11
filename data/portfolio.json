@@ -1,12 +1,7 @@
 {
-  "cash": 48644.01201629639,
+  "cash": 27633.01163482666,
   "initial": 200000,
   "positions": {
-    "1108": {
-      "shares": 2000,
-      "avg_cost": 12.25,
-      "name": "幸福"
-    },
     "2536": {
       "shares": 1000,
       "avg_cost": 20.350000381469727,
@@ -26,6 +21,11 @@
       "shares": 1000,
       "avg_cost": 54.900001525878906,
       "name": "沛爾生醫*-創"
+    },
+    "1722": {
+      "shares": 1000,
+      "avg_cost": 43.25,
+      "name": "台肥"
     }
   },
   "trade_log": [
@@ -1252,6 +1252,35 @@
       "fee": 78,
       "total": 54978.001525878906,
       "trigger": "技術訊號：RSI=20.3 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 8.5x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-09-11 13:12:50",
+      "action": "SELL",
+      "stock_id": "1108",
+      "name": "幸福",
+      "price": 11.199999809265137,
+      "shares": 2000,
+      "amount": 22399.999618530273,
+      "fee": 32,
+      "tax": 67,
+      "net": 22300.999618530273,
+      "avg_cost": 12.25,
+      "pnl": -2199.0,
+      "pnl_pct": -8.98,
+      "trigger": "停損觸發（跌幅 -8.6%）"
+    },
+    {
+      "datetime": "2026-09-11 13:12:50",
+      "action": "BUY",
+      "stock_id": "1722",
+      "name": "台肥",
+      "price": 43.25,
+      "shares": 1000,
+      "amount": 43250.0,
+      "fee": 62,
+      "total": 43312.0,
+      "trigger": "技術訊號：MA5 下穿 MA20（死亡交叉）、RSI=29.8 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 1.7x（買訊確認）",
       "confidence": 65
     }
   ],
@@ -7563,6 +7592,66 @@
           "market_value": 58800.0,
           "unrealized": 3900.0,
           "unrealized_pct": 7.1
+        }
+      ]
+    },
+    {
+      "date": "2026-09-11",
+      "cash": 27633.0,
+      "market_value": 185600.0,
+      "total_assets": 213233.0,
+      "total_pnl": 13233.0,
+      "total_pnl_pct": 6.62,
+      "positions_detail": [
+        {
+          "stock_id": "2536",
+          "name": "宏普",
+          "shares": 1000,
+          "avg_cost": 20.350000381469727,
+          "market_price": 19.100000381469727,
+          "market_value": 19100.0,
+          "unrealized": -1250.0,
+          "unrealized_pct": -6.14
+        },
+        {
+          "stock_id": "2352",
+          "name": "佳世達",
+          "shares": 1000,
+          "avg_cost": 29.0,
+          "market_price": 28.700000762939453,
+          "market_value": 28700.0,
+          "unrealized": -300.0,
+          "unrealized_pct": -1.03
+        },
+        {
+          "stock_id": "3033",
+          "name": "威健",
+          "shares": 1000,
+          "avg_cost": 41.849998474121094,
+          "market_price": 41.54999923706055,
+          "market_value": 41550.0,
+          "unrealized": -300.0,
+          "unrealized_pct": -0.72
+        },
+        {
+          "stock_id": "6949",
+          "name": "沛爾生醫*-創",
+          "shares": 1000,
+          "avg_cost": 54.900001525878906,
+          "market_price": 53.0,
+          "market_value": 53000.0,
+          "unrealized": -1900.0,
+          "unrealized_pct": -3.46
+        },
+        {
+          "stock_id": "1722",
+          "name": "台肥",
+          "shares": 1000,
+          "avg_cost": 43.25,
+          "market_price": 43.25,
+          "market_value": 43250.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
