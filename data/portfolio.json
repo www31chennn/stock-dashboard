@@ -1,16 +1,11 @@
 {
-  "cash": 27633.01163482666,
+  "cash": 40028.01277923584,
   "initial": 200000,
   "positions": {
     "2536": {
       "shares": 1000,
       "avg_cost": 20.350000381469727,
       "name": "宏普"
-    },
-    "2352": {
-      "shares": 1000,
-      "avg_cost": 29.0,
-      "name": "佳世達"
     },
     "3033": {
       "shares": 1000,
@@ -26,6 +21,11 @@
       "shares": 1000,
       "avg_cost": 43.25,
       "name": "台肥"
+    },
+    "2102": {
+      "shares": 1000,
+      "avg_cost": 17.049999237060547,
+      "name": "泰豐"
     }
   },
   "trade_log": [
@@ -1281,6 +1281,35 @@
       "fee": 62,
       "total": 43312.0,
       "trigger": "技術訊號：MA5 下穿 MA20（死亡交叉）、RSI=29.8 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 1.7x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-09-21 15:43:10",
+      "action": "SELL",
+      "stock_id": "2352",
+      "name": "佳世達",
+      "price": 29.600000381469727,
+      "shares": 1000,
+      "amount": 29600.000381469727,
+      "fee": 42,
+      "tax": 89,
+      "net": 29469.000381469727,
+      "avg_cost": 29.0,
+      "pnl": 469.0,
+      "pnl_pct": 1.62,
+      "trigger": "技術訊號：RSI=63.0 偏高（> 60）、股價碰觸布林上軌（超買回落訊號）、成交量放大 1.9x（賣訊確認）"
+    },
+    {
+      "datetime": "2026-09-21 15:43:10",
+      "action": "BUY",
+      "stock_id": "2102",
+      "name": "泰豐",
+      "price": 17.049999237060547,
+      "shares": 1000,
+      "amount": 17049.999237060547,
+      "fee": 24,
+      "total": 17073.999237060547,
+      "trigger": "技術訊號：RSI=21.6 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 2.1x（買訊確認）",
       "confidence": 65
     }
   ],
@@ -7952,6 +7981,66 @@
           "market_value": 42400.0,
           "unrealized": -850.0,
           "unrealized_pct": -1.97
+        }
+      ]
+    },
+    {
+      "date": "2026-09-21",
+      "cash": 40028.0,
+      "market_value": 174450.0,
+      "total_assets": 214478.0,
+      "total_pnl": 14478.0,
+      "total_pnl_pct": 7.24,
+      "positions_detail": [
+        {
+          "stock_id": "2536",
+          "name": "宏普",
+          "shares": 1000,
+          "avg_cost": 20.350000381469727,
+          "market_price": 19.5,
+          "market_value": 19500.0,
+          "unrealized": -850.0,
+          "unrealized_pct": -4.18
+        },
+        {
+          "stock_id": "3033",
+          "name": "威健",
+          "shares": 1000,
+          "avg_cost": 41.849998474121094,
+          "market_price": 41.900001525878906,
+          "market_value": 41900.0,
+          "unrealized": 50.0,
+          "unrealized_pct": 0.12
+        },
+        {
+          "stock_id": "6949",
+          "name": "沛爾生醫*-創",
+          "shares": 1000,
+          "avg_cost": 54.900001525878906,
+          "market_price": 53.79999923706055,
+          "market_value": 53800.0,
+          "unrealized": -1100.0,
+          "unrealized_pct": -2.0
+        },
+        {
+          "stock_id": "1722",
+          "name": "台肥",
+          "shares": 1000,
+          "avg_cost": 43.25,
+          "market_price": 42.20000076293945,
+          "market_value": 42200.0,
+          "unrealized": -1050.0,
+          "unrealized_pct": -2.43
+        },
+        {
+          "stock_id": "2102",
+          "name": "泰豐",
+          "shares": 1000,
+          "avg_cost": 17.049999237060547,
+          "market_price": 17.049999237060547,
+          "market_value": 17050.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
