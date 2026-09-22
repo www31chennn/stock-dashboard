@@ -8043,6 +8043,66 @@
           "unrealized_pct": 0.0
         }
       ]
+    },
+    {
+      "date": "2026-09-22",
+      "cash": 40028.0,
+      "market_value": 170250.0,
+      "total_assets": 210278.0,
+      "total_pnl": 10278.0,
+      "total_pnl_pct": 5.14,
+      "positions_detail": [
+        {
+          "stock_id": "2536",
+          "name": "宏普",
+          "shares": 1000,
+          "avg_cost": 20.350000381469727,
+          "market_price": 19.5,
+          "market_value": 19500.0,
+          "unrealized": -850.0,
+          "unrealized_pct": -4.18
+        },
+        {
+          "stock_id": "3033",
+          "name": "威健",
+          "shares": 1000,
+          "avg_cost": 41.849998474121094,
+          "market_price": 41.45000076293945,
+          "market_value": 41450.0,
+          "unrealized": -400.0,
+          "unrealized_pct": -0.96
+        },
+        {
+          "stock_id": "6949",
+          "name": "沛爾生醫*-創",
+          "shares": 1000,
+          "avg_cost": 54.900001525878906,
+          "market_price": 50.79999923706055,
+          "market_value": 50800.0,
+          "unrealized": -4100.0,
+          "unrealized_pct": -7.47
+        },
+        {
+          "stock_id": "1722",
+          "name": "台肥",
+          "shares": 1000,
+          "avg_cost": 43.25,
+          "market_price": 41.849998474121094,
+          "market_value": 41850.0,
+          "unrealized": -1400.0,
+          "unrealized_pct": -3.24
+        },
+        {
+          "stock_id": "2102",
+          "name": "泰豐",
+          "shares": 1000,
+          "avg_cost": 17.049999237060547,
+          "market_price": 16.649999618530273,
+          "market_value": 16650.0,
+          "unrealized": -400.0,
+          "unrealized_pct": -2.35
+        }
+      ]
     }
   ]
 }
