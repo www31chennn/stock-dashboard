@@ -8252,6 +8252,66 @@
           "unrealized_pct": -0.13
         }
       ]
+    },
+    {
+      "date": "2026-09-25",
+      "cash": 50499.0,
+      "market_value": 158150.0,
+      "total_assets": 208649.0,
+      "total_pnl": 8649.0,
+      "total_pnl_pct": 4.32,
+      "positions_detail": [
+        {
+          "stock_id": "2536",
+          "name": "宏普",
+          "shares": 1000,
+          "avg_cost": 20.350000381469727,
+          "market_price": 19.200000762939453,
+          "market_value": 19200.0,
+          "unrealized": -1150.0,
+          "unrealized_pct": -5.65
+        },
+        {
+          "stock_id": "3033",
+          "name": "威健",
+          "shares": 1000,
+          "avg_cost": 41.849998474121094,
+          "market_price": 41.79999923706055,
+          "market_value": 41800.0,
+          "unrealized": -50.0,
+          "unrealized_pct": -0.12
+        },
+        {
+          "stock_id": "1722",
+          "name": "台肥",
+          "shares": 1000,
+          "avg_cost": 43.25,
+          "market_price": 41.29999923706055,
+          "market_value": 41300.0,
+          "unrealized": -1950.0,
+          "unrealized_pct": -4.51
+        },
+        {
+          "stock_id": "2102",
+          "name": "泰豐",
+          "shares": 1000,
+          "avg_cost": 17.049999237060547,
+          "market_price": 16.350000381469727,
+          "market_value": 16350.0,
+          "unrealized": -700.0,
+          "unrealized_pct": -4.11
+        },
+        {
+          "stock_id": "2542",
+          "name": "興富發",
+          "shares": 1000,
+          "avg_cost": 39.54999923706055,
+          "market_price": 39.5,
+          "market_value": 39500.0,
+          "unrealized": -50.0,
+          "unrealized_pct": -0.13
+        }
+      ]
     }
   ]
 }
