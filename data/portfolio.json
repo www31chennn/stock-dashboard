@@ -1,12 +1,7 @@
 {
-  "cash": 50499.01277923584,
+  "cash": 41229.01316070557,
   "initial": 200000,
   "positions": {
-    "2536": {
-      "shares": 1000,
-      "avg_cost": 20.350000381469727,
-      "name": "宏普"
-    },
     "3033": {
       "shares": 1000,
       "avg_cost": 41.849998474121094,
@@ -26,6 +21,11 @@
       "shares": 1000,
       "avg_cost": 39.54999923706055,
       "name": "興富發"
+    },
+    "1227": {
+      "shares": 1000,
+      "avg_cost": 27.5,
+      "name": "佳格"
     }
   },
   "trade_log": [
@@ -1339,6 +1339,35 @@
       "fee": 56,
       "total": 39605.99923706055,
       "trigger": "技術訊號：RSI=26.8 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 4.0x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-10-06 15:39:59",
+      "action": "SELL",
+      "stock_id": "2536",
+      "name": "宏普",
+      "price": 18.350000381469727,
+      "shares": 1000,
+      "amount": 18350.000381469727,
+      "fee": 26,
+      "tax": 55,
+      "net": 18269.000381469727,
+      "avg_cost": 20.350000381469727,
+      "pnl": -2081.0,
+      "pnl_pct": -10.23,
+      "trigger": "停損觸發（跌幅 -9.8%）"
+    },
+    {
+      "datetime": "2026-10-06 15:39:59",
+      "action": "BUY",
+      "stock_id": "1227",
+      "name": "佳格",
+      "price": 27.5,
+      "shares": 1000,
+      "amount": 27500.0,
+      "fee": 39,
+      "total": 27539.0,
+      "trigger": "技術訊號：RSI=28.9 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 2.5x（買訊確認）",
       "confidence": 65
     }
   ],
@@ -8670,6 +8699,66 @@
           "market_value": NaN,
           "unrealized": NaN,
           "unrealized_pct": NaN
+        }
+      ]
+    },
+    {
+      "date": "2026-10-06",
+      "cash": 41229.0,
+      "market_value": 165050.0,
+      "total_assets": 206279.0,
+      "total_pnl": 6279.0,
+      "total_pnl_pct": 3.14,
+      "positions_detail": [
+        {
+          "stock_id": "3033",
+          "name": "威健",
+          "shares": 1000,
+          "avg_cost": 41.849998474121094,
+          "market_price": 41.79999923706055,
+          "market_value": 41800.0,
+          "unrealized": -50.0,
+          "unrealized_pct": -0.12
+        },
+        {
+          "stock_id": "1722",
+          "name": "台肥",
+          "shares": 1000,
+          "avg_cost": 43.25,
+          "market_price": 41.04999923706055,
+          "market_value": 41050.0,
+          "unrealized": -2200.0,
+          "unrealized_pct": -5.09
+        },
+        {
+          "stock_id": "2102",
+          "name": "泰豐",
+          "shares": 1000,
+          "avg_cost": 17.049999237060547,
+          "market_price": 16.5,
+          "market_value": 16500.0,
+          "unrealized": -550.0,
+          "unrealized_pct": -3.23
+        },
+        {
+          "stock_id": "2542",
+          "name": "興富發",
+          "shares": 1000,
+          "avg_cost": 39.54999923706055,
+          "market_price": 38.20000076293945,
+          "market_value": 38200.0,
+          "unrealized": -1350.0,
+          "unrealized_pct": -3.41
+        },
+        {
+          "stock_id": "1227",
+          "name": "佳格",
+          "shares": 1000,
+          "avg_cost": 27.5,
+          "market_price": 27.5,
+          "market_value": 27500.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
