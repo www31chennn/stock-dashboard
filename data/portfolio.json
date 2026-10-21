@@ -9390,6 +9390,66 @@
           "unrealized_pct": -5.58
         }
       ]
+    },
+    {
+      "date": "2026-10-21",
+      "cash": 45380.0,
+      "market_value": 164700.0,
+      "total_assets": 210080.0,
+      "total_pnl": 10080.0,
+      "total_pnl_pct": 5.04,
+      "positions_detail": [
+        {
+          "stock_id": "1722",
+          "name": "台肥",
+          "shares": 1000,
+          "avg_cost": 43.25,
+          "market_price": 41.900001525878906,
+          "market_value": 41900.0,
+          "unrealized": -1350.0,
+          "unrealized_pct": -3.12
+        },
+        {
+          "stock_id": "2102",
+          "name": "泰豐",
+          "shares": 1000,
+          "avg_cost": 17.049999237060547,
+          "market_price": 15.899999618530273,
+          "market_value": 15900.0,
+          "unrealized": -1150.0,
+          "unrealized_pct": -6.74
+        },
+        {
+          "stock_id": "2542",
+          "name": "興富發",
+          "shares": 1000,
+          "avg_cost": 39.54999923706055,
+          "market_price": 40.099998474121094,
+          "market_value": 40100.0,
+          "unrealized": 550.0,
+          "unrealized_pct": 1.39
+        },
+        {
+          "stock_id": "1227",
+          "name": "佳格",
+          "shares": 1000,
+          "avg_cost": 27.5,
+          "market_price": 27.700000762939453,
+          "market_value": 27700.0,
+          "unrealized": 200.0,
+          "unrealized_pct": 0.73
+        },
+        {
+          "stock_id": "6949",
+          "name": "沛爾生醫*-創",
+          "shares": 1000,
+          "avg_cost": 39.400001525878906,
+          "market_price": 39.099998474121094,
+          "market_value": 39100.0,
+          "unrealized": -300.0,
+          "unrealized_pct": -0.76
+        }
+      ]
     }
   ]
 }
