@@ -1,21 +1,11 @@
 {
-  "cash": 45380.01087188721,
+  "cash": 5398.012397766113,
   "initial": 200000,
   "positions": {
     "1722": {
       "shares": 1000,
       "avg_cost": 43.25,
       "name": "台肥"
-    },
-    "2102": {
-      "shares": 1000,
-      "avg_cost": 17.049999237060547,
-      "name": "泰豐"
-    },
-    "2542": {
-      "shares": 1000,
-      "avg_cost": 39.54999923706055,
-      "name": "興富發"
     },
     "1227": {
       "shares": 1000,
@@ -26,6 +16,16 @@
       "shares": 1000,
       "avg_cost": 39.400001525878906,
       "name": "沛爾生醫*-創"
+    },
+    "1218": {
+      "shares": 2000,
+      "avg_cost": 13.699999809265137,
+      "name": "泰山"
+    },
+    "2228": {
+      "shares": 1000,
+      "avg_cost": 68.0,
+      "name": "劍麟"
     }
   },
   "trade_log": [
@@ -1397,6 +1397,64 @@
       "fee": 56,
       "total": 39456.001525878906,
       "trigger": "技術訊號：RSI=22.8 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 3.3x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-10-27 15:07:56",
+      "action": "SELL",
+      "stock_id": "2102",
+      "name": "泰豐",
+      "price": 15.649999618530273,
+      "shares": 1000,
+      "amount": 15649.999618530273,
+      "fee": 22,
+      "tax": 47,
+      "net": 15580.999618530273,
+      "avg_cost": 17.049999237060547,
+      "pnl": -1469.0,
+      "pnl_pct": -8.62,
+      "trigger": "停損觸發（跌幅 -8.2%）"
+    },
+    {
+      "datetime": "2026-10-27 15:07:56",
+      "action": "SELL",
+      "stock_id": "2542",
+      "name": "興富發",
+      "price": 40.150001525878906,
+      "shares": 1000,
+      "amount": 40150.001525878906,
+      "fee": 57,
+      "tax": 120,
+      "net": 39973.001525878906,
+      "avg_cost": 39.54999923706055,
+      "pnl": 423.0,
+      "pnl_pct": 1.07,
+      "trigger": "技術訊號：RSI=75.6 超買（> 70）、成交量放大 2.2x（賣訊確認）"
+    },
+    {
+      "datetime": "2026-10-27 15:07:56",
+      "action": "BUY",
+      "stock_id": "1218",
+      "name": "泰山",
+      "price": 13.699999809265137,
+      "shares": 2000,
+      "amount": 27399.999618530273,
+      "fee": 39,
+      "total": 27438.999618530273,
+      "trigger": "技術訊號：RSI=29.4 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 8.6x（買訊確認）",
+      "confidence": 65
+    },
+    {
+      "datetime": "2026-10-27 15:07:56",
+      "action": "BUY",
+      "stock_id": "2228",
+      "name": "劍麟",
+      "price": 68.0,
+      "shares": 1000,
+      "amount": 68000.0,
+      "fee": 97,
+      "total": 68097.0,
+      "trigger": "技術訊號：RSI=8.2 超賣（< 30）、股價碰觸布林下軌（超賣反彈訊號）、成交量放大 8.3x（買訊確認）",
       "confidence": 65
     }
   ],
@@ -9628,6 +9686,66 @@
           "market_value": 37700.0,
           "unrealized": -1700.0,
           "unrealized_pct": -4.31
+        }
+      ]
+    },
+    {
+      "date": "2026-10-27",
+      "cash": 5398.0,
+      "market_value": 204100.0,
+      "total_assets": 209498.0,
+      "total_pnl": 9498.0,
+      "total_pnl_pct": 4.75,
+      "positions_detail": [
+        {
+          "stock_id": "1722",
+          "name": "台肥",
+          "shares": 1000,
+          "avg_cost": 43.25,
+          "market_price": 41.650001525878906,
+          "market_value": 41650.0,
+          "unrealized": -1600.0,
+          "unrealized_pct": -3.7
+        },
+        {
+          "stock_id": "1227",
+          "name": "佳格",
+          "shares": 1000,
+          "avg_cost": 27.5,
+          "market_price": 27.5,
+          "market_value": 27500.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        },
+        {
+          "stock_id": "6949",
+          "name": "沛爾生醫*-創",
+          "shares": 1000,
+          "avg_cost": 39.400001525878906,
+          "market_price": 39.54999923706055,
+          "market_value": 39550.0,
+          "unrealized": 150.0,
+          "unrealized_pct": 0.38
+        },
+        {
+          "stock_id": "1218",
+          "name": "泰山",
+          "shares": 2000,
+          "avg_cost": 13.699999809265137,
+          "market_price": 13.699999809265137,
+          "market_value": 27400.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
+        },
+        {
+          "stock_id": "2228",
+          "name": "劍麟",
+          "shares": 1000,
+          "avg_cost": 68.0,
+          "market_price": 68.0,
+          "market_value": 68000.0,
+          "unrealized": 0.0,
+          "unrealized_pct": 0.0
         }
       ]
     }
