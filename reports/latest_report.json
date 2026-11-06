@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-05 16:56:49",
+  "generated_at": "2026-11-06 16:28:55",
   "summary": {
-    "date": "2026-11-05",
+    "date": "2026-11-06",
     "cash": 5398.0,
     "market_value": NaN,
     "total_assets": NaN,
@@ -61,7 +61,7 @@
     ]
   },
   "trades_today": [],
-  "screened_total": 430,
+  "screened_total": 535,
   "all_signals": {
     "1722": {
       "action": "HOLD",
@@ -72,11 +72,26 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.1854417624120555,
+      "vol_ratio": 2.567722824632854,
       "reason": [
         "無明確訊號"
       ],
       "name": "台肥"
+    },
+    "1227": {
+      "action": "HOLD",
+      "confidence": 0,
+      "price": NaN,
+      "rsi": null,
+      "ma5": null,
+      "ma20": null,
+      "bb_upper": null,
+      "bb_lower": null,
+      "vol_ratio": 2.5608728456605916,
+      "reason": [
+        "無明確訊號"
+      ],
+      "name": "佳格"
     },
     "6949": {
       "action": "HOLD",
@@ -87,7 +102,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.955114174621912,
+      "vol_ratio": 0.7187322671594477,
       "reason": [
         "無明確訊號"
       ],
@@ -102,26 +117,11 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.3087932801324043,
+      "vol_ratio": 2.7006577697993426,
       "reason": [
         "無明確訊號"
       ],
       "name": "泰山"
-    },
-    "3714": {
-      "action": "HOLD",
-      "confidence": 0,
-      "price": 100.02355194091797,
-      "rsi": 32.057420723383416,
-      "ma5": 103.76341094970704,
-      "ma20": 109.92888412475585,
-      "bb_upper": 120.53581759205795,
-      "bb_lower": 99.32195065745375,
-      "vol_ratio": 1.451528308270546,
-      "reason": [
-        "RSI=32.1 偏低（< 40）"
-      ],
-      "name": "富采"
     },
     "0050": {
       "action": "HOLD",
@@ -132,7 +132,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 3.0463692918354304,
+      "vol_ratio": 4.692509676388739,
       "reason": [
         "無明確訊號"
       ],
@@ -147,7 +147,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.3645157039086904,
+      "vol_ratio": 2.6003469758143742,
       "reason": [
         "無明確訊號"
       ],
@@ -162,7 +162,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.6034249430903154,
+      "vol_ratio": 1.9084101923037515,
       "reason": [
         "無明確訊號"
       ],
@@ -177,11 +177,26 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.4309468539627963,
+      "vol_ratio": 2.728711860754193,
       "reason": [
         "無明確訊號"
       ],
       "name": "元大高股息"
+    },
+    "0061": {
+      "action": "HOLD",
+      "confidence": 0,
+      "price": NaN,
+      "rsi": null,
+      "ma5": null,
+      "ma20": null,
+      "bb_upper": null,
+      "bb_lower": null,
+      "vol_ratio": 5.433455310369392,
+      "reason": [
+        "無明確訊號"
+      ],
+      "name": "元大寶滬深"
     },
     "1101": {
       "action": "HOLD",
@@ -192,7 +207,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.0274145298530923,
+      "vol_ratio": 1.3732415852387512,
       "reason": [
         "無明確訊號"
       ],
@@ -207,11 +222,41 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.220588148165053,
+      "vol_ratio": 1.2596331115181565,
       "reason": [
         "無明確訊號"
       ],
       "name": "亞泥"
+    },
+    "1103": {
+      "action": "HOLD",
+      "confidence": 0,
+      "price": NaN,
+      "rsi": null,
+      "ma5": null,
+      "ma20": null,
+      "bb_upper": null,
+      "bb_lower": null,
+      "vol_ratio": 2.1245066338807197,
+      "reason": [
+        "無明確訊號"
+      ],
+      "name": "嘉泥"
+    },
+    "1108": {
+      "action": "HOLD",
+      "confidence": 0,
+      "price": NaN,
+      "rsi": null,
+      "ma5": null,
+      "ma20": null,
+      "bb_upper": null,
+      "bb_lower": null,
+      "vol_ratio": 5.773670069211148,
+      "reason": [
+        "無明確訊號"
+      ],
+      "name": "幸福"
     },
     "1201": {
       "action": "HOLD",
@@ -222,7 +267,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.6179483499189843,
+      "vol_ratio": 1.066353730683248,
       "reason": [
         "無明確訊號"
       ],
@@ -237,11 +282,26 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.9907363142326769,
+      "vol_ratio": 1.620333944538042,
       "reason": [
         "無明確訊號"
       ],
       "name": "大成"
+    },
+    "1215": {
+      "action": "HOLD",
+      "confidence": 0,
+      "price": NaN,
+      "rsi": null,
+      "ma5": null,
+      "ma20": null,
+      "bb_upper": null,
+      "bb_lower": null,
+      "vol_ratio": 2.4855120090684277,
+      "reason": [
+        "無明確訊號"
+      ],
+      "name": "卜蜂"
     },
     "1216": {
       "action": "HOLD",
@@ -252,11 +312,26 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.9895513914420572,
+      "vol_ratio": 1.3480424427687718,
       "reason": [
         "無明確訊號"
       ],
       "name": "統一"
+    },
+    "1217": {
+      "action": "HOLD",
+      "confidence": 0,
+      "price": NaN,
+      "rsi": null,
+      "ma5": null,
+      "ma20": null,
+      "bb_upper": null,
+      "bb_lower": null,
+      "vol_ratio": 2.7356543164260705,
+      "reason": [
+        "無明確訊號"
+      ],
+      "name": "愛之味"
     },
     "1229": {
       "action": "HOLD",
@@ -267,7 +342,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.8288638928470112,
+      "vol_ratio": 1.782988351947931,
       "reason": [
         "無明確訊號"
       ],
@@ -282,7 +357,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.3416859017489005,
+      "vol_ratio": 0.5719391795970274,
       "reason": [
         "無明確訊號"
       ],
@@ -297,7 +372,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.9795036389681286,
+      "vol_ratio": 1.1195600595472348,
       "reason": [
         "無明確訊號"
       ],
@@ -312,86 +387,11 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.7336786214104644,
+      "vol_ratio": 1.224188065201536,
       "reason": [
         "無明確訊號"
       ],
       "name": "台聚"
-    },
-    "1305": {
-      "action": "HOLD",
-      "confidence": 0,
-      "price": NaN,
-      "rsi": null,
-      "ma5": null,
-      "ma20": null,
-      "bb_upper": null,
-      "bb_lower": null,
-      "vol_ratio": 0.6964540330882015,
-      "reason": [
-        "無明確訊號"
-      ],
-      "name": "華夏"
-    },
-    "1308": {
-      "action": "HOLD",
-      "confidence": 0,
-      "price": NaN,
-      "rsi": null,
-      "ma5": null,
-      "ma20": null,
-      "bb_upper": null,
-      "bb_lower": null,
-      "vol_ratio": 0.7907585577852076,
-      "reason": [
-        "無明確訊號"
-      ],
-      "name": "亞聚"
-    },
-    "1309": {
-      "action": "HOLD",
-      "confidence": 0,
-      "price": NaN,
-      "rsi": null,
-      "ma5": null,
-      "ma20": null,
-      "bb_upper": null,
-      "bb_lower": null,
-      "vol_ratio": 0.7862671058903496,
-      "reason": [
-        "無明確訊號"
-      ],
-      "name": "台達化"
-    },
-    "1310": {
-      "action": "HOLD",
-      "confidence": 0,
-      "price": NaN,
-      "rsi": null,
-      "ma5": null,
-      "ma20": null,
-      "bb_upper": null,
-      "bb_lower": null,
-      "vol_ratio": 0.48365980696623995,
-      "reason": [
-        "無明確訊號"
-      ],
-      "name": "台苯"
-    },
-    "1312": {
-      "action": "HOLD",
-      "confidence": 0,
-      "price": NaN,
-      "rsi": null,
-      "ma5": null,
-      "ma20": null,
-      "bb_upper": null,
-      "bb_lower": null,
-      "vol_ratio": 0.2925764837883005,
-      "reason": [
-        "無明確訊號"
-      ],
-      "name": "國喬"
     }
   },
   "portfolio": {
@@ -9076,6 +9076,66 @@
       },
       {
         "date": "2026-11-05",
+        "cash": 5398.0,
+        "market_value": NaN,
+        "total_assets": NaN,
+        "total_pnl": NaN,
+        "total_pnl_pct": NaN,
+        "positions_detail": [
+          {
+            "stock_id": "1722",
+            "name": "台肥",
+            "shares": 1000,
+            "avg_cost": 43.25,
+            "market_price": NaN,
+            "market_value": NaN,
+            "unrealized": NaN,
+            "unrealized_pct": NaN
+          },
+          {
+            "stock_id": "1227",
+            "name": "佳格",
+            "shares": 1000,
+            "avg_cost": 27.5,
+            "market_price": NaN,
+            "market_value": NaN,
+            "unrealized": NaN,
+            "unrealized_pct": NaN
+          },
+          {
+            "stock_id": "6949",
+            "name": "沛爾生醫*-創",
+            "shares": 1000,
+            "avg_cost": 39.400001525878906,
+            "market_price": NaN,
+            "market_value": NaN,
+            "unrealized": NaN,
+            "unrealized_pct": NaN
+          },
+          {
+            "stock_id": "1218",
+            "name": "泰山",
+            "shares": 2000,
+            "avg_cost": 13.699999809265137,
+            "market_price": NaN,
+            "market_value": NaN,
+            "unrealized": NaN,
+            "unrealized_pct": NaN
+          },
+          {
+            "stock_id": "2228",
+            "name": "劍麟",
+            "shares": 1000,
+            "avg_cost": 68.0,
+            "market_price": NaN,
+            "market_value": NaN,
+            "unrealized": NaN,
+            "unrealized_pct": NaN
+          }
+        ]
+      },
+      {
+        "date": "2026-11-06",
         "cash": 5398.0,
         "market_value": NaN,
         "total_assets": NaN,
