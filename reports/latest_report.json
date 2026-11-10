@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-09 19:19:35",
+  "generated_at": "2026-11-10 16:40:17",
   "summary": {
-    "date": "2026-11-09",
+    "date": "2026-11-10",
     "cash": 5398.0,
     "market_value": NaN,
     "total_assets": NaN,
@@ -61,7 +61,7 @@
     ]
   },
   "trades_today": [],
-  "screened_total": 414,
+  "screened_total": 433,
   "all_signals": {
     "1722": {
       "action": "HOLD",
@@ -72,7 +72,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.5696831229768793,
+      "vol_ratio": 2.340418896915185,
       "reason": [
         "無明確訊號"
       ],
@@ -87,7 +87,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 4.2627429272428925,
+      "vol_ratio": 1.2340982458060312,
       "reason": [
         "無明確訊號"
       ],
@@ -102,7 +102,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.5395558625637237,
+      "vol_ratio": 1.3000826380478292,
       "reason": [
         "無明確訊號"
       ],
@@ -111,30 +111,30 @@
     "0050": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 97.44999694824219,
-      "rsi": 29.811317930022057,
-      "ma5": 97.50999908447265,
-      "ma20": 105.7275001525879,
-      "bb_upper": 117.06042894447306,
-      "bb_lower": 94.39457136070273,
-      "vol_ratio": 1.3383659204948615,
+      "price": NaN,
+      "rsi": null,
+      "ma5": null,
+      "ma20": null,
+      "bb_upper": null,
+      "bb_lower": null,
+      "vol_ratio": 0.9100214388525124,
       "reason": [
-        "RSI=29.8 超賣（< 30）"
+        "無明確訊號"
       ],
       "name": "元大台灣50"
     },
     "0052": {
       "action": "HOLD",
       "confidence": 0,
-      "price": 56.25,
-      "rsi": 30.930937260722274,
-      "ma5": 56.23000030517578,
-      "ma20": 61.250000190734866,
-      "bb_upper": 68.19292541276903,
-      "bb_lower": 54.307074968700704,
-      "vol_ratio": 1.1779055893769619,
+      "price": NaN,
+      "rsi": null,
+      "ma5": null,
+      "ma20": null,
+      "bb_upper": null,
+      "bb_lower": null,
+      "vol_ratio": 0.9961784504078411,
       "reason": [
-        "RSI=30.9 偏低（< 40）"
+        "無明確訊號"
       ],
       "name": "富邦科技"
     },
@@ -147,7 +147,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.9422245113436636,
+      "vol_ratio": 1.410876584842939,
       "reason": [
         "無明確訊號"
       ],
@@ -162,7 +162,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.1439405831395015,
+      "vol_ratio": 0.5834360665544485,
       "reason": [
         "無明確訊號"
       ],
@@ -177,7 +177,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.627277547218939,
+      "vol_ratio": 0.7604955953409603,
       "reason": [
         "無明確訊號"
       ],
@@ -192,7 +192,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.88993047949952,
+      "vol_ratio": 0.8608465104258348,
       "reason": [
         "無明確訊號"
       ],
@@ -207,7 +207,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.8614798328104393,
+      "vol_ratio": 0.6928732531288906,
       "reason": [
         "無明確訊號"
       ],
@@ -222,7 +222,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 2.108408217668461,
+      "vol_ratio": 1.0509282536705102,
       "reason": [
         "無明確訊號"
       ],
@@ -237,7 +237,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.2774601810245418,
+      "vol_ratio": 0.9769638273405926,
       "reason": [
         "無明確訊號"
       ],
@@ -252,7 +252,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.1763021468276362,
+      "vol_ratio": 1.249103448520326,
       "reason": [
         "無明確訊號"
       ],
@@ -267,7 +267,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.44681617746398367,
+      "vol_ratio": 1.4123581742867153,
       "reason": [
         "無明確訊號"
       ],
@@ -282,7 +282,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.5385230943247147,
+      "vol_ratio": 1.1798442200956079,
       "reason": [
         "無明確訊號"
       ],
@@ -297,11 +297,26 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.5553683540484137,
+      "vol_ratio": 0.5591863257794645,
       "reason": [
         "無明確訊號"
       ],
       "name": "台聚"
+    },
+    "1305": {
+      "action": "HOLD",
+      "confidence": 0,
+      "price": NaN,
+      "rsi": null,
+      "ma5": null,
+      "ma20": null,
+      "bb_upper": null,
+      "bb_lower": null,
+      "vol_ratio": 0.6142552394011755,
+      "reason": [
+        "無明確訊號"
+      ],
+      "name": "華夏"
     },
     "1307": {
       "action": "HOLD",
@@ -312,26 +327,11 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 2.7946190656707173,
+      "vol_ratio": 1.6773784807089183,
       "reason": [
         "無明確訊號"
       ],
       "name": "三芳"
-    },
-    "1308": {
-      "action": "HOLD",
-      "confidence": 0,
-      "price": NaN,
-      "rsi": null,
-      "ma5": null,
-      "ma20": null,
-      "bb_upper": null,
-      "bb_lower": null,
-      "vol_ratio": 1.1059502728644361,
-      "reason": [
-        "無明確訊號"
-      ],
-      "name": "亞聚"
     },
     "1309": {
       "action": "HOLD",
@@ -342,7 +342,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.6175249489505452,
+      "vol_ratio": 0.7361048050192616,
       "reason": [
         "無明確訊號"
       ],
@@ -357,7 +357,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.4284247225704274,
+      "vol_ratio": 0.6407915431805692,
       "reason": [
         "無明確訊號"
       ],
@@ -372,7 +372,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.17051409673348655,
+      "vol_ratio": 0.24343608794250945,
       "reason": [
         "無明確訊號"
       ],
@@ -387,7 +387,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.5609249008254952,
+      "vol_ratio": 0.5360988452614919,
       "reason": [
         "無明確訊號"
       ],
@@ -9196,6 +9196,66 @@
       },
       {
         "date": "2026-11-09",
+        "cash": 5398.0,
+        "market_value": NaN,
+        "total_assets": NaN,
+        "total_pnl": NaN,
+        "total_pnl_pct": NaN,
+        "positions_detail": [
+          {
+            "stock_id": "1722",
+            "name": "台肥",
+            "shares": 1000,
+            "avg_cost": 43.25,
+            "market_price": NaN,
+            "market_value": NaN,
+            "unrealized": NaN,
+            "unrealized_pct": NaN
+          },
+          {
+            "stock_id": "1227",
+            "name": "佳格",
+            "shares": 1000,
+            "avg_cost": 27.5,
+            "market_price": NaN,
+            "market_value": NaN,
+            "unrealized": NaN,
+            "unrealized_pct": NaN
+          },
+          {
+            "stock_id": "6949",
+            "name": "沛爾生醫*-創",
+            "shares": 1000,
+            "avg_cost": 39.400001525878906,
+            "market_price": NaN,
+            "market_value": NaN,
+            "unrealized": NaN,
+            "unrealized_pct": NaN
+          },
+          {
+            "stock_id": "1218",
+            "name": "泰山",
+            "shares": 2000,
+            "avg_cost": 13.699999809265137,
+            "market_price": NaN,
+            "market_value": NaN,
+            "unrealized": NaN,
+            "unrealized_pct": NaN
+          },
+          {
+            "stock_id": "2228",
+            "name": "劍麟",
+            "shares": 1000,
+            "avg_cost": 68.0,
+            "market_price": NaN,
+            "market_value": NaN,
+            "unrealized": NaN,
+            "unrealized_pct": NaN
+          }
+        ]
+      },
+      {
+        "date": "2026-11-10",
         "cash": 5398.0,
         "market_value": NaN,
         "total_assets": NaN,
