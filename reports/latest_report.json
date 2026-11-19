@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-18 17:40:39",
+  "generated_at": "2026-11-19 17:49:20",
   "summary": {
-    "date": "2026-11-18",
+    "date": "2026-11-19",
     "cash": 5398.0,
     "market_value": NaN,
     "total_assets": NaN,
@@ -61,7 +61,7 @@
     ]
   },
   "trades_today": [],
-  "screened_total": 410,
+  "screened_total": 456,
   "all_signals": {
     "1722": {
       "action": "HOLD",
@@ -72,7 +72,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.0225207057023475,
+      "vol_ratio": 1.86516756935471,
       "reason": [
         "無明確訊號"
       ],
@@ -87,7 +87,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.7607882586212318,
+      "vol_ratio": 0.8316587987705295,
       "reason": [
         "無明確訊號"
       ],
@@ -102,7 +102,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.9625175922423169,
+      "vol_ratio": 1.0910338088151976,
       "reason": [
         "無明確訊號"
       ],
@@ -117,7 +117,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.3294893906425398,
+      "vol_ratio": 1.8943433226358528,
       "reason": [
         "無明確訊號"
       ],
@@ -132,7 +132,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.0006410911014023,
+      "vol_ratio": 1.321377129430349,
       "reason": [
         "無明確訊號"
       ],
@@ -147,7 +147,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 2.5810702055501986,
+      "vol_ratio": 2.3285811881724796,
       "reason": [
         "無明確訊號"
       ],
@@ -162,7 +162,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.4556522026808447,
+      "vol_ratio": 1.784272536779874,
       "reason": [
         "無明確訊號"
       ],
@@ -177,7 +177,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.6708645032530699,
+      "vol_ratio": 0.9571033317326432,
       "reason": [
         "無明確訊號"
       ],
@@ -192,11 +192,56 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.1003165366279142,
+      "vol_ratio": 1.4910570663289175,
       "reason": [
         "無明確訊號"
       ],
       "name": "亞泥"
+    },
+    "1103": {
+      "action": "HOLD",
+      "confidence": 0,
+      "price": NaN,
+      "rsi": null,
+      "ma5": null,
+      "ma20": null,
+      "bb_upper": null,
+      "bb_lower": null,
+      "vol_ratio": 2.5261977590340368,
+      "reason": [
+        "無明確訊號"
+      ],
+      "name": "嘉泥"
+    },
+    "1201": {
+      "action": "HOLD",
+      "confidence": 0,
+      "price": NaN,
+      "rsi": null,
+      "ma5": null,
+      "ma20": null,
+      "bb_upper": null,
+      "bb_lower": null,
+      "vol_ratio": 0.4230027519838983,
+      "reason": [
+        "無明確訊號"
+      ],
+      "name": "味全"
+    },
+    "1210": {
+      "action": "HOLD",
+      "confidence": 0,
+      "price": NaN,
+      "rsi": null,
+      "ma5": null,
+      "ma20": null,
+      "bb_upper": null,
+      "bb_lower": null,
+      "vol_ratio": 1.1235950018733676,
+      "reason": [
+        "無明確訊號"
+      ],
+      "name": "大成"
     },
     "1216": {
       "action": "HOLD",
@@ -207,7 +252,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.9467564058510076,
+      "vol_ratio": 1.2270205408927952,
       "reason": [
         "無明確訊號"
       ],
@@ -222,7 +267,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.886802685640214,
+      "vol_ratio": 1.3887442290134608,
       "reason": [
         "無明確訊號"
       ],
@@ -237,7 +282,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.3412617385700663,
+      "vol_ratio": 1.0482201705894871,
       "reason": [
         "無明確訊號"
       ],
@@ -252,7 +297,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.2973692597706559,
+      "vol_ratio": 0.6114615591890928,
       "reason": [
         "無明確訊號"
       ],
@@ -267,7 +312,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.1004107853468903,
+      "vol_ratio": 1.2886056485585238,
       "reason": [
         "無明確訊號"
       ],
@@ -282,7 +327,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.2812304897497218,
+      "vol_ratio": 1.707651338980663,
       "reason": [
         "無明確訊號"
       ],
@@ -297,7 +342,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.1866089506513395,
+      "vol_ratio": 1.4688988231825728,
       "reason": [
         "無明確訊號"
       ],
@@ -312,7 +357,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 1.3441219788026375,
+      "vol_ratio": 1.6775429757114897,
       "reason": [
         "無明確訊號"
       ],
@@ -327,7 +372,7 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.8707918698604585,
+      "vol_ratio": 1.2480346897939463,
       "reason": [
         "無明確訊號"
       ],
@@ -342,56 +387,11 @@
       "ma20": null,
       "bb_upper": null,
       "bb_lower": null,
-      "vol_ratio": 0.8183443868945363,
+      "vol_ratio": 1.0846067173076068,
       "reason": [
         "無明確訊號"
       ],
       "name": "國喬"
-    },
-    "1313": {
-      "action": "HOLD",
-      "confidence": 0,
-      "price": NaN,
-      "rsi": null,
-      "ma5": null,
-      "ma20": null,
-      "bb_upper": null,
-      "bb_lower": null,
-      "vol_ratio": 0.8743304687877822,
-      "reason": [
-        "無明確訊號"
-      ],
-      "name": "聯成"
-    },
-    "1314": {
-      "action": "HOLD",
-      "confidence": 0,
-      "price": NaN,
-      "rsi": null,
-      "ma5": null,
-      "ma20": null,
-      "bb_upper": null,
-      "bb_lower": null,
-      "vol_ratio": 1.1037493538734853,
-      "reason": [
-        "無明確訊號"
-      ],
-      "name": "中石化"
-    },
-    "1316": {
-      "action": "HOLD",
-      "confidence": 0,
-      "price": NaN,
-      "rsi": null,
-      "ma5": null,
-      "ma20": null,
-      "bb_upper": null,
-      "bb_lower": null,
-      "vol_ratio": 1.4407889802330944,
-      "reason": [
-        "無明確訊號"
-      ],
-      "name": "上曜"
     }
   },
   "portfolio": {
@@ -9616,6 +9616,66 @@
       },
       {
         "date": "2026-11-18",
+        "cash": 5398.0,
+        "market_value": NaN,
+        "total_assets": NaN,
+        "total_pnl": NaN,
+        "total_pnl_pct": NaN,
+        "positions_detail": [
+          {
+            "stock_id": "1722",
+            "name": "台肥",
+            "shares": 1000,
+            "avg_cost": 43.25,
+            "market_price": NaN,
+            "market_value": NaN,
+            "unrealized": NaN,
+            "unrealized_pct": NaN
+          },
+          {
+            "stock_id": "1227",
+            "name": "佳格",
+            "shares": 1000,
+            "avg_cost": 27.5,
+            "market_price": NaN,
+            "market_value": NaN,
+            "unrealized": NaN,
+            "unrealized_pct": NaN
+          },
+          {
+            "stock_id": "6949",
+            "name": "沛爾生醫*-創",
+            "shares": 1000,
+            "avg_cost": 39.400001525878906,
+            "market_price": NaN,
+            "market_value": NaN,
+            "unrealized": NaN,
+            "unrealized_pct": NaN
+          },
+          {
+            "stock_id": "1218",
+            "name": "泰山",
+            "shares": 2000,
+            "avg_cost": 13.699999809265137,
+            "market_price": NaN,
+            "market_value": NaN,
+            "unrealized": NaN,
+            "unrealized_pct": NaN
+          },
+          {
+            "stock_id": "2228",
+            "name": "劍麟",
+            "shares": 1000,
+            "avg_cost": 68.0,
+            "market_price": NaN,
+            "market_value": NaN,
+            "unrealized": NaN,
+            "unrealized_pct": NaN
+          }
+        ]
+      },
+      {
+        "date": "2026-11-19",
         "cash": 5398.0,
         "market_value": NaN,
         "total_assets": NaN,
